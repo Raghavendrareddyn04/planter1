@@ -16,6 +16,7 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   weather: ^3.1.1
   image_picker: ^1.0.4
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +31,14 @@ flutter:
     - assets/images/light-1.png
     - assets/images/light-2.png
     - assets/images/clock.png
+    - assets/images/sooty_mold.jpg
+    - assets/images/anthracnose.jpg
+    - assets/images/damping_off.jpg
+    - assets/images/bacterial_black_spot.jpg
+    - assets/images/aphids.jpg
+    - assets/images/black_citrus_aphid.jpg
+    - assets/images/phoma_blight.jpg
+    - assets/images/pineapple_disease.jpg
 
 flutter_launcher_icons:
   android: "launcher_icon"

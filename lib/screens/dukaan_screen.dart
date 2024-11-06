@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'cart_screen.dart';
 
 class DukaanScreen extends StatelessWidget {
   const DukaanScreen({super.key});
@@ -11,7 +12,12 @@ class DukaanScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CartScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -22,7 +28,7 @@ class DukaanScreen extends StatelessWidget {
           const SizedBox(height: 16.0),
           _buildCategories(),
           const SizedBox(height: 16.0),
-          _buildProductGrid(),
+          _buildProductGrid(context),
         ],
       ),
     );
@@ -81,7 +87,7 @@ class DukaanScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProductGrid() {
+  Widget _buildProductGrid(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -93,12 +99,12 @@ class DukaanScreen extends StatelessWidget {
       ),
       itemCount: 6,
       itemBuilder: (context, index) {
-        return _buildProductCard();
+        return _buildProductCard(context);
       },
     );
   }
 
-  Widget _buildProductCard() {
+  Widget _buildProductCard(BuildContext context) {
     return Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,9 +138,19 @@ class DukaanScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8.0),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Add to Cart'),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CartScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('Add to Cart'),
+                  ),
                 ),
               ],
             ),

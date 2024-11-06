@@ -61,8 +61,8 @@ class AboutScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             _buildCreatorCard(
-              'M ESWAR',
-              'GROUP LEADER',
+              'M ESWAR KUMAR',
+              'TEAM LEADER',
               Icons.computer,
               const Duration(milliseconds: 1100),
             ),
@@ -87,6 +87,24 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 30),
             FadeInUp(
               duration: const Duration(milliseconds: 1500),
+              child: const Text(
+                'Guide',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            _buildCreatorCard(
+              'Mrs.S.RAJESWARI',
+              'PROJECT GUIDE',
+              Icons.school,
+              const Duration(milliseconds: 1600),
+            ),
+            const SizedBox(height: 30),
+            FadeInUp(
+              duration: const Duration(milliseconds: 1700),
               child: ElevatedButton.icon(
                 onPressed: () {
                   showDialog(

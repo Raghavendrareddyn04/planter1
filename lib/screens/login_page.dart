@@ -177,9 +177,36 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 20),
                   FadeInUp(
                     duration: const Duration(milliseconds: 2000),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Add create account navigation
+                      },
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: const Color.fromRGBO(143, 148, 251, 1),
+                          ),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Create Account",
+                            style: TextStyle(
+                              color: Color.fromRGBO(143, 148, 251, 1),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  FadeInUp(
+                    duration: const Duration(milliseconds: 2100),
                     child: const Text(
                       "Forgot Password?",
                       style: TextStyle(

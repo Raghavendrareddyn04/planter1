@@ -13,7 +13,7 @@ class CommunityScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         children: [
           _buildPostCard(
-            'SUNNY',
+            'A',
             'Check out my tomato plants!',
             'assets/images/tomato.jpg',
             '2 hours ago',
@@ -21,7 +21,7 @@ class CommunityScreen extends StatelessWidget {
             45,
           ),
           _buildPostCard(
-            'SUNNY 2',
+            'B',
             'Need help identifying this plant disease',
             'assets/images/plant_disease.jpg',
             '5 hours ago',
@@ -29,7 +29,7 @@ class CommunityScreen extends StatelessWidget {
             67,
           ),
           _buildPostCard(
-            'SUNNY 3',
+            'C',
             'My first successful harvest!',
             'assets/images/harvest.jpg',
             '1 day ago',

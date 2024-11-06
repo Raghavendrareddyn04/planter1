@@ -18,18 +18,18 @@ class ProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _buildProfileHeader(),
+            _buildProfileHeader(context),
             const SizedBox(height: 20),
             _buildStats(),
             const SizedBox(height: 20),
-            _buildMenuItems(),
+            _buildMenuItems(context),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildProfileHeader() {
+  Widget _buildProfileHeader(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'SUNNY',
+            'ABCD',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -97,25 +97,50 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItems() {
+  Widget _buildMenuItems(BuildContext context) {
     return Column(
       children: [
-        _buildMenuItem(Icons.favorite, 'My Favorites'),
-        _buildMenuItem(Icons.history, 'Purchase History'),
-        _buildMenuItem(Icons.location_on, 'Address'),
-        _buildMenuItem(Icons.payment, 'Payment Methods'),
-        _buildMenuItem(Icons.help, 'Help Center'),
-        _buildMenuItem(Icons.logout, 'Logout'),
+        _buildMenuItem(Icons.favorite, 'My Favorites', () {}),
+        _buildMenuItem(Icons.history, 'Purchase History', () {}),
+        _buildMenuItem(Icons.location_on, 'Address', () {}),
+        _buildMenuItem(Icons.payment, 'Payment Methods', () {}),
+        _buildMenuItem(Icons.help, 'Help Center', () {}),
+        _buildMenuItem(Icons.logout, 'Logout', () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Logout'),
+              content: const Text('Are you sure you want to logout?'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/login',
+                      (route) => false,
+                    );
+                  },
+                  child: const Text('Logout'),
+                ),
+              ],
+            ),
+          );
+        }),
       ],
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title) {
+  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
       trailing: const Icon(Icons.arrow_forward_ios),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }

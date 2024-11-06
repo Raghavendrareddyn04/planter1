@@ -6,6 +6,7 @@ import 'fertilizer_calculator_screen.dart';
 import 'pests_diseases_screen.dart';
 import 'cultivation_tips_screen.dart';
 import 'about_screen.dart';
+import 'help_screen.dart';
 import 'community_screen.dart';
 import 'dukaan_screen.dart';
 import 'profile_screen.dart';
@@ -189,12 +190,17 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(builder: (context) => const AboutScreen()),
                 );
+              } else if (value == 'help') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HelpScreen()),
+                );
               }
             },
             itemBuilder: (BuildContext context) {
-              return {'About'}.map((String choice) {
+              return {'About', 'Help'}.map((String choice) {
                 return PopupMenuItem<String>(
-                  value: 'about',
+                  value: choice.toLowerCase(),
                   child: Text(choice),
                 );
               }).toList();
@@ -294,8 +300,66 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            _buildOptionCard(
+              'Results/Output',
+              Icons.assessment,
+              Colors.purple[100]!,
+              Colors.purple,
+              () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Analysis Results'),
+                    content: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _buildResultItem('Soil Health', '85%', Colors.green),
+                          _buildResultItem('Plant Growth', '92%', Colors.blue),
+                          _buildResultItem('Disease Risk', 'Low', Colors.orange),
+                          _buildResultItem('Yield Estimate', '3.5 tons/acre', Colors.purple),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildResultItem(String label, String value, Color color) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 16,
+              color: color,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }
