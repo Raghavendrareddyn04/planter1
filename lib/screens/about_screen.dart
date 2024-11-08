@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'contact_form_screen.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -107,27 +108,10 @@ class AboutScreen extends StatelessWidget {
               duration: const Duration(milliseconds: 1700),
               child: ElevatedButton.icon(
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text('Contact Us'),
-                      content: const Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Email: support@planter.com'),
-                          SizedBox(height: 8),
-                          Text('Phone: +1 234 567 890'),
-                          SizedBox(height: 8),
-                          Text('Address: 123 Green Street, Plant City'),
-                        ],
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text('Close'),
-                        ),
-                      ],
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ContactFormScreen(),
                     ),
                   );
                 },

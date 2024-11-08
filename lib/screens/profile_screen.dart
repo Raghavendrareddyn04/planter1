@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'help_screen.dart';
+import 'contact_form_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -8,12 +10,6 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -71,9 +67,7 @@ class ProfileScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildStatItem('Plants', '23'),
-          _buildStatItem('Following', '156'),
-          _buildStatItem('Followers', '1.2K'),
+          _buildStatItem('Posts', '0'),
         ],
       ),
     );
@@ -103,8 +97,18 @@ class ProfileScreen extends StatelessWidget {
         _buildMenuItem(Icons.favorite, 'My Favorites', () {}),
         _buildMenuItem(Icons.history, 'Purchase History', () {}),
         _buildMenuItem(Icons.location_on, 'Address', () {}),
-        _buildMenuItem(Icons.payment, 'Payment Methods', () {}),
-        _buildMenuItem(Icons.help, 'Help Center', () {}),
+        _buildMenuItem(Icons.contact_mail, 'Contact Us', () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ContactFormScreen()),
+          );
+        }),
+        _buildMenuItem(Icons.help, 'Help Center', () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const HelpScreen()),
+          );
+        }),
         _buildMenuItem(Icons.logout, 'Logout', () {
           showDialog(
             context: context,
