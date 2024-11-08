@@ -8,18 +8,20 @@ class FertilizerCalculatorScreen extends StatefulWidget {
       _FertilizerCalculatorScreenState();
 }
 
-class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen> {
+class _FertilizerCalculatorScreenState
+    extends State<FertilizerCalculatorScreen> {
   String _selectedCrop = 'Rice';
   double _fieldSize = 0;
   String _sizeUnit = 'Acres';
   final _formKey = GlobalKey<FormState>();
 
   final Map<String, Map<String, double>> _fertilizerRatios = {
-    'Rice': {'N': 120, 'P': 60, 'K': 40},
-    'Wheat': {'N': 100, 'P': 50, 'K': 50},
-    'Corn': {'N': 150, 'P': 65, 'K': 85},
-    'Cotton': {'N': 110, 'P': 55, 'K': 65},
-    'Sugarcane': {'N': 200, 'P': 100, 'K': 100},
+    'Rice': {'N': 50, 'P': 25, 'K': 20},
+    'Wheat': {'N': 40, 'P': 20, 'K': 10},
+    'Corn': {'N': 80, 'P': 40, 'K': 30},
+    'Cotton': {'N': 40, 'P': 25, 'K': 25},
+    'Sugarcane': {'N': 100, 'P': 45, 'K': 45},
+    'Ground nut': {'N': 8, 'P': 16, 'K': 16}
   };
 
   @override
@@ -176,7 +178,7 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
   void _showResults() {
     final ratios = _fertilizerRatios[_selectedCrop]!;
     final multiplier = _sizeUnit == 'Hectares' ? 2.47 : 1.0;
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -234,6 +236,8 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
         return '- Apply 20% N and all P, K at planting\n- Apply remaining N in 4 equal splits during square formation and flowering';
       case 'Sugarcane':
         return '- Apply 25% N and all P, K at planting\n- Apply remaining N in 3 equal splits at 60, 90, and 120 days';
+      case 'Ground nut':
+        return '- Apply 100% of the recommended dose at planting\n- Additionally, if needed, apply calcium  at the beginning of the flowering stage (around 30-40 days after planting)';
       default:
         return 'Follow local agricultural extension service recommendations';
     }
