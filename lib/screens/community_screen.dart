@@ -6,10 +6,10 @@ class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
 
   @override
-  _CommunityScreenState createState() => _CommunityScreenState();
+  CommunityScreenState createState() => CommunityScreenState();
 }
 
-class _CommunityScreenState extends State<CommunityScreen> {
+class CommunityScreenState extends State<CommunityScreen> {
   final List<Post> _posts = [];
   final String _currentUser = 'CurrentUser'; // Simulating logged-in user
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -18,9 +18,11 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   final _phoneController = TextEditingController();
   final _descriptionController = TextEditingController();
   XFile? _screenshot;
+  Uint8List? _screenshotBytes;
   bool _isLoading = false;
 
-  static const String _sheetsUrl = 'https://script.google.com/macros/s/AKfycbw0bV7hFElazNHHIcP6XKNrbUF0yk8yMP177nGlPK5hwtK-vCM0Plb_1rOtm1Gdwa5ATg/exec';
+  static const String _sheetsUrl =
+      'https://script.google.com/macros/s/AKfycbw0bV7hFElazNHHIcP6XKNrbUF0yk8yMP177nGlPK5hwtK-vCM0Plb_1rOtm1Gdwa5ATg/exec';
 
   @override
   void dispose() {
@@ -41,8 +43,10 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         imageQuality: 85,
       );
       if (image != null) {
+        final bytes = await image.readAsBytes(); // Convert to Uint8List
         setState(() {
           _screenshot = image;
+          _screenshotBytes = bytes; // Store Uint8List for display
         });
       }
     } catch (e) {
@@ -53,15 +57,14 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   }
 
   Future<void> _submitForm() async {
-    if (_formKey.currentState!.validate() && _screenshot != null) {
+    if (_formKey.currentState!.validate() && _screenshotBytes != null) {
       setState(() {
         _isLoading = true;
       });
 
       try {
         // Convert image to base64
-        final bytes = await File(_screenshot!.path).readAsBytes();
-        final base64Image = base64Encode(bytes);
+        final base64Image = base64Encode(_screenshotBytes!);
 
         // Prepare form data
         final formData = {
@@ -97,7 +100,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
           _isLoading = false;
         });
       }
-    } else if (_screenshot == null) {
+    } else if (_screenshotBytes == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please attach a screenshot')),
       );
@@ -142,7 +145,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
                   }
-                  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                      .hasMatch(value)) {
                     return 'Please enter a valid email';
                   }
                   return null;
@@ -181,12 +185,12 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      if (_screenshot != null)
+                      if (_screenshotBytes != null)
                         Stack(
                           alignment: Alignment.topRight,
                           children: [
-                            Image.file(
-                              File(_screenshot!.path),
+                            Image.memory(
+                              _screenshotBytes!,
                               height: 200,
                               width: double.infinity,
                               fit: BoxFit.cover,
@@ -196,6 +200,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                               onPressed: () {
                                 setState(() {
                                   _screenshot = null;
+                                  _screenshotBytes = null;
                                 });
                               },
                             ),

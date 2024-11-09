@@ -13,6 +13,8 @@ import 'community_screen.dart';
 import 'dukaan_screen.dart';
 import 'profile_screen.dart';
 import 'dart:io';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -79,7 +81,16 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _showImagePreview(XFile image) {
+  void _showImagePreview(XFile image) async {
+    Widget imageWidget;
+
+    if (kIsWeb) {
+      Uint8List imageBytes = await image.readAsBytes();
+      imageWidget = Image.memory(imageBytes, fit: BoxFit.cover);
+    } else {
+      imageWidget = Image.file(File(image.path), fit: BoxFit.cover);
+    }
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -88,10 +99,7 @@ class _HomePageState extends State<HomePage> {
           content: SingleChildScrollView(
             child: Column(
               children: [
-                Image.file(
-                  File(image.path),
-                  fit: BoxFit.cover,
-                ),
+                imageWidget,
                 const SizedBox(height: 16),
                 const LocalizedText('analyze_plant_question'),
               ],
