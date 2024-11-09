@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'contact_form_screen.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
@@ -55,7 +56,12 @@ class HelpScreen extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Add contact support functionality
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ContactFormScreen(),
+                ),
+              );
             },
             child: const Text('Contact Support'),
           ),
