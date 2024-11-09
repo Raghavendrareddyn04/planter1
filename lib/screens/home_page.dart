@@ -270,7 +270,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            WeatherWidget(),
+            const WeatherWidget(),
             const Padding(
               padding: EdgeInsets.all(16.0),
               child: LocalizedText(
@@ -289,9 +289,9 @@ class _HomePageState extends State<HomePage> {
                 color: const Color.fromRGBO(143, 148, 251, 1),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   _StepItem(icon: Icons.camera_alt, textKey: 'take_picture'),
                   Icon(Icons.arrow_forward, color: Colors.white),
                   _StepItem(icon: Icons.description, textKey: 'see_diagnosis'),

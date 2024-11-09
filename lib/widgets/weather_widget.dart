@@ -4,6 +4,8 @@ import '../services/weather_service.dart';
 import 'package:intl/intl.dart';
 
 class WeatherWidget extends StatefulWidget {
+  const WeatherWidget({super.key});
+
   @override
   _WeatherWidgetState createState() => _WeatherWidgetState();
 }
@@ -42,7 +44,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     if (condition.contains('rain')) return Colors.blue;
     if (condition.contains('snow')) return Colors.lightBlue;
     if (condition.contains('thunder')) return Colors.amber;
-    if (condition.contains('mist') || condition.contains('fog')) return Colors.blueGrey;
+    if (condition.contains('mist') || condition.contains('fog')) {
+      return Colors.blueGrey;
+    }
     return Colors.orange;
   }
 
@@ -53,7 +57,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     if (condition.contains('rain')) return Icons.water_drop;
     if (condition.contains('snow')) return Icons.ac_unit;
     if (condition.contains('thunder')) return Icons.flash_on;
-    if (condition.contains('mist') || condition.contains('fog')) return Icons.cloud;
+    if (condition.contains('mist') || condition.contains('fog')) {
+      return Icons.cloud;
+    }
     return Icons.wb_sunny;
   }
 
@@ -132,7 +138,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                           ),
                           Icon(
                             _getWeatherIcon(_weather?.weatherDescription ?? ''),
-                            color: _getWeatherColor(_weather?.weatherDescription ?? ''),
+                            color: _getWeatherColor(
+                                _weather?.weatherDescription ?? ''),
                             size: 48,
                           ),
                         ],
@@ -192,7 +199,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${_weather?.areaName ?? "Unknown Location"}',
+              _weather?.areaName ?? "Unknown Location",
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -251,11 +258,16 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               ),
             ),
             const SizedBox(height: 16),
-            _buildInfoRow('Humidity', '${_weather?.humidity}%', Icons.water_drop),
-            _buildInfoRow('Wind Speed', '${_weather?.windSpeed?.toStringAsFixed(1)} km/h', Icons.air),
-            _buildInfoRow('Pressure', '${_weather?.pressure?.round()} hPa', Icons.speed),
-            _buildInfoRow('Sunrise', _formatTime(_weather?.sunrise), Icons.wb_sunny),
-            _buildInfoRow('Sunset', _formatTime(_weather?.sunset), Icons.nights_stay),
+            _buildInfoRow(
+                'Humidity', '${_weather?.humidity}%', Icons.water_drop),
+            _buildInfoRow('Wind Speed',
+                '${_weather?.windSpeed?.toStringAsFixed(1)} km/h', Icons.air),
+            _buildInfoRow(
+                'Pressure', '${_weather?.pressure?.round()} hPa', Icons.speed),
+            _buildInfoRow(
+                'Sunrise', _formatTime(_weather?.sunrise), Icons.wb_sunny),
+            _buildInfoRow(
+                'Sunset', _formatTime(_weather?.sunset), Icons.nights_stay),
           ],
         ),
       ),
@@ -311,7 +323,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             Text(
               _getSprayingRecommendation(),
               style: TextStyle(
-                color: isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
+                color:
+                    isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
               ),
             ),
           ],
@@ -324,17 +337,21 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     final windSpeed = _weather?.windSpeed ?? 0;
     final humidity = _weather?.humidity ?? 0;
     final temp = _weather?.temperature?.celsius ?? 0;
-    
-    return windSpeed < 10 && humidity > 40 && humidity < 90 && temp > 10 && temp < 30;
+
+    return windSpeed < 10 &&
+        humidity > 40 &&
+        humidity < 90 &&
+        temp > 10 &&
+        temp < 30;
   }
 
   String _getSprayingRecommendation() {
     final windSpeed = _weather?.windSpeed ?? 0;
     final humidity = _weather?.humidity ?? 0;
     final temp = _weather?.temperature?.celsius ?? 0;
-    
+
     List<String> issues = [];
-    
+
     if (windSpeed >= 10) {
       issues.add('Wind speed is too high (${windSpeed.round()} km/h)');
     }
@@ -350,11 +367,11 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     if (temp >= 30) {
       issues.add('Temperature is too high (${temp.round()}°C)');
     }
-    
+
     if (issues.isEmpty) {
       return 'Current conditions are suitable for spraying.';
     }
-    
+
     return 'Not recommended for spraying: ${issues.join(', ')}.';
   }
 

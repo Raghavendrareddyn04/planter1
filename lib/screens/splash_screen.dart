@@ -3,6 +3,8 @@ import 'package:animate_do/animate_do.dart';
 import 'login_page.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }
@@ -26,16 +28,16 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: FadeInUp(
           duration: const Duration(milliseconds: 1500),
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.eco,
                 size: 100,
                 color: Colors.white,
               ),
-              const SizedBox(height: 20),
-              const Text(
+              SizedBox(height: 20),
+              Text(
                 'Planter',
                 style: TextStyle(
                   fontSize: 40,
@@ -43,8 +45,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 20),
-              const CircularProgressIndicator(
+              SizedBox(height: 20),
+              CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'dart:typed_data';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
@@ -75,10 +75,10 @@ class CommunityScreenState extends State<CommunityScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(post.content),
           ),
-          if (post.imagePath != null) ...[
+          if (post.imageBytes != null) ...[
             const SizedBox(height: 8.0),
-            Image.file(
-              File(post.imagePath!),
+            Image.memory(
+              post.imageBytes!,
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -137,69 +137,72 @@ class CommunityScreenState extends State<CommunityScreen> {
     final isEditing = post != null;
     final contentController = TextEditingController(text: post?.content ?? '');
     XFile? selectedImage;
+    Uint8List? imageBytes;
+
+    if (!mounted) return;
 
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(isEditing ? 'Edit Post' : 'Create Post'),
         content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: contentController,
-                maxLines: 5,
-                decoration: const InputDecoration(
-                  hintText: 'What\'s on your mind?',
-                  border: OutlineInputBorder(),
+          child: SizedBox(
+            width:
+                300, // Set a fixed width for the dialog to avoid infinite width issues
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: contentController,
+                  maxLines: 5,
+                  decoration: const InputDecoration(
+                    hintText: 'What\'s on your mind?',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              StatefulBuilder(
-                builder: (context, setState) => Column(
-                  children: [
-                    if (selectedImage != null || post?.imagePath != null)
-                      Stack(
-                        alignment: Alignment.topRight,
-                        children: [
-                          Image.file(
-                            File(selectedImage?.path ?? post!.imagePath!),
-                            height: 100,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.close, color: Colors.red),
-                            onPressed: () {
-                              setState(() {
-                                selectedImage = null;
-                                if (post != null) {
-                                  post = post!.copyWith(imagePath: null);
-                                }
-                              });
-                            },
-                          ),
-                        ],
+                const SizedBox(height: 16),
+                StatefulBuilder(
+                  builder: (context, setState) => Column(
+                    children: [
+                      if (imageBytes != null || post?.imageBytes != null)
+                        Stack(
+                          alignment: Alignment.topRight,
+                          children: [
+                            Image.memory(
+                              imageBytes ?? post!.imageBytes!,
+                              height: 100,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.close, color: Colors.red),
+                              onPressed: () {
+                                setState(() {
+                                  imageBytes = null;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final ImagePicker picker = ImagePicker();
+                          selectedImage = await picker.pickImage(
+                            source: ImageSource.gallery,
+                          );
+                          if (selectedImage != null && mounted) {
+                            imageBytes = await selectedImage?.readAsBytes();
+                            setState(() {});
+                          }
+                        },
+                        icon: const Icon(Icons.image),
+                        label: const Text('Add Image'),
                       ),
-                    ElevatedButton.icon(
-                      onPressed: () async {
-                        final ImagePicker picker = ImagePicker();
-                        final XFile? image = await picker.pickImage(
-                          source: ImageSource.gallery,
-                        );
-                        if (image != null) {
-                          setState(() {
-                            selectedImage = image;
-                          });
-                        }
-                      },
-                      icon: const Icon(Icons.image),
-                      label: const Text('Add Image'),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         actions: [
@@ -212,15 +215,15 @@ class CommunityScreenState extends State<CommunityScreen> {
               if (contentController.text.isNotEmpty) {
                 if (isEditing) {
                   _updatePost(
-                    post!.copyWith(
+                    post.copyWith(
                       content: contentController.text,
-                      imagePath: selectedImage?.path ?? post?.imagePath,
+                      imageBytes: imageBytes ?? post.imageBytes,
                     ),
                   );
                 } else {
                   _createPost(
                     content: contentController.text,
-                    imagePath: selectedImage?.path,
+                    imageBytes: imageBytes,
                   );
                 }
                 Navigator.pop(context);
@@ -231,9 +234,10 @@ class CommunityScreenState extends State<CommunityScreen> {
         ],
       ),
     );
+    contentController.dispose();
   }
 
-  void _createPost({required String content, String? imagePath}) {
+  void _createPost({required String content, Uint8List? imageBytes}) {
     setState(() {
       _posts.insert(
         0,
@@ -241,7 +245,7 @@ class CommunityScreenState extends State<CommunityScreen> {
           id: DateTime.now().toString(),
           username: _currentUser,
           content: content,
-          imagePath: imagePath,
+          imageBytes: imageBytes,
           timeAgo: 'Just now',
           likes: 0,
           comments: 0,
@@ -282,18 +286,18 @@ class CommunityScreenState extends State<CommunityScreen> {
       context: context,
       builder: (context) => Container(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Comments',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
-            const Center(
+            SizedBox(height: 16),
+            Center(
               child: Text('No comments yet'),
             ),
           ],
@@ -307,7 +311,7 @@ class Post {
   final String id;
   final String username;
   final String content;
-  final String? imagePath;
+  final Uint8List? imageBytes;
   final String timeAgo;
   final int likes;
   final int comments;
@@ -317,7 +321,7 @@ class Post {
     required this.id,
     required this.username,
     required this.content,
-    this.imagePath,
+    this.imageBytes,
     required this.timeAgo,
     required this.likes,
     required this.comments,
@@ -326,7 +330,7 @@ class Post {
 
   Post copyWith({
     String? content,
-    String? imagePath,
+    Uint8List? imageBytes,
     int? likes,
     int? comments,
     bool? isLiked,
@@ -335,7 +339,7 @@ class Post {
       id: id,
       username: username,
       content: content ?? this.content,
-      imagePath: imagePath,
+      imageBytes: imageBytes,
       timeAgo: timeAgo,
       likes: likes ?? this.likes,
       comments: comments ?? this.comments,
