@@ -124,5 +124,51 @@ class LanguageService {
       'English': 'Help',
       'Telugu': 'సహాయం',
     },
+    // About screen translations
+    'created_by': {
+      'English': 'Created by',
+      'Telugu': 'రూపొందించినవారు',
+    },
+    'team_leader': {
+      'English': 'TEAM LEADER',
+      'Telugu': 'టీమ్ లీడర్',
+    },
+    'team_member': {
+      'English': 'TEAM MEMBER',
+      'Telugu': 'టీమ్ సభ్యుడు',
+    },
+    'project_guide': {
+      'English': 'PROJECT GUIDE',
+      'Telugu': 'ప్రాజెక్ట్ గైడ్',
+    },
+    'guide': {
+      'English': 'Guide',
+      'Telugu': 'మార్గదర్శి',
+    },
+    'contact_us': {
+      'English': 'Contact Us',
+      'Telugu': 'మమ్మల్ని సంప్రదించండి',
+    },
+    // Team member names
+    'member_eswar': {
+      'English': 'M ESWAR KUMAR',
+      'Telugu': 'ఎం ఈశ్వర్ కుమార్',
+    },
+    'member_raghavendra': {
+      'English': 'N RAGHAVENDRA REDDY',
+      'Telugu': 'ఎన్ రాఘవేంద్ర రెడ్డి',
+    },
+    'member_sujana': {
+      'English': 'SUJANA P',
+      'Telugu': 'సుజన పి',
+    },
+    'member_keerthi': {
+      'English': 'KEERTHI PRIYA',
+      'Telugu': 'కీర్తి ప్రియ',
+    },
+    'guide_name': {
+      'English': 'Mrs.S.RAJESWARI',
+      'Telugu': 'శ్రీమతి ఎస్.రాజేశ్వరి',
+    },
   };
 }

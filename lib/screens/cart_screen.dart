@@ -4,10 +4,10 @@ class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
   @override
-  CartScreenState createState() => CartScreenState();
+  _CartScreenState createState() => _CartScreenState();
 }
 
-class CartScreenState extends State<CartScreen> {
+class _CartScreenState extends State<CartScreen> {
   final List<Map<String, dynamic>> _cartItems = [];
   double _total = 0.0;
 

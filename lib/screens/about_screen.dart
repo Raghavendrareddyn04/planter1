@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'contact_form_screen.dart';
+import '../widgets/localized_text.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -9,7 +10,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About'),
+        title: const LocalizedText('about'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
@@ -30,8 +31,8 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 20),
             FadeInUp(
               duration: const Duration(milliseconds: 800),
-              child: const Text(
-                'Planter',
+              child: const LocalizedText(
+                'app_title',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -52,8 +53,8 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 40),
             FadeInUp(
               duration: const Duration(milliseconds: 1000),
-              child: const Text(
-                'Created by',
+              child: const LocalizedText(
+                'created_by',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -62,34 +63,34 @@ class AboutScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             _buildCreatorCard(
-              'M ESWAR KUMAR',
-              'TEAM LEADER',
+              'member_eswar',
+              'team_leader',
               Icons.computer,
               const Duration(milliseconds: 1100),
             ),
             _buildCreatorCard(
-              'N RAGHAVENDRA REDDY',
-              'TEAM MEMBER',
+              'member_raghavendra',
+              'team_member',
               Icons.design_services,
               const Duration(milliseconds: 1200),
             ),
             _buildCreatorCard(
-              'SUJANA P',
-              'TEAM MEMBER',
+              'member_sujana',
+              'team_member',
               Icons.eco,
               const Duration(milliseconds: 1300),
             ),
             _buildCreatorCard(
-              'KEERTHI PRIYA',
-              'TEAM MEMBER',
+              'member_keerthi',
+              'team_member',
               Icons.science,
               const Duration(milliseconds: 1400),
             ),
             const SizedBox(height: 30),
             FadeInUp(
               duration: const Duration(milliseconds: 1500),
-              child: const Text(
-                'Guide',
+              child: const LocalizedText(
+                'guide',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -98,8 +99,8 @@ class AboutScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             _buildCreatorCard(
-              'Mrs.S.RAJESWARI',
-              'PROJECT GUIDE',
+              'guide_name',
+              'project_guide',
               Icons.school,
               const Duration(milliseconds: 1600),
             ),
@@ -116,7 +117,7 @@ class AboutScreen extends StatelessWidget {
                   );
                 },
                 icon: const Icon(Icons.mail),
-                label: const Text('Contact Us'),
+                label: const LocalizedText('contact_us'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32,
@@ -132,8 +133,8 @@ class AboutScreen extends StatelessWidget {
   }
 
   Widget _buildCreatorCard(
-    String name,
-    String role,
+    String nameKey,
+    String roleKey,
     IconData icon,
     Duration delay,
   ) {
@@ -150,11 +151,11 @@ class AboutScreen extends StatelessWidget {
               color: const Color.fromRGBO(143, 148, 251, 1),
             ),
           ),
-          title: Text(
-            name,
+          title: LocalizedText(
+            nameKey,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          subtitle: Text(role),
+          subtitle: LocalizedText(roleKey),
         ),
       ),
     );

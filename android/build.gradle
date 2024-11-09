@@ -1,20 +1,33 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.example.yourapp"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            // Enable code shrinking
+            minifyEnabled true
+
+            // Enable resource shrinking
+            shrinkResources true 
+
+            // ProGuard configuration for optimized release builds
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-    project.evaluationDependsOn(":app")
-    tasks.withType(JavaCompile) {
-        sourceCompatibility = '11'
-        targetCompatibility = '11'
-    }
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+dependencies {
+    // Your dependencies here
 }
