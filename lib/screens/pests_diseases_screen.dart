@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 
 class PestsDiseasesScreen extends StatefulWidget {
   const PestsDiseasesScreen({super.key});
@@ -15,7 +16,7 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pests & Diseases'),
+        title: const LocalizedText('pests_diseases_title'),
         backgroundColor: const Color(0xFFFFF3E0),
       ),
       body: Container(
@@ -23,35 +24,35 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
-            _buildStageSection('Seedling Stage', Colors.teal, [
+            _buildStageSection('seedling_stage', Colors.teal, [
               _buildDiseaseCard(
-                'Damping-Off of Seedlings',
-                '(Fungi)',
+                'damping_off',
+                'fungi_type',
                 Colors.green[50]!,
                 'assets/images/damping_off.jpg',
-                'A common disease affecting seedlings, causing them to rot at the base. It is often triggered by overwatering and poor air circulation.',
+                'damping_off_desc',
               ),
               _buildDiseaseCard(
-                'Bacterial Black Spot of Mango',
-                'Bacteria',
+                'bacterial_black_spot',
+                'bacteria_type',
                 Colors.green[100]!,
                 'assets/images/bacterial_black_spot.jpg',
-                'This disease causes black spots on mango leaves and fruit, reducing yield. It spreads rapidly in warm, wet conditions.',
+                'bacterial_black_spot_desc',
               ),
               if (_showMoreSeedling) ...[
                 _buildDiseaseCard(
-                  'Aphids',
-                  'Insect',
+                  'aphids',
+                  'insect_type',
                   Colors.green[50]!,
                   'assets/images/aphids.jpg',
-                  'Small sap-sucking insects that can cause significant damage to plants. They often cluster on new growth and can transmit viruses.',
+                  'aphids_desc',
                 ),
                 _buildDiseaseCard(
-                  'Black Citrus Aphid',
-                  'Insect',
+                  'black_citrus_aphid',
+                  'insect_type',
                   Colors.green[100]!,
                   'assets/images/black_citrus_aphid.jpg',
-                  'A pest that affects citrus plants, leading to sooty mold and reduced growth. Control measures include natural predators and insecticidal soap.',
+                  'black_citrus_aphid_desc',
                 ),
               ],
             ], () {
@@ -59,35 +60,35 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
                 _showMoreSeedling = !_showMoreSeedling;
               });
             }, _showMoreSeedling),
-            _buildStageSection('Vegetative Stage', Colors.indigo, [
+            _buildStageSection('vegetative_stage', Colors.indigo, [
               _buildDiseaseCard(
-                'Phoma Blight',
-                '(Fungi)',
+                'phoma_blight',
+                'fungi_type',
                 Colors.blue[50]!,
                 'assets/images/phoma_blight.jpg',
-                'Phoma Blight is a fungal disease that causes dark lesions on leaves and stems, leading to plant wilting and reduced yield.',
+                'phoma_blight_desc',
               ),
               _buildDiseaseCard(
-                'Pineapple Disease',
-                '(Fungi)',
+                'pineapple_disease',
+                'fungi_type',
                 Colors.blue[100]!,
                 'assets/images/pineapple_disease.jpg',
-                'Pineapple Disease affects the roots of plants, causing them to rot and leading to stunted growth and poor fruit quality.',
+                'pineapple_disease_desc',
               ),
               if (_showMoreVegetative) ...[
                 _buildDiseaseCard(
-                  'Sooty Mold',
-                  '(Fungi)',
+                  'sooty_mold',
+                  'fungi_type',
                   Colors.blue[50]!,
                   'assets/images/sooty_mold.jpg',
-                  'Sooty Mold is a black fungal growth that develops on the surface of leaves, often following insect infestations.',
+                  'sooty_mold_desc',
                 ),
                 _buildDiseaseCard(
-                  'Anthracnose',
-                  '(Fungi)',
+                  'anthracnose',
+                  'fungi_type',
                   Colors.blue[100]!,
                   'assets/images/anthracnose.jpg',
-                  'Anthracnose is a common fungal disease that causes dark, sunken lesions on leaves, stems, flowers, and fruits.',
+                  'anthracnose_desc',
                 ),
               ],
             ], () {
@@ -101,19 +102,19 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
     );
   }
 
-  Widget _buildStageSection(String stage, Color color, List<Widget> diseases,
+  Widget _buildStageSection(String stageKey, Color color, List<Widget> diseases,
       VoidCallback onSeeMore, bool showMore) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          stage,
+        LocalizedText(
+          stageKey,
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.bold, color: color),
         ),
         const SizedBox(height: 10),
         GridView.count(
-          crossAxisCount: 1, // One column
+          crossAxisCount: 1,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           crossAxisSpacing: 10,
@@ -123,16 +124,15 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
         const SizedBox(height: 20),
         ElevatedButton(
           onPressed: onSeeMore,
-          child: Text(showMore ? 'See Less' : 'See More'),
+          child: LocalizedText(showMore ? 'see_less' : 'see_more'),
         ),
         const SizedBox(height: 30),
       ],
     );
   }
 
-/////------------------widget for disease card------------------/////
-  Widget _buildDiseaseCard(String name, String type, Color color,
-      String imagePath, String description) {
+  Widget _buildDiseaseCard(String nameKey, String typeKey, Color color,
+      String imagePath, String descriptionKey) {
     return Card(
       color: color,
       child: Padding(
@@ -153,18 +153,18 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              name,
+            LocalizedText(
+              nameKey,
               style: const TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            Text(
-              type,
+            LocalizedText(
+              typeKey,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
-            Text(
-              description,
+            LocalizedText(
+              descriptionKey,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),

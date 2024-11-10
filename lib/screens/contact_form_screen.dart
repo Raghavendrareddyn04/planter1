@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../widgets/localized_text.dart';
 
 class ContactFormScreen extends StatefulWidget {
   const ContactFormScreen({super.key});
@@ -43,10 +44,10 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         imageQuality: 85,
       );
       if (image != null) {
-        final bytes = await image.readAsBytes(); // Convert to Uint8List
+        final bytes = await image.readAsBytes();
         setState(() {
           _screenshot = image;
-          _screenshotBytes = bytes; // Store Uint8List for display
+          _screenshotBytes = bytes;
         });
       }
     } catch (e) {
@@ -63,10 +64,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
       });
 
       try {
-        // Convert image to base64
         final base64Image = base64Encode(_screenshotBytes!);
 
-        // Prepare form data
         final formData = {
           'name': _nameController.text,
           'email': _emailController.text,
@@ -76,7 +75,6 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
           'timestamp': DateTime.now().toIso8601String(),
         };
 
-        // Send data to Google Sheets
         final response = await http.post(
           Uri.parse(_sheetsUrl),
           body: json.encode(formData),
@@ -85,7 +83,9 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
 
         if (response.statusCode == 200 || response.statusCode == 302) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Form submitted successfully!')),
+            const SnackBar(
+              content: LocalizedText('form_submitted_successfully'),
+            ),
           );
           Navigator.pop(context);
         } else {
@@ -93,7 +93,12 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error submitting form: $e')),
+          SnackBar(
+            content: LocalizedText(
+              'error_submitting_form',
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
         );
       } finally {
         setState(() {
@@ -102,7 +107,9 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
       }
     } else if (_screenshotBytes == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please attach a screenshot')),
+        const SnackBar(
+          content: LocalizedText('please_attach_screenshot'),
+        ),
       );
     }
   }
@@ -111,7 +118,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact Us'),
+        title: const LocalizedText('contact_us'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -123,12 +130,12 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(
-                  labelText: 'Name *',
+                  labelText: 'name',
                   prefixIcon: Icon(Icons.person),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
+                    return 'please_enter_name';
                   }
                   return null;
                 },
@@ -137,17 +144,17 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
-                  labelText: 'Email *',
+                  labelText: 'email',
                   prefixIcon: Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
+                    return 'please_enter_email';
                   }
                   if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                       .hasMatch(value)) {
-                    return 'Please enter a valid email';
+                    return 'please_enter_valid_email';
                   }
                   return null;
                 },
@@ -156,16 +163,16 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _phoneController,
                 decoration: const InputDecoration(
-                  labelText: 'Phone Number *',
+                  labelText: 'phone',
                   prefixIcon: Icon(Icons.phone),
                 ),
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your phone number';
+                    return 'please_enter_phone';
                   }
                   if (!RegExp(r'^\+?[\d\s-]+$').hasMatch(value)) {
-                    return 'Please enter a valid phone number';
+                    return 'please_enter_valid_phone';
                   }
                   return null;
                 },
@@ -177,8 +184,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Text(
-                        'Screenshot *',
+                      const LocalizedText(
+                        'screenshot',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
@@ -209,9 +216,9 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                       ElevatedButton.icon(
                         onPressed: _pickImage,
                         icon: const Icon(Icons.add_photo_alternate),
-                        label: Text(_screenshot == null
-                            ? 'Add Screenshot'
-                            : 'Change Screenshot'),
+                        label: LocalizedText(_screenshot == null
+                            ? 'add_screenshot'
+                            : 'change_screenshot'),
                       ),
                     ],
                   ),
@@ -221,14 +228,14 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _descriptionController,
                 decoration: const InputDecoration(
-                  labelText: 'Description *',
+                  labelText: 'description',
                   prefixIcon: Icon(Icons.description),
                   alignLabelWithHint: true,
                 ),
                 maxLines: 5,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a description';
+                    return 'please_enter_description';
                   }
                   return null;
                 },
@@ -245,7 +252,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                         width: 20,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Text('Send'),
+                    : const LocalizedText('send'),
               ),
             ],
           ),

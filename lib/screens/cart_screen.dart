@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -15,11 +16,11 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Shopping Cart'),
+        title: const LocalizedText('shopping_cart'),
       ),
       body: _cartItems.isEmpty
           ? const Center(
-              child: Text('Your cart is empty'),
+              child: LocalizedText('cart_empty'),
             )
           : Column(
               children: [
@@ -97,8 +98,8 @@ class _CartScreenState extends State<CartScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Total:',
+                          const LocalizedText(
+                            'total',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -122,7 +123,7 @@ class _CartScreenState extends State<CartScreen> {
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50),
                         ),
-                        child: const Text('Proceed to Checkout'),
+                        child: const LocalizedText('proceed_checkout'),
                       ),
                     ],
                   ),

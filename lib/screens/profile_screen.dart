@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 import 'help_screen.dart';
 import 'contact_form_screen.dart';
 
@@ -9,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const LocalizedText('profile'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -44,8 +45,8 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Urban Farmer',
+          const LocalizedText(
+            'urban_farmer',
             style: TextStyle(
               color: Colors.grey,
               fontSize: 16,
@@ -54,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {},
-            child: const Text('Edit Profile'),
+            child: const LocalizedText('edit_profile_button'),
           ),
         ],
       ),
@@ -67,13 +68,13 @@ class ProfileScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildStatItem('Posts', '0'),
+          _buildStatItem('posts', '0'),
         ],
       ),
     );
   }
 
-  Widget _buildStatItem(String label, String value) {
+  Widget _buildStatItem(String labelKey, String value) {
     return Column(
       children: [
         Text(
@@ -83,8 +84,8 @@ class ProfileScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Text(
-          label,
+        LocalizedText(
+          labelKey,
           style: const TextStyle(color: Colors.grey),
         ),
       ],
@@ -94,31 +95,31 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildMenuItems(BuildContext context) {
     return Column(
       children: [
-        _buildMenuItem(Icons.favorite, 'My Favorites', () {}),
-        _buildMenuItem(Icons.history, 'Purchase History', () {}),
-        _buildMenuItem(Icons.location_on, 'Address', () {}),
-        _buildMenuItem(Icons.contact_mail, 'Contact Us', () {
+        _buildMenuItem(Icons.favorite, 'my_favorites', () {}),
+        _buildMenuItem(Icons.history, 'purchase_history', () {}),
+        _buildMenuItem(Icons.location_on, 'address_book', () {}),
+        _buildMenuItem(Icons.contact_mail, 'contact_us', () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const ContactFormScreen()),
           );
         }),
-        _buildMenuItem(Icons.help, 'Help Center', () {
+        _buildMenuItem(Icons.help, 'help', () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const HelpScreen()),
           );
         }),
-        _buildMenuItem(Icons.logout, 'Logout', () {
+        _buildMenuItem(Icons.logout, 'logout_button', () {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: const Text('Logout'),
-              content: const Text('Are you sure you want to logout?'),
+              title: const LocalizedText('logout_confirmation_title'),
+              content: const LocalizedText('logout_confirmation_message'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancel'),
+                  child: const LocalizedText('cancel'),
                 ),
                 TextButton(
                   onPressed: () {
@@ -129,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                       (route) => false,
                     );
                   },
-                  child: const Text('Logout'),
+                  child: const LocalizedText('logout_button'),
                 ),
               ],
             ),
@@ -139,10 +140,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap) {
+  Widget _buildMenuItem(IconData icon, String titleKey, VoidCallback onTap) {
     return ListTile(
       leading: Icon(icon),
-      title: Text(title),
+      title: LocalizedText(titleKey),
       trailing: const Icon(Icons.arrow_forward_ios),
       onTap: onTap,
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 
 class FertilizerCalculatorScreen extends StatefulWidget {
   const FertilizerCalculatorScreen({super.key});
@@ -8,46 +9,45 @@ class FertilizerCalculatorScreen extends StatefulWidget {
       _FertilizerCalculatorScreenState();
 }
 
-class _FertilizerCalculatorScreenState
-    extends State<FertilizerCalculatorScreen> {
-  String _selectedCategory = 'Cereals';
-  String _selectedCrop = 'Rice';
+class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen> {
+  String _selectedCategory = 'cereals';
+  String _selectedCrop = 'rice';
   double _fieldSize = 0;
-  String _sizeUnit = 'Acres';
+  String _sizeUnit = 'acres';
   final _formKey = GlobalKey<FormState>();
 
   final Map<String, List<String>> _cropCategories = {
-    'Cereals': ['Rice', 'Wheat', 'Corn'],
-    'Commercial': ['Cotton', 'Sugarcane', 'Ground nut'],
-    'Fruits': ['Mango', 'Banana', 'Apple', 'Grape', 'Orange'],
+    'cereals': ['rice', 'wheat', 'corn'],
+    'commercial': ['cotton', 'sugarcane', 'groundnut'],
+    'fruits': ['mango', 'banana', 'apple', 'grape', 'orange'],
   };
 
   final Map<String, String> _cropImages = {
-    'Rice': 'assets/images/crops/rice.png',
-    'Wheat': 'assets/images/crops/wheat.png',
-    'Corn': 'assets/images/crops/corn.png',
-    'Cotton': 'assets/images/crops/cotton.png',
-    'Sugarcane': 'assets/images/crops/sugarcane.png',
-    'Ground nut': 'assets/images/crops/groundnut.png',
-    'Mango': 'assets/images/crops/mango.png',
-    'Banana': 'assets/images/crops/banana.png',
-    'Apple': 'assets/images/crops/apple.png',
-    'Grape': 'assets/images/crops/grape.png',
-    'Orange': 'assets/images/crops/orange.png',
+    'rice': 'assets/images/crops/rice.png',
+    'wheat': 'assets/images/crops/wheat.png',
+    'corn': 'assets/images/crops/corn.png',
+    'cotton': 'assets/images/crops/cotton.png',
+    'sugarcane': 'assets/images/crops/sugarcane.png',
+    'groundnut': 'assets/images/crops/groundnut.png',
+    'mango': 'assets/images/crops/mango.png',
+    'banana': 'assets/images/crops/banana.png',
+    'apple': 'assets/images/crops/apple.png',
+    'grape': 'assets/images/crops/grape.png',
+    'orange': 'assets/images/crops/orange.png',
   };
 
   final Map<String, Map<String, double>> _fertilizerRatios = {
-    'Rice': {'N': 50, 'P': 25, 'K': 20},
-    'Wheat': {'N': 40, 'P': 20, 'K': 10},
-    'Corn': {'N': 80, 'P': 40, 'K': 30},
-    'Cotton': {'N': 40, 'P': 25, 'K': 25},
-    'Sugarcane': {'N': 100, 'P': 45, 'K': 45},
-    'Ground nut': {'N': 8, 'P': 16, 'K': 16},
-    'Mango': {'N': 75, 'P': 35, 'K': 75},
-    'Banana': {'N': 100, 'P': 50, 'K': 150},
-    'Apple': {'N': 60, 'P': 30, 'K': 60},
-    'Grape': {'N': 65, 'P': 32, 'K': 65},
-    'Orange': {'N': 80, 'P': 40, 'K': 80},
+    'rice': {'N': 50, 'P': 25, 'K': 20},
+    'wheat': {'N': 40, 'P': 20, 'K': 10},
+    'corn': {'N': 80, 'P': 40, 'K': 30},
+    'cotton': {'N': 40, 'P': 25, 'K': 25},
+    'sugarcane': {'N': 100, 'P': 45, 'K': 45},
+    'groundnut': {'N': 8, 'P': 16, 'K': 16},
+    'mango': {'N': 75, 'P': 35, 'K': 75},
+    'banana': {'N': 100, 'P': 50, 'K': 150},
+    'apple': {'N': 60, 'P': 30, 'K': 60},
+    'grape': {'N': 65, 'P': 32, 'K': 65},
+    'orange': {'N': 80, 'P': 40, 'K': 80},
   };
 
   Map<String, double> _calculateFertilizers(Map<String, double> npk) {
@@ -66,7 +66,7 @@ class _FertilizerCalculatorScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fertilizer Calculator'),
+        title: const LocalizedText('fertilizer_calculator'),
       ),
       body: SafeArea(
         child: Form(
@@ -82,8 +82,8 @@ class _FertilizerCalculatorScreenState
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Select Category',
+                        const LocalizedText(
+                          'select_category',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class _FertilizerCalculatorScreenState
                           items: _cropCategories.keys
                               .map((category) => DropdownMenuItem(
                                     value: category,
-                                    child: Text(category),
+                                    child: LocalizedText(category),
                                   ))
                               .toList(),
                           onChanged: (value) {
@@ -114,8 +114,8 @@ class _FertilizerCalculatorScreenState
                           },
                         ),
                         const SizedBox(height: 16),
-                        const Text(
-                          'Select Crop',
+                        const LocalizedText(
+                          'select_crop',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -126,11 +126,9 @@ class _FertilizerCalculatorScreenState
                           height: 120,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount:
-                                _cropCategories[_selectedCategory]!.length,
+                            itemCount: _cropCategories[_selectedCategory]!.length,
                             itemBuilder: (context, index) {
-                              final crop =
-                                  _cropCategories[_selectedCategory]![index];
+                              final crop = _cropCategories[_selectedCategory]![index];
                               return GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -157,8 +155,7 @@ class _FertilizerCalculatorScreenState
                                         height: 60,
                                         width: 60,
                                         fit: BoxFit.cover,
-                                        errorBuilder:
-                                            (context, error, stackTrace) {
+                                        errorBuilder: (context, error, stackTrace) {
                                           return Icon(
                                             Icons.grass,
                                             size: 40,
@@ -167,7 +164,7 @@ class _FertilizerCalculatorScreenState
                                         },
                                       ),
                                       const SizedBox(height: 8),
-                                      Text(
+                                      LocalizedText(
                                         crop,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -194,8 +191,8 @@ class _FertilizerCalculatorScreenState
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Field Size',
+                        const LocalizedText(
+                          'field_size_label',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -209,17 +206,17 @@ class _FertilizerCalculatorScreenState
                               flex: 2,
                               child: TextFormField(
                                 keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Enter field size',
-                                  contentPadding: EdgeInsets.symmetric(
+                                decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  hintText: const LocalizedText('enter_field_size').toString(),
+                                  contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                     vertical: 8,
                                   ),
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter field size';
+                                    return const LocalizedText('please_enter_field_size').toString();
                                   }
                                   return null;
                                 },
@@ -242,10 +239,10 @@ class _FertilizerCalculatorScreenState
                                     vertical: 8,
                                   ),
                                 ),
-                                items: ['Acres', 'Hectares']
+                                items: ['acres', 'hectares']
                                     .map((unit) => DropdownMenuItem(
                                           value: unit,
-                                          child: Text(unit),
+                                          child: LocalizedText(unit),
                                         ))
                                     .toList(),
                                 onChanged: (value) {
@@ -271,8 +268,8 @@ class _FertilizerCalculatorScreenState
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: const Text(
-                    'Calculate Fertilizer',
+                  child: const LocalizedText(
+                    'calculate_fertilizer',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -286,7 +283,7 @@ class _FertilizerCalculatorScreenState
 
   void _showResults() {
     final ratios = _fertilizerRatios[_selectedCrop]!;
-    final multiplier = _sizeUnit == 'Hectares' ? 2.47 : 1.0;
+    final multiplier = _sizeUnit == 'hectares' ? 2.47 : 1.0;
 
     final npkValues = {
       'N': ratios['N']! * _fieldSize * multiplier,
@@ -299,89 +296,57 @@ class _FertilizerCalculatorScreenState
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Recommended Fertilizer for $_selectedCrop'),
+        title: LocalizedText(
+          'recommended_fertilizer',
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Field Size: $_fieldSize $_sizeUnit'),
+              Row(
+                children: [
+                  const LocalizedText('field_size_label'),
+                  Text(': $_fieldSize '),
+                  LocalizedText(_sizeUnit),
+                ],
+              ),
               const SizedBox(height: 16),
-              const Text(
-                'Recommended NPK:',
+              const LocalizedText(
+                'recommended_npk',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text(
-                'Nitrogen (N): ${npkValues['N']!.toStringAsFixed(1)} kg',
-              ),
-              Text(
-                'Phosphorus (P): ${npkValues['P']!.toStringAsFixed(1)} kg',
-              ),
-              Text(
-                'Potassium (K): ${npkValues['K']!.toStringAsFixed(1)} kg',
-              ),
+              Text('N: ${npkValues['N']!.toStringAsFixed(1)} kg'),
+              Text('P: ${npkValues['P']!.toStringAsFixed(1)} kg'),
+              Text('K: ${npkValues['K']!.toStringAsFixed(1)} kg'),
               const SizedBox(height: 16),
-              const Text(
-                'Required Fertilizers:',
+              const LocalizedText(
+                'required_fertilizers',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text(
-                'Urea (46-0-0): ${fertilizers['Urea']!.toStringAsFixed(1)} kg',
-              ),
-              Text(
-                'TSP (0-46-0): ${fertilizers['TSP']!.toStringAsFixed(1)} kg',
-              ),
-              Text(
-                'MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg',
-              ),
+              Text('Urea (46-0-0): ${fertilizers['Urea']!.toStringAsFixed(1)} kg'),
+              Text('TSP (0-46-0): ${fertilizers['TSP']!.toStringAsFixed(1)} kg'),
+              Text('MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg'),
               const SizedBox(height: 16),
-              const Text(
-                'Application Schedule:',
+              const LocalizedText(
+                'application_schedule',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text(_getApplicationSchedule(_selectedCrop)),
+              LocalizedText('schedule_$_selectedCrop'),
             ],
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
+            child: const LocalizedText('close'),
           ),
         ],
       ),
     );
-  }
-
-  String _getApplicationSchedule(String crop) {
-    switch (crop) {
-      case 'Rice':
-        return '- Apply N in 3 splits: 50% at transplanting, 25% at tillering, 25% at panicle initiation\n- Apply all P and K at transplanting';
-      case 'Wheat':
-        return '- Apply 50% N and all P, K at sowing\n- Apply remaining N in two equal splits at tillering and heading';
-      case 'Corn':
-        return '- Apply 25% N and all P, K at planting\n- Apply 75% N in two equal splits at V6 and V12 stages';
-      case 'Cotton':
-        return '- Apply 20% N and all P, K at planting\n- Apply remaining N in 4 equal splits during square formation and flowering';
-      case 'Sugarcane':
-        return '- Apply 25% N and all P, K at planting\n- Apply remaining N in 3 equal splits at 60, 90, and 120 days';
-      case 'Ground nut':
-        return '- Apply 100% of the recommended dose at planting\n- Additionally, if needed, apply calcium at the beginning of the flowering stage (around 30-40 days after planting)';
-      case 'Mango':
-        return '- Apply fertilizers in two splits: pre-monsoon (June) and post-monsoon (September-October)\n- Apply organic manure once a year';
-      case 'Banana':
-        return '- Apply N in 6 splits at monthly intervals\n- Apply P and K in 3 splits at planting, 3rd and 5th month';
-      case 'Apple':
-        return '- Apply N in two splits: 50% at bud break and 50% at fruit set\n- Apply all P and K before flowering';
-      case 'Grape':
-        return '- Apply N in 4 splits throughout growing season\n- Apply P and K in two splits: before flowering and during fruit development';
-      case 'Orange':
-        return '- Apply fertilizers in three splits: February-March, June-July, and September-October\n- Apply micronutrients through foliar spray if needed';
-      default:
-        return 'Follow local agricultural extension service recommendations';
-    }
   }
 }

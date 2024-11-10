@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 
 class CultivationTipsScreen extends StatelessWidget {
   const CultivationTipsScreen({super.key});
@@ -7,28 +8,27 @@ class CultivationTipsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cultivation Tips'),
+        title: const LocalizedText('cultivation_tips_title'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
           _buildTipCard(
-            'Soil Preparation',
-            'Learn how to prepare soil for optimal plant growth.',
-            'assets/images/soil.png', // Add this image later
+            'soil_preparation_title',
+            'soil_preparation_desc',
+            'assets/images/soil.png',
           ),
           _buildTipCard(
-            'Watering Guide',
-            'Best practices for watering different types of plants.',
-            'assets/images/watering.png', // Add this image later
+            'watering_guide_title',
+            'watering_guide_desc',
+            'assets/images/watering.png',
           ),
-          // Add more tips as needed
         ],
       ),
     );
   }
 
-  Widget _buildTipCard(String title, String description, String imagePath) {
+  Widget _buildTipCard(String titleKey, String descriptionKey, String imagePath) {
     return Card(
       margin: const EdgeInsets.only(bottom: 16.0),
       child: Column(
@@ -48,16 +48,16 @@ class CultivationTipsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
+                LocalizedText(
+                  titleKey,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  description,
+                LocalizedText(
+                  descriptionKey,
                   style: const TextStyle(fontSize: 16),
                 ),
               ],

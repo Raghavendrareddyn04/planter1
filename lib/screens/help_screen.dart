@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 import 'contact_form_screen.dart';
 
 class HelpScreen extends StatelessWidget {
@@ -8,49 +9,49 @@ class HelpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Help'),
+        title: const LocalizedText('help'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
           _buildHelpSection(
-            'Getting Started',
-            'Learn how to use the basic features of the app',
+            'getting_started_title',
+            'getting_started_desc',
             [
-              'Create an account or log in',
-              'Add your first plant',
-              'Set up weather notifications',
-              'Browse the plant catalog'
+              'create_account',
+              'add_first_plant',
+              'setup_weather',
+              'browse_catalog'
             ],
           ),
           _buildHelpSection(
-            'Weather Features',
-            'Understanding weather information',
+            'weather_features_title',
+            'weather_features_desc',
             [
-              'Current weather conditions',
-              'Spraying time recommendations',
-              'Weather forecasts',
-              'Setting up alerts'
+              'current_weather',
+              'spraying_time',
+              'weather_forecast',
+              'setup_alerts'
             ],
           ),
           _buildHelpSection(
-            'Plant Care',
-            'Tips for maintaining healthy plants',
+            'plant_care_title',
+            'plant_care_desc',
             [
-              'Watering schedules',
-              'Fertilizer application',
-              'Pest control',
-              'Disease management'
+              'watering_schedule',
+              'fertilizer_application',
+              'pest_control',
+              'disease_management'
             ],
           ),
           _buildHelpSection(
-            'Shopping',
-            'Guide to using the shop',
+            'shopping_guide_title',
+            'shopping_guide_desc',
             [
-              'Browsing products',
-              'Adding items to cart',
-              'Checkout process',
-              'Order tracking'
+              'browse_products',
+              'add_to_cart',
+              'checkout_process',
+              'order_tracking'
             ],
           ),
           const SizedBox(height: 20),
@@ -63,35 +64,36 @@ class HelpScreen extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Contact Support'),
+            child: const LocalizedText('contact_support'),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildHelpSection(String title, String description, List<String> items) {
+  Widget _buildHelpSection(
+      String titleKey, String descriptionKey, List<String> itemKeys) {
     return Card(
       margin: const EdgeInsets.only(bottom: 16.0),
       child: ExpansionTile(
-        title: Text(
-          title,
+        title: LocalizedText(
+          titleKey,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(description),
+        subtitle: LocalizedText(descriptionKey),
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: items
-                  .map((item) => Padding(
+              children: itemKeys
+                  .map((itemKey) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4.0),
                         child: Row(
                           children: [
                             const Icon(Icons.arrow_right, color: Colors.blue),
                             const SizedBox(width: 8),
-                            Text(item),
+                            LocalizedText(itemKey),
                           ],
                         ),
                       ))

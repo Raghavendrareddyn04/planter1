@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
+import '../widgets/localized_text.dart';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
@@ -11,13 +12,13 @@ class CommunityScreen extends StatefulWidget {
 
 class CommunityScreenState extends State<CommunityScreen> {
   final List<Post> _posts = [];
-  final String _currentUser = 'CurrentUser'; // Simulating logged-in user
+  final String _currentUser = 'CurrentUser';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Community'),
+        title: const LocalizedText('community'),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
@@ -61,11 +62,11 @@ class CommunityScreenState extends State<CommunityScreen> {
                     itemBuilder: (BuildContext context) => [
                       const PopupMenuItem(
                         value: 'edit',
-                        child: Text('Edit'),
+                        child: LocalizedText('edit'),
                       ),
                       const PopupMenuItem(
                         value: 'delete',
-                        child: Text('Delete'),
+                        child: LocalizedText('delete'),
                       ),
                     ],
                   )
@@ -144,20 +145,19 @@ class CommunityScreenState extends State<CommunityScreen> {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(isEditing ? 'Edit Post' : 'Create Post'),
+        title: LocalizedText(isEditing ? 'edit_post' : 'create_post'),
         content: SingleChildScrollView(
           child: SizedBox(
-            width:
-                300, // Set a fixed width for the dialog to avoid infinite width issues
+            width: 300,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextField(
                   controller: contentController,
                   maxLines: 5,
-                  decoration: const InputDecoration(
-                    hintText: 'What\'s on your mind?',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    hintText: const LocalizedText('whats_on_mind').toString(),
+                    border: const OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -196,7 +196,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                           }
                         },
                         icon: const Icon(Icons.image),
-                        label: const Text('Add Image'),
+                        label: const LocalizedText('add_image'),
                       ),
                     ],
                   ),
@@ -208,7 +208,7 @@ class CommunityScreenState extends State<CommunityScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: const LocalizedText('cancel'),
           ),
           TextButton(
             onPressed: () {
@@ -229,7 +229,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                 Navigator.pop(context);
               }
             },
-            child: Text(isEditing ? 'Update' : 'Post'),
+            child: LocalizedText(isEditing ? 'update' : 'post'),
           ),
         ],
       ),
@@ -286,19 +286,19 @@ class CommunityScreenState extends State<CommunityScreen> {
       context: context,
       builder: (context) => Container(
         padding: const EdgeInsets.all(16),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Comments',
+            const LocalizedText(
+              'comments',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16),
-            Center(
-              child: Text('No comments yet'),
+            const SizedBox(height: 16),
+            const Center(
+              child: LocalizedText('no_comments'),
             ),
           ],
         ),

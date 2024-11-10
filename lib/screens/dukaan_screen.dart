@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/localized_text.dart';
 import 'cart_screen.dart';
 
 class DukaanScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class DukaanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dukaan'),
+        title: const LocalizedText('dukaan'),
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
@@ -37,7 +38,7 @@ class DukaanScreen extends StatelessWidget {
   Widget _buildSearchBar() {
     return TextField(
       decoration: InputDecoration(
-        hintText: 'Search products...',
+        hintText: const LocalizedText('search_products_placeholder').toString(),
         prefixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -48,10 +49,10 @@ class DukaanScreen extends StatelessWidget {
 
   Widget _buildCategories() {
     final categories = [
-      {'icon': Icons.eco, 'name': 'Seeds'},
-      {'icon': Icons.water_drop, 'name': 'Fertilizers'},
-      {'icon': Icons.pest_control, 'name': 'Pesticides'},
-      {'icon': Icons.build, 'name': 'Tools'},
+      {'icon': Icons.eco, 'nameKey': 'seeds_category'},
+      {'icon': Icons.water_drop, 'nameKey': 'fertilizers_category'},
+      {'icon': Icons.pest_control, 'nameKey': 'pesticides_category'},
+      {'icon': Icons.build, 'nameKey': 'tools_category'},
     ];
 
     return SizedBox(
@@ -74,10 +75,10 @@ class DukaanScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8.0),
-                Text(
-                  categories[index]['name'] as String,
-                  textAlign: TextAlign.center,
+                LocalizedText(
+                  categories[index]['nameKey'] as String,
                   style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -149,7 +150,7 @@ class DukaanScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    child: const Text('Add to Cart'),
+                    child: const LocalizedText('add_to_cart'),
                   ),
                 ),
               ],
