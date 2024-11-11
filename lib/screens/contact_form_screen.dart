@@ -130,7 +130,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(
-                  labelText: 'name',
+                  labelText: 'Name',
                   prefixIcon: Icon(Icons.person),
                 ),
                 validator: (value) {
@@ -144,7 +144,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
-                  labelText: 'email',
+                  labelText: 'Mail',
                   prefixIcon: Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
@@ -163,7 +163,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _phoneController,
                 decoration: const InputDecoration(
-                  labelText: 'phone',
+                  labelText: 'Phone',
                   prefixIcon: Icon(Icons.phone),
                 ),
                 keyboardType: TextInputType.phone,
@@ -228,7 +228,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _descriptionController,
                 decoration: const InputDecoration(
-                  labelText: 'description',
+                  labelText: 'Description',
                   prefixIcon: Icon(Icons.description),
                   alignLabelWithHint: true,
                 ),

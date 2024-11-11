@@ -156,7 +156,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                   controller: contentController,
                   maxLines: 5,
                   decoration: InputDecoration(
-                    hintText: const LocalizedText('whats_on_mind').toString(),
+                    hintText: const Text('whats_on_mind').toString(),
                     border: const OutlineInputBorder(),
                   ),
                 ),

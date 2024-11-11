@@ -51,17 +51,18 @@ flutter:
     - assets/images/black_citrus_aphid.jpg
     - assets/images/phoma_blight.jpg
     - assets/images/pineapple_disease.jpg
-    # - assets/images/crops/rice.png
-    # - assets/images/crops/wheat.png
-    # - assets/images/crops/corn.png
-    # - assets/images/crops/cotton.png
-    # - assets/images/crops/sugarcane.png
-    # - assets/images/crops/groundnut.png
-    # - assets/images/crops/mango.png
-    # - assets/images/crops/banana.png
-    # - assets/images/crops/apple.png
-    # - assets/images/crops/grape.png
-    # - assets/images/crops/orange.png    
+    - assets/images/crops/rice.png
+    - assets/images/crops/wheat.png
+    - assets/images/crops/corn.png
+    - assets/images/crops/cotton.png
+    - assets/images/crops/sugarcane.png
+    - assets/images/crops/groundnut.png
+    - assets/images/crops/mango.png
+    - assets/images/crops/banana.png
+    - assets/images/crops/apple.png
+    - assets/images/crops/grape.png
+    - assets/images/crops/orange.png
+    - assets/images/profile.jpg
 
 flutter_launcher_icons:
   android: "launcher_icon"
