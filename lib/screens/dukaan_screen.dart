@@ -38,7 +38,7 @@ class DukaanScreen extends StatelessWidget {
   Widget _buildSearchBar() {
     return TextField(
       decoration: InputDecoration(
-        hintText: const LocalizedText('search_products_placeholder').toString(),
+        hintText: ('Search Products').toString(),
         prefixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),

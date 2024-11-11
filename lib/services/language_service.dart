@@ -527,7 +527,7 @@ class LanguageService {
     },
     'damping_off': {
       'English': 'Damping-Off of Seedlings',
-      'Telugu': 'మొలకల డ్యాంపింగ్-ఆఫ్',
+      'Telugu': 'మొలకల డ్యాంపంగ్-ఆఫ్',
     },
     'bacterial_black_spot': {
       'English': 'Bacterial Black Spot',
@@ -557,7 +557,7 @@ class LanguageService {
       'English': 'Anthracnose',
       'Telugu': 'ఆంథ్రాక్నోస్',
     },
-        // Weather Widget Translations
+    // Weather Widget Translations
     'current_weather': {
       'English': 'Current Weather',
       'Telugu': 'ప్రస్తుత వాతావరణం',
@@ -625,6 +625,125 @@ class LanguageService {
     'unknown_location': {
       'English': 'Unknown Location',
       'Telugu': 'తెలియని ప్రాంతం',
+    },
+    'chatbot_greeting': {
+      'English': 'Hi! How can I help you?',
+      'Telugu': 'నమస్కారం! నేను మీకు ఎలా సహాయం చేయగలను?',
+    },
+    'chatbot_title': {
+      'English': 'Planter Assistant',
+      'Telugu': 'ప్లాంటర్ సహాయకుడు',
+    },
+    'anything_else': {
+      'English': 'Is there anything else you would like to know?',
+      'Telugu': 'మీరు మరేమైనా తెలుసుకోవాలనుకుంటున్నారా?',
+    },
+    'yes': {
+      'English': 'Yes',
+      'Telugu': 'అవును',
+    },
+    'no': {
+      'English': 'No',
+      'Telugu': 'లేదు',
+    },
+    'thank_you': {
+      'English': 'Thank you for using our planter app! Have a great day!',
+      'Telugu': 'మా ప్లాంటర్ యాప్‌ని ఉపయోగించినందుకు ధన్యవాదాలు! శుభదినం!',
+    },
+    'plant_diseases_question': {
+      'English': 'How do I identify common plant diseases?',
+      'Telugu': 'సాధారణ మొక్క వ్యాధులను ఎలా గుర్తించాలి?',
+    },
+    'organic_farming_question': {
+      'English': 'What are the best organic farming practices?',
+      'Telugu': 'ఉత్తమ సేంద్రీయ వ్యవసాయ పద్ధతులు ఏమిటి?',
+    },
+    'seasonal_crops_question': {
+      'English': 'Which crops are best for the current season?',
+      'Telugu': 'ప్రస్తుత సీజన్‌కు ఏ పంటలు మంచివ?',
+    },
+    'pest_control_question': {
+      'English': 'How can I control pests naturally?',
+      'Telugu': 'పురుగులను సహజంగా ఎలా నియంత్రించవచ్చు?',
+    },
+    'soil_health_question': {
+      'English': 'How can I improve soil health?',
+      'Telugu': 'నేల ఆరోగ్యాన్ని ఎలా మెరుగుపరచవచ్చు?',
+    },
+    'watering_practices_question': {
+      'English': 'What are the best watering practices?',
+      'Telugu': 'ఉత్తమ నీటి పారుదల పద్ధతులు ఏమిటి?',
+    },
+    'sunlight_needs_question': {
+      'English': 'How much sunlight do plants need?',
+      'Telugu': 'మొక్కలకు ఎంత సూర్యరశ్మి అవసరం?',
+    },
+    'fertilizer_usage_question': {
+      'English': 'How do I use fertilizers correctly?',
+      'Telugu': 'ఎరువులను సరిగ్గా ఎలా ఉపయోగించాలి?',
+    },
+    'disease_resistant_question': {
+      'English': 'Which plant varieties are disease-resistant?',
+      'Telugu': 'ఏ మొక్క రకాలు వ్యాధి నిరోధక శక్తి కలిగి ఉన్నాయి?',
+    },
+    'kitchen_garden_question': {
+      'English': 'How do I start a kitchen garden?',
+      'Telugu': 'వంటగది తోటను ఎలా ప్రారంభించాలి?',
+    },
+
+    'chat_with_us': {
+      'English': 'Chat with us',
+      'Telugu': 'మాతో చాట్ చేయండి',
+    },
+    'profile_updated_successfully': {
+      'English': 'Profile updated successfully',
+      'Telugu': 'ప్రొఫైల్ విజయవంతంగా నవీకరించబడింది',
+    },
+    'save_changes': {
+      'English': 'Save Changes',
+      'Telugu': 'మార్పులను సేవ్ చేయండి',
+    },
+    'close': {
+      'English': 'close',
+      'Telugu': 'మూసి వేయండి',
+    },
+    'recommended_npk': {
+      'English': 'Recommended NPK',
+      'Telugu': 'సిఫారసు చేసిన ఎన్పీకే',
+    },
+    'required_fertilizers': {
+      'English': 'Required Fertilizers',
+      'Telugu': ' అవసరమైన ఎరువులు',
+    },
+    'application_schedule': {
+      'English': 'Application Schedule',
+      'Telugu': ' అన్వయ క్రమం ',
+    },
+    'schedule_': {
+      'English': 'Crop Fertilizer Timing Guide',
+      'Telugu': ' పంట ఎరువుల సమయ మార్గదర్శిని ',
+    },
+    'schedule__': {
+      'English':
+          'Apply N-P-K fertilizer before planting to support initial root and shoot growth.',
+      'Telugu':
+          '  వేర్ల మరియు మొలకల మొదటి వృద్ధిని ప్రోత్సహించడానికి నాటడానికి ముందు N-P-K ఎరువు పెట్టండి. ',
+    },
+    'schedule___': {
+      'English':
+          ' Apply a Nitrogen-rich fertilizer 2-4 weeks after planting to boost vegetative growth.',
+      'Telugu':
+          ' 2-4 వారాల తరువాత, శాక వృద్ధిని పెంచడానికి నైట్రోజన్ ఎక్కువగా ఉండే ఎరువును ఉపయోగించండి. ',
+    },
+    'schedule____': {
+      'English':
+          'Apply a Potassium-rich fertilizer during flowering and fruiting to enhance fruit or grain development.',
+      'Telugu':
+          ' పండ్ల లేదా ధాన్యాల వృద్ధిని మెరుగుపరచడానికి పువ్వులు మరియు పండ్ల దశలో పొటాషియం అధికంగా ఉండే ఎరువును ఉపయోగించండి. ',
+    },
+    'please_enter_field_size': {
+      'English': 'Please Enter Field Size',
+      'Telugu': ' దయచేసి క్షేత్ర పరిమాణాన్ని నమోదు చేయండి  ',
     },
   };
 }

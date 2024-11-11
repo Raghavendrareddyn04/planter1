@@ -15,6 +15,8 @@ class LocalizedText extends StatefulWidget {
 
   @override
   State<LocalizedText> createState() => _LocalizedTextState();
+
+  static of(BuildContext context) {}
 }
 
 class _LocalizedTextState extends State<LocalizedText> {

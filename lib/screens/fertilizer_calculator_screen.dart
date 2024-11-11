@@ -9,11 +9,12 @@ class FertilizerCalculatorScreen extends StatefulWidget {
       _FertilizerCalculatorScreenState();
 }
 
-class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen> {
+class _FertilizerCalculatorScreenState
+    extends State<FertilizerCalculatorScreen> {
   String _selectedCategory = 'cereals';
   String _selectedCrop = 'rice';
   double _fieldSize = 0;
-  String _sizeUnit = 'acres';
+  String _sizeUnit = 'Acres';
   final _formKey = GlobalKey<FormState>();
 
   final Map<String, List<String>> _cropCategories = {
@@ -126,9 +127,11 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                           height: 120,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: _cropCategories[_selectedCategory]!.length,
+                            itemCount:
+                                _cropCategories[_selectedCategory]!.length,
                             itemBuilder: (context, index) {
-                              final crop = _cropCategories[_selectedCategory]![index];
+                              final crop =
+                                  _cropCategories[_selectedCategory]![index];
                               return GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -155,7 +158,8 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                                         height: 60,
                                         width: 60,
                                         fit: BoxFit.cover,
-                                        errorBuilder: (context, error, stackTrace) {
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
                                           return Icon(
                                             Icons.grass,
                                             size: 40,
@@ -206,9 +210,9 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                               flex: 2,
                               child: TextFormField(
                                 keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: const OutlineInputBorder(),
-                                  hintText: const LocalizedText('enter_field_size').toString(),
+                                  hintText: ' Enter Field Size',
                                   contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                     vertical: 8,
@@ -216,7 +220,9 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return const LocalizedText('please_enter_field_size').toString();
+                                    return const LocalizedText(
+                                            'please_enter_field_size')
+                                        .toString();
                                   }
                                   return null;
                                 },
@@ -239,7 +245,7 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                                     vertical: 8,
                                   ),
                                 ),
-                                items: ['acres', 'hectares']
+                                items: ['Acres', 'Hectares']
                                     .map((unit) => DropdownMenuItem(
                                           value: unit,
                                           child: LocalizedText(unit),
@@ -327,16 +333,20 @@ class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen>
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text('Urea (46-0-0): ${fertilizers['Urea']!.toStringAsFixed(1)} kg'),
-              Text('TSP (0-46-0): ${fertilizers['TSP']!.toStringAsFixed(1)} kg'),
-              Text('MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg'),
-              const SizedBox(height: 16),
-              const LocalizedText(
-                'application_schedule',
+              Text(
+                  'Urea (46-0-0): ${fertilizers['Urea']!.toStringAsFixed(1)} kg'),
+              Text(
+                  'TSP (0-46-0): ${fertilizers['TSP']!.toStringAsFixed(1)} kg'),
+              Text(
+                  'MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg'),
+              const SizedBox(height: 8),
+              LocalizedText(
+                'schedule_',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 8),
-              LocalizedText('schedule_$_selectedCrop'),
+              LocalizedText('schedule__'),
+              LocalizedText('schedule___'),
+              LocalizedText('schedule____'),
             ],
           ),
         ),

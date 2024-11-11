@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
 import 'help_screen.dart';
 import 'contact_form_screen.dart';
+import 'edit_profile_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -54,7 +55,14 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditProfileScreen(),
+                ),
+              );
+            },
             child: const LocalizedText('edit_profile_button'),
           ),
         ],

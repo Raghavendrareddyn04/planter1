@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import '../widgets/weather_widget.dart';
 import '../services/language_service.dart';
 import '../widgets/localized_text.dart';
+import '../widgets/chat_bot.dart'; // Add this import
 import 'fertilizer_calculator_screen.dart';
 import 'pests_diseases_screen.dart';
 import 'cultivation_tips_screen.dart';
@@ -174,16 +175,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() => _selectedIndex = index);
-        },
-        children: <Widget>[
-          _buildMainPage(),
-          const CommunityScreen(),
-          const DukaanScreen(),
-          const ProfileScreen(),
+      body: Stack(
+        children: [
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _selectedIndex = index);
+            },
+            children: <Widget>[
+              _buildMainPage(),
+              const CommunityScreen(),
+              const DukaanScreen(),
+              const ProfileScreen(),
+            ],
+          ),
+          if (_selectedIndex == 0) const ChatBot(),
         ],
       ),
       bottomNavigationBar: BottomNavyBar(

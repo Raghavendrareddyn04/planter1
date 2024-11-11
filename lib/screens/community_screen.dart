@@ -156,7 +156,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                   controller: contentController,
                   maxLines: 5,
                   decoration: InputDecoration(
-                    hintText: const Text('whats_on_mind').toString(),
+                    hintText: ('What Is on your mind?').toString(),
                     border: const OutlineInputBorder(),
                   ),
                 ),
@@ -229,7 +229,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                 Navigator.pop(context);
               }
             },
-            child: LocalizedText(isEditing ? 'update' : 'post'),
+            child: LocalizedText(isEditing ? 'update' : 'Post'),
           ),
         ],
       ),
@@ -281,7 +281,7 @@ class CommunityScreenState extends State<CommunityScreen> {
     });
   }
 
-  void _showComments(BuildContext context, Post post) {
+  void _showComments(BuildContext context, Post Post) {
     showModalBottomSheet(
       context: context,
       builder: (context) => Container(
