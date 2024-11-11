@@ -557,5 +557,74 @@ class LanguageService {
       'English': 'Anthracnose',
       'Telugu': 'ఆంథ్రాక్నోస్',
     },
+        // Weather Widget Translations
+    'current_weather': {
+      'English': 'Current Weather',
+      'Telugu': 'ప్రస్తుత వాతావరణం',
+    },
+    'humidity': {
+      'English': 'Humidity',
+      'Telugu': 'తేమ',
+    },
+    'wind_speed': {
+      'English': 'Wind Speed',
+      'Telugu': 'గాలి వేగం',
+    },
+    'pressure': {
+      'English': 'Pressure',
+      'Telugu': 'ఒత్తిడి',
+    },
+    'sunrise': {
+      'English': 'Sunrise',
+      'Telugu': 'సూర్యోదయం',
+    },
+    'sunset': {
+      'English': 'Sunset',
+      'Telugu': 'సూర్యాస్తమయం',
+    },
+    'additional_info': {
+      'English': 'Additional Information',
+      'Telugu': 'అదనపు సమాచారం',
+    },
+    'spraying_conditions': {
+      'English': 'Spraying Conditions',
+      'Telugu': 'చిలకరింపు పరిస్థితులు',
+    },
+    'suitable_spraying': {
+      'English': 'Current conditions are suitable for spraying.',
+      'Telugu': 'ప్రస్తుత పరిస్థితులు చిలకరింపుకు అనుకూలంగా ఉన్నాయి.',
+    },
+    'not_recommended': {
+      'English': 'Not recommended for spraying:',
+      'Telugu': 'చిలకరింపుకు సిఫార్సు చేయబడలేదు:',
+    },
+    'wind_high': {
+      'English': 'Wind speed is too high',
+      'Telugu': 'గాలి వేగం చాలా ఎక్కువగా ఉంది',
+    },
+    'humidity_low': {
+      'English': 'Humidity is too low',
+      'Telugu': 'తేమ చాలా తక్కువగా ఉంది',
+    },
+    'humidity_high': {
+      'English': 'Humidity is too high',
+      'Telugu': 'తేమ చాలా ఎక్కువగా ఉంది',
+    },
+    'temp_low': {
+      'English': 'Temperature is too low',
+      'Telugu': 'ఉష్ణోగ్రత చాలా తక్కువగా ఉంది',
+    },
+    'temp_high': {
+      'English': 'Temperature is too high',
+      'Telugu': 'ఉష్ణోగ్రత చాలా ఎక్కువగా ఉంది',
+    },
+    'last_updated': {
+      'English': 'Last updated:',
+      'Telugu': 'చివరిగా నవీకరించబడింది:',
+    },
+    'unknown_location': {
+      'English': 'Unknown Location',
+      'Telugu': 'తెలియని ప్రాంతం',
+    },
   };
 }

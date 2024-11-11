@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 import '../services/weather_service.dart';
 import 'package:intl/intl.dart';
+import 'localized_text.dart';
 
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({super.key});
@@ -199,16 +200,18 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _weather?.areaName ?? "Unknown Location",
+              _weather?.areaName ?? "unknown_location",
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Last updated: ${DateFormat('HH:mm').format(DateTime.now())}',
-              style: TextStyle(color: Colors.grey[600]),
+            Row(
+              children: [
+                const LocalizedText('last_updated'),
+                Text(' ${DateFormat('HH:mm').format(DateTime.now())}'),
+              ],
             ),
             const SizedBox(height: 16),
             Row(
@@ -250,8 +253,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Additional Information',
+            const LocalizedText(
+              'additional_info',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -259,29 +262,29 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             ),
             const SizedBox(height: 16),
             _buildInfoRow(
-                'Humidity', '${_weather?.humidity}%', Icons.water_drop),
-            _buildInfoRow('Wind Speed',
+                'humidity', '${_weather?.humidity}%', Icons.water_drop),
+            _buildInfoRow('wind_speed',
                 '${_weather?.windSpeed?.toStringAsFixed(1)} km/h', Icons.air),
             _buildInfoRow(
-                'Pressure', '${_weather?.pressure?.round()} hPa', Icons.speed),
+                'pressure', '${_weather?.pressure?.round()} hPa', Icons.speed),
             _buildInfoRow(
-                'Sunrise', _formatTime(_weather?.sunrise), Icons.wb_sunny),
+                'sunrise', _formatTime(_weather?.sunrise), Icons.wb_sunny),
             _buildInfoRow(
-                'Sunset', _formatTime(_weather?.sunset), Icons.nights_stay),
+                'sunset', _formatTime(_weather?.sunset), Icons.nights_stay),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildInfoRow(String label, String value, IconData icon) {
+  Widget _buildInfoRow(String labelKey, String value, IconData icon) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           Icon(icon, size: 20, color: Colors.grey),
           const SizedBox(width: 8),
-          Text(label, style: const TextStyle(fontSize: 16)),
+          LocalizedText(labelKey, style: const TextStyle(fontSize: 16)),
           const Spacer(),
           Text(
             value,
@@ -310,8 +313,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   color: isGoodForSpraying ? Colors.green : Colors.orange,
                 ),
                 const SizedBox(width: 8),
-                const Text(
-                  'Spraying Conditions',
+                const LocalizedText(
+                  'spraying_conditions',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -320,11 +323,10 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               ],
             ),
             const SizedBox(height: 16),
-            Text(
-              _getSprayingRecommendation(),
+            LocalizedText(
+              isGoodForSpraying ? 'suitable_spraying' : _getSprayingRecommendation(),
               style: TextStyle(
-                color:
-                    isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
+                color: isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
               ),
             ),
           ],
@@ -353,26 +355,26 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     List<String> issues = [];
 
     if (windSpeed >= 10) {
-      issues.add('Wind speed is too high (${windSpeed.round()} km/h)');
+      issues.add('wind_high (${windSpeed.round()} km/h)');
     }
     if (humidity <= 40) {
-      issues.add('Humidity is too low ($humidity%)');
+      issues.add('humidity_low ($humidity%)');
     }
     if (humidity >= 90) {
-      issues.add('Humidity is too high ($humidity%)');
+      issues.add('humidity_high ($humidity%)');
     }
     if (temp <= 10) {
-      issues.add('Temperature is too low (${temp.round()}°C)');
+      issues.add('temp_low (${temp.round()}°C)');
     }
     if (temp >= 30) {
-      issues.add('Temperature is too high (${temp.round()}°C)');
+      issues.add('temp_high (${temp.round()}°C)');
     }
 
     if (issues.isEmpty) {
-      return 'Current conditions are suitable for spraying.';
+      return 'suitable_spraying';
     }
 
-    return 'Not recommended for spraying: ${issues.join(', ')}.';
+    return 'not_recommended ${issues.join(', ')}.';
   }
 
   String _formatTime(DateTime? time) {
