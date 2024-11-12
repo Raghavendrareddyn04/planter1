@@ -11,8 +11,8 @@ class FertilizerCalculatorScreen extends StatefulWidget {
 
 class _FertilizerCalculatorScreenState
     extends State<FertilizerCalculatorScreen> {
-  String _selectedCategory = 'cereals';
-  String _selectedCrop = 'rice';
+  String _selectedCategory = 'fruits';
+  String _selectedCrop = 'mango';
   double _fieldSize = 0;
   String _sizeUnit = 'Acres';
   final _formKey = GlobalKey<FormState>();
@@ -220,8 +220,7 @@ class _FertilizerCalculatorScreenState
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return const LocalizedText(
-                                            'please_enter_field_size')
+                                    return ('Please Enter Field Size')
                                         .toString();
                                   }
                                   return null;

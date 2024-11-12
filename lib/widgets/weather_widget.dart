@@ -3,6 +3,7 @@ import 'package:weather/weather.dart';
 import '../services/weather_service.dart';
 import 'package:intl/intl.dart';
 import 'localized_text.dart';
+import 'dart:async';
 
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({super.key});
@@ -16,6 +17,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   Weather? _weather;
   bool _isLoading = true;
   String _error = '';
+  Timer? _timer;
 
   @override
   void initState() {
@@ -23,18 +25,28 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     _loadWeather();
   }
 
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
   Future<void> _loadWeather() async {
     try {
       final weather = await _weatherService.getWeather();
-      setState(() {
-        _weather = weather;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _weather = weather;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _error = e.toString();
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _error = e.toString();
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -324,9 +336,12 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             ),
             const SizedBox(height: 16),
             LocalizedText(
-              isGoodForSpraying ? 'suitable_spraying' : _getSprayingRecommendation(),
+              isGoodForSpraying
+                  ? 'suitable_spraying'
+                  : _getSprayingRecommendation(),
               style: TextStyle(
-                color: isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
+                color:
+                    isGoodForSpraying ? Colors.green[700] : Colors.orange[700],
               ),
             ),
           ],
@@ -355,26 +370,26 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     List<String> issues = [];
 
     if (windSpeed >= 10) {
-      issues.add('wind_high (${windSpeed.round()} km/h)');
+      issues.add('Wind speed is too high (${windSpeed.round()} km/h)');
     }
     if (humidity <= 40) {
-      issues.add('humidity_low ($humidity%)');
+      issues.add('Humidity is too low ($humidity%)');
     }
     if (humidity >= 90) {
-      issues.add('humidity_high ($humidity%)');
+      issues.add('Humidity is too high ($humidity%)');
     }
     if (temp <= 10) {
-      issues.add('temp_low (${temp.round()}°C)');
+      issues.add('Temperature is too low (${temp.round()}°C)');
     }
     if (temp >= 30) {
-      issues.add('temp_high (${temp.round()}°C)');
+      issues.add('Temperature is too high (${temp.round()}°C)');
     }
 
     if (issues.isEmpty) {
-      return 'suitable_spraying';
+      return 'Current conditions are suitable for spraying';
     }
 
-    return 'not_recommended ${issues.join(', ')}.';
+    return 'Not recommended for spraying ${issues.join(', ')}.';
   }
 
   String _formatTime(DateTime? time) {

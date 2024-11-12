@@ -9,7 +9,7 @@ class HelpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const LocalizedText('help'),
+        title: const LocalizedText('Help'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -28,7 +28,7 @@ class HelpScreen extends StatelessWidget {
             'weather_features_title',
             'weather_features_desc',
             [
-              'current_weather',
+              'current_weather_c',
               'spraying_time',
               'weather_forecast',
               'setup_alerts'
@@ -49,7 +49,7 @@ class HelpScreen extends StatelessWidget {
             'shopping_guide_desc',
             [
               'browse_products',
-              'add_to_cart',
+              'add_to_cart_',
               'checkout_process',
               'order_tracking'
             ],
@@ -64,7 +64,7 @@ class HelpScreen extends StatelessWidget {
                 ),
               );
             },
-            child: const LocalizedText('contact_support'),
+            child: const LocalizedText('contact_us'),
           ),
         ],
       ),

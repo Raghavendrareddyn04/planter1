@@ -290,7 +290,7 @@ class CommunityScreenState extends State<CommunityScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const LocalizedText(
-              'comments',
+              'Comments',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -298,7 +298,7 @@ class CommunityScreenState extends State<CommunityScreen> {
             ),
             const SizedBox(height: 16),
             const Center(
-              child: LocalizedText('no_comments'),
+              child: LocalizedText('No Comments'),
             ),
           ],
         ),

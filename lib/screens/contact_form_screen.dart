@@ -135,7 +135,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'please_enter_name';
+                    return 'Please Enter Name';
                   }
                   return null;
                 },
@@ -144,17 +144,17 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
-                  labelText: 'Mail',
+                  labelText: 'Email',
                   prefixIcon: Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'please_enter_email';
+                    return 'Please Enter Email';
                   }
                   if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                       .hasMatch(value)) {
-                    return 'please_enter_valid_email';
+                    return 'Please Enter Valid Email';
                   }
                   return null;
                 },
@@ -169,10 +169,10 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'please_enter_phone';
+                    return 'Please Enter Phone';
                   }
                   if (!RegExp(r'^\+?[\d\s-]+$').hasMatch(value)) {
-                    return 'please_enter_valid_phone';
+                    return 'Please Enter Valid Phone';
                   }
                   return null;
                 },
@@ -235,7 +235,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                 maxLines: 5,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'please_enter_description';
+                    return 'Please Enter Description';
                   }
                   return null;
                 },

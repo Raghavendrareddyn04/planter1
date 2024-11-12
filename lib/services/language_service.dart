@@ -588,15 +588,15 @@ class LanguageService {
     },
     'spraying_conditions': {
       'English': 'Spraying Conditions',
-      'Telugu': 'చిలకరింపు పరిస్థితులు',
+      'Telugu': 'పిచికారీ పరిస్థితులు',
     },
     'suitable_spraying': {
       'English': 'Current conditions are suitable for spraying.',
-      'Telugu': 'ప్రస్తుత పరిస్థితులు చిలకరింపుకు అనుకూలంగా ఉన్నాయి.',
+      'Telugu': 'ప్రస్తుత పరిస్థితులు పిచికారీకి అనుకూలంగా ఉన్నాయి.',
     },
     'not_recommended': {
       'English': 'Not recommended for spraying:',
-      'Telugu': 'చిలకరింపుకు సిఫార్సు చేయబడలేదు:',
+      'Telugu': 'పిచికారీకి సిఫారసు చేయబడలేదు:',
     },
     'wind_high': {
       'English': 'Wind speed is too high',
@@ -744,6 +744,94 @@ class LanguageService {
     'please_enter_field_size': {
       'English': 'Please Enter Field Size',
       'Telugu': ' దయచేసి క్షేత్ర పరిమాణాన్ని నమోదు చేయండి  ',
+    },
+    'Acres': {
+      'English': 'Acres',
+      'Telugu': 'ఎకరాలు',
+    },
+    'Hectares': {
+      'English': 'Hectares',
+      'Telugu': 'హెక్టార్లు',
+    },
+    'getting_started_desc': {
+      'English': 'Learn how to use the basic features of the app',
+      'Telugu': 'యాప్ యొక్క ప్రాథమిక లక్షణాలను ఎలా ఉపయోగించాలో తెలుసుకోండి',
+    },
+    'create_account': {
+      'English': 'Create an account or log in',
+      'Telugu': 'ఖాతాను సృష్టించండి లేదా లాగిన్ అవ్వండి',
+    },
+    'add_first_plant': {
+      'English': 'Add your first plant',
+      'Telugu': 'మీ మొదటి మొక్కను జోడించండి',
+    },
+    'setup_weather': {
+      'English': 'Set up weather notifications',
+      'Telugu': 'వాతావరణ ప్రకటనలను సెటప్ చేయండి',
+    },
+    'browse_catalog': {
+      'English': 'Browse the plant catalog',
+      'Telugu': 'మొక్కల క్యాటలాగ్‌ను బ్రౌజ్ చేయండి',
+    },
+    'weather_features_desc': {
+      'English': 'Understanding weather information',
+      'Telugu': 'వాతావరణ సమాచారాన్ని అర్థం చేసుకోవడం',
+    },
+    'current_weather_c': {
+      'English': 'Current weather conditions',
+      'Telugu': 'ప్రస్తుత వాతావరణ పరిస్థితులు',
+    },
+    'spraying_time': {
+      'English': 'Spraying time recommendations',
+      'Telugu': 'పిచికారీ సమయ సూచనలు',
+    },
+    'weather_forecast': {
+      'English': 'Weather forecasts',
+      'Telugu': 'వాతావరణ సూచనలు',
+    },
+    'setup_alerts': {
+      'English': 'Setting up alerts',
+      'Telugu': 'అలర్ట్‌లను సెటప్ చేయడం',
+    },
+    'plant_care_desc': {
+      'English': 'Tips for maintaining healthy plants',
+      'Telugu': 'ఆరోగ్యకరమైన మొక్కలను కాపాడడానికి సూచనలు',
+    },
+    'watering_schedule': {
+      'English': 'Watering schedules',
+      'Telugu': 'నీటిపారుదల సమయ పట్టికలు',
+    },
+    'fertilizer_application': {
+      'English': 'Fertilizer application',
+      'Telugu': 'ఎరువు అన్వయం',
+    },
+    'pest_control': {
+      'English': 'Pest control',
+      'Telugu': 'కీటక నియంత్రణ',
+    },
+    'disease_management': {
+      'English': 'Disease management',
+      'Telugu': 'వ్యాధి నిర్వహణ',
+    },
+    'shopping_guide_desc': {
+      'English': 'Guide to using the shop',
+      'Telugu': 'షాప్ ఉపయోగం మార్గదర్శిని',
+    },
+    'browse_products': {
+      'English': 'Browsing products',
+      'Telugu': 'ఉత్పత్తులను బ్రౌజ్ చేయడం',
+    },
+    'add_to_cart_': {
+      'English': 'Adding items to cart',
+      'Telugu': 'కార్ట్‌లో అంశాలను చేర్చడం ',
+    },
+    'checkout_process': {
+      'English': 'Checkout process',
+      'Telugu': 'చెకౌట్ ప్రక్రియ',
+    },
+    'order_tracking': {
+      'English': 'Order tracking',
+      'Telugu': 'ఆర్డర్ ట్రాకింగ్',
     },
   };
 }
