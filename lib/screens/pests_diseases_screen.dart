@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart'; // Assuming this service provides localized text
 
 class PestsDiseasesScreen extends StatefulWidget {
   const PestsDiseasesScreen({super.key});
@@ -11,11 +12,23 @@ class PestsDiseasesScreen extends StatefulWidget {
 class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
   bool _showMoreSeedling = false;
   bool _showMoreVegetative = false;
+  final LanguageService _languageService = LanguageService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: _languageService
+              .getText('back')
+              .toString(), // Localized text for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('pests_diseases_title'),
         backgroundColor: const Color(0xFFFFF3E0),
       ),

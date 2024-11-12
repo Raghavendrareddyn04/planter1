@@ -92,6 +92,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: _languageService
+              .getText('back')
+              .toString(), // Localized tooltip for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('edit_profile'),
       ),
       body: SingleChildScrollView(

@@ -117,6 +117,17 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: _languageService
+              .getText('back')
+              .toString(), // Localized tooltip for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('contact_us'),
       ),
       body: SingleChildScrollView(

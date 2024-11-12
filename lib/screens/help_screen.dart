@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
 import 'contact_form_screen.dart';
+import '../services/language_service.dart'; // Assuming this service provides localized text
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final LanguageService languageService =
+        LanguageService(); // Initialize LanguageService to get localized text
+
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: languageService
+              .getText('back')
+              .toString(), // Localized text for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('Help'),
       ),
       body: ListView(

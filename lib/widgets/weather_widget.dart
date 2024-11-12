@@ -3,15 +3,8 @@ import 'package:weather/weather.dart';
 import '../services/weather_service.dart';
 import 'package:intl/intl.dart';
 import 'localized_text.dart';
+import '../services/language_service.dart';
 import 'dart:async';
-
-class LanguageService {
-  String getText(String key) {
-    // Implement your localization logic here
-    // For example, return a localized string based on the key
-    return key; // Placeholder implementation
-  }
-}
 
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({super.key});
@@ -32,12 +25,20 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   void initState() {
     super.initState();
     _loadWeather();
+    _languageService.addListener(_onLanguageChanged);
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    _languageService.removeListener(_onLanguageChanged);
     super.dispose();
+  }
+
+  void _onLanguageChanged(String _) {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _loadWeather() async {
@@ -221,7 +222,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _weather?.areaName ?? "unknown_location",
+              _weather?.areaName ??
+                  _languageService.getText('unknown_location'),
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -230,7 +232,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             const SizedBox(height: 8),
             Row(
               children: [
-                const LocalizedText('last_updated'),
+                LocalizedText('last_updated'),
                 Text(' ${DateFormat('HH:mm').format(DateTime.now())}'),
               ],
             ),
@@ -274,9 +276,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const LocalizedText(
+            LocalizedText(
               'additional_info',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -334,9 +336,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   color: isGoodForSpraying ? Colors.green : Colors.orange,
                 ),
                 const SizedBox(width: 8),
-                const LocalizedText(
+                LocalizedText(
                   'spraying_conditions',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -344,9 +346,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               ],
             ),
             const SizedBox(height: 16),
-            LocalizedText(
+            Text(
               isGoodForSpraying
-                  ? 'suitable_spraying'
+                  ? _languageService.getText('suitable_spraying')
                   : _getSprayingRecommendation(),
               style: TextStyle(
                 color:
@@ -379,28 +381,28 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     List<String> issues = [];
 
     if (windSpeed >= 10) {
-      issues.add(_languageService.getText('wind_high') +
-          ' (${windSpeed.round()} km/h)');
+      issues.add(
+          '${_languageService.getText('wind_high')} (${windSpeed.round()} km/h)');
     }
     if (humidity <= 40) {
-      issues.add(_languageService.getText('humidity_low') + ' ($humidity%)');
+      issues.add('${_languageService.getText('humidity_low')} ($humidity%)');
     }
     if (humidity >= 90) {
-      issues.add(_languageService.getText('humidity_high') + ' ($humidity%)');
+      issues.add('${_languageService.getText('humidity_high')} ($humidity%)');
     }
     if (temp <= 10) {
-      issues.add(_languageService.getText('temp_low') + ' (${temp.round()}°C)');
+      issues.add('${_languageService.getText('temp_low')} (${temp.round()}°C)');
     }
     if (temp >= 30) {
       issues
-          .add(_languageService.getText('temp_high') + ' (${temp.round()}°C)');
+          .add('${_languageService.getText('temp_high')} (${temp.round()}°C)');
     }
 
     if (issues.isEmpty) {
-      return 'Current conditions are suitable for spraying';
+      return _languageService.getText('suitable_spraying');
     }
 
-    return 'Not recommended for spraying ${issues.join(', ')}.';
+    return '${_languageService.getText('not_recommended')} ${issues.join(', ')}.';
   }
 
   String _formatTime(DateTime? time) {

@@ -259,7 +259,7 @@ class LanguageService {
     // Fertilizer Calculator
     '#fertilizer_calculator': {
       'English': 'Fertilizer Calculator',
-      'Telugu': 'ఎరువుల కాలిక్యులేటర్',
+      'Telugu': 'ఎరువుల కాలిక్యులేటర���',
     },
     'select_category': {
       'English': 'Select Category',
@@ -527,7 +527,7 @@ class LanguageService {
     },
     'damping_off': {
       'English': 'Damping-Off of Seedlings',
-      'Telugu': 'మొలకల డ్యాంపంగ్-ఆఫ్',
+      'Telugu': 'మొలకల ���్యాంపంగ్-ఆఫ్',
     },
     'bacterial_black_spot': {
       'English': 'Bacterial Black Spot',
@@ -727,7 +727,7 @@ class LanguageService {
       'English':
           'Apply N-P-K fertilizer before planting to support initial root and shoot growth.',
       'Telugu':
-          '  వేర్ల మరియు మొలకల మొదటి వృద్ధిని ప్రోత్సహించడానికి నాటడానికి ముందు N-P-K ఎరువు పెట్టండి. ',
+          '  వేర్ల మరియు మొలకల మొదటి వృద్ధిని ప్రోత్సహించడాని��ి నాటడానికి ముందు N-P-K ఎరువు పెట్టండి. ',
     },
     'schedule___': {
       'English':
@@ -922,7 +922,7 @@ class LanguageService {
     },
     'change_photo_hover': {
       'English': 'Change profile photo',
-      'Telugu': 'ప్రొఫైల్ ఫోటోను మార్చండి',
+      'Telugu': '���్రొఫైల్ ఫోటోను మార్చండి',
     },
     'save_changes_hover': {
       'English': 'Save your changes',
@@ -1020,7 +1020,7 @@ class LanguageService {
     },
     'hover_delete': {
       'English': 'Delete your post',
-      'Telugu': 'మీ పోస్ట్‌ని తొలగించండి',
+      'Telugu': 'మీ పోస్ట‌ని తొలగించండి',
     },
     'hover_comment': {
       'English': 'Add a comment',
@@ -1046,5 +1046,209 @@ class LanguageService {
       'English': 'Change language',
       'Telugu': 'భాషను మార్చండి',
     },
+    'back': {
+      'English': 'Go back',
+      'Telugu': 'వెనుకకు వెళ్ళండి',
+    },
+    'change_language_tooltip': {
+      'English': 'Change language',
+      'Telugu': 'భాషను మార్చండి',
+    },
+    'menu_tooltip': {
+      'English': 'Show menu',
+      'Telugu': 'మెనూను చూపించు',
+    },
+    'A': {
+      'English':
+          'Common plant diseases can be identified by observing symptoms like:\n\n'
+              '• Spots or lesions on leaves\n'
+              '• Wilting despite adequate watering\n'
+              '• Yellowing or browning of leaves\n'
+              '• Powdery or fuzzy growth on plants\n'
+              '• Stunted growth\n\n'
+              'Take a photo of the affected plant part and use our disease detection feature for accurate diagnosis.',
+      'Telugu':
+          'సాధారణ మొక్క వ్యాధులను పైన ఉన్న లక్షణాలను గమనించడం ద్వారా గుర్తించవచ్చు:\n\n'
+              '• ఆకులపై మరకలు లేదా గాయాలు\n'
+              '• తగినంత నీరు ఉన్నప్పటికీ కుళ్లడం\n'
+              '• ఆకుల పసుపు లేదా బ్రౌనింగ్\n'
+              '• మొక్కలపై పొడి లేదా ముదురు పెరుగుదల\n'
+              '• పెరుగుదల రద్దు\n\n'
+              'కారణాలు గుర్తించడానికి ప్రభావిత మొక్క భాగం ఫోటో తీసి మా వ్యాధి గుర్తింపు ఫీచర్ ఉపయోగించండి.',
+    },
+    'B': {
+      'English': 'Key organic farming practices include:\n\n'
+          '• Using compost and natural fertilizers\n'
+          '• Crop rotation to maintain soil health\n'
+          '• Natural pest control methods\n'
+          '• Companion planting\n'
+          '• Green manuring\n'
+          '• Mulching for weed control\n'
+          '• Maintaining biodiversity',
+      'Telugu': 'ముఖ్యమైన సేంద్రీయ వ్యవసాయ పద్ధతులు:\n\n'
+          '• కంపోస్టు మరియు సహజ ఎరువులు ఉపయోగించడం\n'
+          '• నేల ఆరోగ్యాన్ని కాపాడటానికి పంట మార్పిడి\n'
+          '• సహజ పురుగు నియంత్రణ పద్ధతులు\n'
+          '• సహచర మొక్కలు పెంచడం\n'
+          '• పచ్చ మల్లేటి\n'
+          '• కలుపు నియంత్రణ కోసం మల్చింగ్\n'
+          '• బయోడైవర్సిటీని కాపాడడం',
+    },
+    'C': {
+      'English': 'Based on the current season, consider growing:\n\n'
+          'Summer:\n'
+          '• Tomatoes, Peppers, Eggplants\n'
+          'Winter:\n'
+          '• Leafy greens, Peas, Root vegetables\n'
+          'Monsoon:\n'
+          '• Rice, Corn, Pulses\n\n'
+          'Use our seasonal crop calendar feature for more specific recommendations.',
+      'Telugu': 'ప్రస్తుత సీజన్ ఆధారంగా, ఈ పంటలను పండించడం పరిగణించండి:\n\n'
+          'సమ్మర్:\n'
+          '• టమాటాలు, మిరపకాయలు, బెండకాయలు\n'
+          'వింటర్:\n'
+          '• ఆకుకూరలు, పెసలు, మూల పచ్చి కూరలు\n'
+          'వర్షాకాలం:\n'
+          '• బియ్యం, మక్క, పప్పు దినుసులు\n\n'
+          'ఇంకా సవివర సిఫార్సుల కోసం మా సీజనల్ పంట క్యాలెండర్ ఫీచర్ ఉపయోగించండి.',
+    },
+    'D': {
+      'English': 'Natural pest control methods include:\n\n'
+          '• Neem oil spray\n'
+          '• Companion planting\n'
+          '• Introducing beneficial insects\n'
+          '• Garlic and chili spray\n'
+          '• Maintaining plant hygiene\n'
+          '• Using physical barriers\n'
+          '• Crop rotation',
+      'Telugu': 'సహజ పురుగు నియంత్రణ పద్ధతులు:\n\n'
+          '• నిమ్మ ఆవు నూనె స్ప్రే\n'
+          '• సహచర మొక్కల పెంపకం\n'
+          '• లాభదాయక కీటకాలను పరిచయం చేయడం\n'
+          '• వెల్లుల్లి మరియు మిరపకాయల స్ప్రే\n'
+          '• మొక్కల పరిశుభ్రత నిర్వహణ\n'
+          '• భౌతిక బారియర్ల ఉపయోగం\n'
+          '• పంట మార్పిడి',
+    },
+    'E': {
+      'English': 'To improve soil health:\n\n'
+          '• Add organic matter regularly\n'
+          '• Use compost and vermicompost\n'
+          '• Practice crop rotation\n'
+          '• Avoid over-tilling\n'
+          '• Maintain proper drainage\n'
+          '• Use cover crops\n'
+          '• Test soil regularly',
+      'Telugu': 'నేల ఆరోగ్యాన్ని మెరుగుపరచడానికి:\n\n'
+          '• ఆర్గానిక్ పదార్థాన్ని క్రమం తప్పకుండా జోడించండి\n'
+          '• కంపోస్టు మరియు వర్మీ కంపోస్టు ఉపయోగించండి\n'
+          '• పంట మార్పిడి పాటించండి\n'
+          '• అధికగా టిల్లింగ్ నుండి నివారించండి\n'
+          '• సరైన కాలువ నిర్వహించండి\n'
+          '• కవర్ పంటలు ఉపయోగించండి\n'
+          '• నేలను క్రమం తప్పకుండా పరీక్షించండి',
+    },
+    'F': {
+      'English': 'Optimal watering practices include:\n\n'
+          '• Water deeply but less frequently\n'
+          '• Water at the base of plants\n'
+          '• Water early morning or evening\n'
+          '• Use mulch to retain moisture\n'
+          '• Adjust watering based on weather\n'
+          '• Check soil moisture before watering',
+      'Telugu': 'సరిగా నీరు పట్టడం పద్ధతులు:\n\n'
+          '• బాగా నీరు పెట్టండి కాని తక్కువగా వాడండి\n'
+          '• మొక్కల అడుగున నీరు పట్టండి\n'
+          '• ఉదయం లేదా సాయంత్రం నీరు పెట్టండి\n'
+          '• తేమని నిలుపుకొనేందుకు మల్చ్ వాడండి\n'
+          '• వాతావరణ ఆధారంగా నీరు పట్టడాన్ని మార్చండి\n'
+          '• నీరు పెట్టే ముందు నేల తేమను పరీక్షించండి',
+    },
+    'G': {
+      'English': 'Sunlight requirements vary by plant:\n\n'
+          'Full Sun (6+ hours):\n'
+          '• Tomatoes, Peppers, Most fruits\n\n'
+          'Partial Sun (4-6 hours):\n'
+          '• Herbs, Some vegetables\n\n'
+          'Partial Shade (2-4 hours):\n'
+          '• Leafy greens, Root vegetables\n\n'
+          'Check our plant database for specific requirements.',
+      'Telugu': 'సూర్యకాంతి అవసరాలు మొక్క ఆధారంగా మారుతాయి:\n\n'
+          'పూర్తి సూర్యకాంతి (6+ గంటలు):\n'
+          '• టమాటాలు, మిరపకాయలు, మిగతా పండ్లు\n\n'
+          'భాగస్వామ్యం సూర్యకాంతి (4-6 గంటలు):\n'
+          '• సుగంధ ద్రవ్యాలు, కొన్ని కూరగాయలు\n\n'
+          'భాగస్వామ్యం నీడ (2-4 గంటలు):\n'
+          '• ఆకుకూరలు, మూల పచ్చి కూరలు\n\n'
+          'క్లారిటీ కోసం మా మొక్కల డేటాబేస్‌ను తనిఖీ చేయండి.',
+    },
+    'H': {
+      'English': 'For proper fertilizer use:\n\n'
+          '• Test soil before applying\n'
+          '• Follow recommended dosage\n'
+          '• Apply at right growth stage\n'
+          '• Maintain proper timing\n'
+          '• Use organic options when possible\n\n'
+          'Use our fertilizer calculator for precise measurements.',
+      'Telugu': 'సరిగ్గా ఎరువులు వాడడానికి:\n\n'
+          '• ఎరువులు పెట్టే ముందు నేలను పరీక్షించండి\n'
+          '• సూచించిన మోతాదును పాటించండి\n'
+          '• సరైన పెరుగుదల దశలో అమలు చేయండి\n'
+          '• సరైన సమయాన్ని పాటించండి\n'
+          '• సాధ్యమైనంత వరకు ఆర్గానిక్ ఎంపికలను వాడండి\n\n'
+          'ఖచ్చితంగా కొలవడానికి మా ఎరువు కాలిక్యులేటర్‌ను ఉపయోగించండి.',
+    },
+    'I': {
+      'English': 'Disease-resistant varieties include:\n\n'
+          'Tomatoes:\n'
+          '• Better Boy, Celebrity\n\n'
+          'Rice:\n'
+          '• IR64, MTU1010\n\n'
+          'Cotton:\n'
+          '• Bt Cotton varieties\n\n'
+          'Check our seed catalog for more options.',
+      'Telugu': 'వ్యాధి నిరోధక రకాలు ఈ విధంగా ఉంటాయి:\n\n'
+          'టమాటాలు:\n'
+          '• బెటర్ బాయ్, సెలెబ్రిటీ\n\n'
+          'బియ్యం:\n'
+          '• IR64, MTU1010\n\n'
+          'పత్తి:\n'
+          '• Bt పత్తి రకాలు\n\n'
+          'ఇంకా ఎంపికల కోసం మా విత్తనాల కేటలాగ్‌ని తనిఖీ చేయండి.',
+    },
+    'J': {
+      'English': 'To start a kitchen garden:\n\n'
+          '• Choose a sunny location\n'
+          '• Prepare raised beds or containers\n'
+          '• Use quality soil mix\n'
+          '• Start with easy crops\n'
+          '• Plan seasonal rotations\n'
+          '• Install proper irrigation\n'
+          '• Use vertical space efficiently',
+      'Telugu': 'వంటగది తోటను ప్రారంభించడానికి:\n\n'
+          '• ఒక సూర్యకాంతి ప్రదేశాన్ని ఎంచుకోండి\n'
+          '• ఎత్తు గల మంచాలు లేదా కంటైనర్లు సిద్ధం చేయండి\n'
+          '• నాణ్యమైన నేల మిశ్రమం వాడండి\n'
+          '• సులభమైన పంటలతో మొదలు పెట్టండి\n'
+          '• సీజనల్ రొటేషన్లను ప్లాన్ చేయండి\n'
+          '• సరైన నీటి పారుదల వ్యవస్థను ఏర్పాటు చేయండి\n'
+          '• నిలువు ప్రదేశాన్ని సమర్థవంతంగా వాడండి',
+    },
+    'update': {
+      'English': 'Update',
+      'Telugu': 'అప్‌డేట్',
+    },
+    'Search _Products': {
+      'English': 'Search Products',
+      'Telugu': 'ఉత్పత్తులను శోధించండి',
+    },
+    'logout_confirmation_title': {
+      'English': 'Logout Confirmation',
+      'Telugu': 'లాగ్ అవుట్ నిర్ధారణ',
+    },
+    'logout_confirmation_message': {
+      'English': 'Are you sure you want to logout?',
+      'Telugu': 'మీరు నిజంగా లాగ్ అవుట్ కావాలనుకుంటున్నారా?',
+    },
   };
-}
+} // Added closing brace for LanguageService class

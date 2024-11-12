@@ -53,24 +53,29 @@ class CommunityScreenState extends State<CommunityScreen> {
             title: Text(post.username),
             subtitle: LocalizedText(post.timeAgo),
             trailing: post.username == _currentUser
-                ? PopupMenuButton<String>(
-                    onSelected: (value) {
-                      if (value == 'edit') {
-                        _showPostDialog(context, post: post);
-                      } else if (value == 'delete') {
-                        _deletePost(post);
-                      }
-                    },
-                    itemBuilder: (BuildContext context) => [
-                      const PopupMenuItem(
-                        value: 'edit',
-                        child: LocalizedText('edit'),
-                      ),
-                      const PopupMenuItem(
-                        value: 'delete',
-                        child: LocalizedText('delete'),
-                      ),
-                    ],
+                ? Tooltip(
+                    message: _languageService.getText('menu_tooltip'),
+                    child: PopupMenuButton<String>(
+                      onSelected: (value) {
+                        if (value == 'edit') {
+                          _showPostDialog(context, post: post);
+                        } else if (value == 'delete') {
+                          _deletePost(post);
+                        }
+                      },
+                      itemBuilder: (BuildContext context) => [
+                        PopupMenuItem(
+                          value: 'edit',
+                          child: LocalizedText(
+                              _languageService.getText('edit_button')),
+                        ),
+                        PopupMenuItem(
+                          value: 'delete',
+                          child: LocalizedText(
+                              _languageService.getText('delete_button')),
+                        ),
+                      ],
+                    ),
                   )
                 : null,
           ),
@@ -284,7 +289,7 @@ class CommunityScreenState extends State<CommunityScreen> {
     });
   }
 
-  void _showComments(BuildContext context, Post Post) {
+  void _showComments(BuildContext context, Post post) {
     showModalBottomSheet(
       context: context,
       builder: (context) => Container(

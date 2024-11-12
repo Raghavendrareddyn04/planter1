@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
 import 'cart_screen.dart';
+import '../services/language_service.dart';
 
 class DukaanScreen extends StatelessWidget {
-  const DukaanScreen({super.key});
+  final LanguageService _languageService;
+
+  const DukaanScreen({super.key, required LanguageService languageService})
+      : _languageService = languageService;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class DukaanScreen extends StatelessWidget {
   Widget _buildSearchBar() {
     return TextField(
       decoration: InputDecoration(
-        hintText: ('Search Products').toString(),
+        hintText: _languageService.getText('Search _Products').toString(),
         prefixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -11,11 +12,23 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   final List<Map<String, dynamic>> _cartItems = [];
   double _total = 0.0;
+  final LanguageService _languageService = LanguageService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: _languageService
+              .getText('back')
+              .toString(), // Localized text for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('shopping_cart'),
       ),
       body: _cartItems.isEmpty

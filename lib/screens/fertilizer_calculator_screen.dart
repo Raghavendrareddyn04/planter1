@@ -17,7 +17,7 @@ class _FertilizerCalculatorScreenState
   double _fieldSize = 0;
   String _sizeUnit = 'Acres';
   final _formKey = GlobalKey<FormState>();
-  final _languageService = LanguageService();
+  final LanguageService _languageService = LanguageService();
 
   final Map<String, List<String>> _cropCategories = {
     'cereals': ['rice', 'wheat', 'corn'],
@@ -69,6 +69,17 @@ class _FertilizerCalculatorScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: _languageService
+              .getText('back')
+              .toString(), // Localized text for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('fertilizer_calculator'),
       ),
       body: SafeArea(
@@ -224,7 +235,8 @@ class _FertilizerCalculatorScreenState
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return ('Please Enter Field Size')
+                                    return _languageService
+                                        .getText('please_enter_field_size')
                                         .toString();
                                   }
                                   return null;
@@ -292,7 +304,7 @@ class _FertilizerCalculatorScreenState
 
   void _showResults() {
     final ratios = _fertilizerRatios[_selectedCrop]!;
-    final multiplier = _sizeUnit == 'hectares' ? 2.47 : 1.0;
+    final multiplier = _sizeUnit == 'Hectares' ? 2.47 : 1.0;
 
     final npkValues = {
       'N': ratios['N']! * _fieldSize * multiplier,
@@ -305,9 +317,9 @@ class _FertilizerCalculatorScreenState
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: LocalizedText(
+        title: const LocalizedText(
           'recommended_fertilizer',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: SingleChildScrollView(
           child: Column(
@@ -343,13 +355,13 @@ class _FertilizerCalculatorScreenState
               Text(
                   'MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg'),
               const SizedBox(height: 8),
-              LocalizedText(
+              const LocalizedText(
                 'schedule_',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              LocalizedText('schedule__'),
-              LocalizedText('schedule___'),
-              LocalizedText('schedule____'),
+              const LocalizedText('schedule__'),
+              const LocalizedText('schedule___'),
+              const LocalizedText('schedule____'),
             ],
           ),
         ),

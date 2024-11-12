@@ -2,14 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'contact_form_screen.dart';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart'; // Assuming this service provides localized text
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final LanguageService languageService =
+        LanguageService(); // Initialize LanguageService
+
     return Scaffold(
       appBar: AppBar(
+        leading: Tooltip(
+          message: languageService
+              .getText('back')
+              .toString(), // Localized tooltip for "Back"
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         title: const LocalizedText('about'),
       ),
       body: SingleChildScrollView(

@@ -149,6 +149,7 @@ class _HomePageState extends State<HomePage> {
                     if (value != null) {
                       _languageService.setLanguage(value);
                       Navigator.pop(context);
+                      setState(() {}); // Update UI to reflect language change
                     }
                   },
                 ),
@@ -162,6 +163,7 @@ class _HomePageState extends State<HomePage> {
                     if (value != null) {
                       _languageService.setLanguage(value);
                       Navigator.pop(context);
+                      setState(() {}); // Update UI to reflect language change
                     }
                   },
                 ),
@@ -185,9 +187,9 @@ class _HomePageState extends State<HomePage> {
             },
             children: <Widget>[
               _buildMainPage(),
-              const CommunityScreen(),
-              const DukaanScreen(),
-              const ProfileScreen(),
+              CommunityScreen(),
+              DukaanScreen(languageService: _languageService),
+              ProfileScreen(),
             ],
           ),
           if (_selectedIndex == 0) const ChatBot(),
@@ -240,36 +242,40 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           Tooltip(
-            message: _languageService.getText('hover_language'),
+            message: _languageService.getText('change_language_tooltip'),
             child: IconButton(
               icon: const Icon(Icons.language),
               onPressed: _showLanguageDialog,
               color: Colors.black,
             ),
           ),
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert, color: Colors.black),
-            onSelected: (value) {
-              if (value == 'about') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutScreen()),
-                );
-              } else if (value == 'help') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HelpScreen()),
-                );
-              }
-            },
-            itemBuilder: (BuildContext context) {
-              return {'about', 'help'}.map((String choice) {
-                return PopupMenuItem<String>(
-                  value: choice,
-                  child: LocalizedText(choice),
-                );
-              }).toList();
-            },
+          Tooltip(
+            message: _languageService.getText('menu_tooltip'),
+            child: PopupMenuButton(
+              icon: const Icon(Icons.more_vert, color: Colors.black),
+              onSelected: (value) {
+                if (value == 'about') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AboutScreen()),
+                  );
+                } else if (value == 'help') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HelpScreen()),
+                  );
+                }
+              },
+              itemBuilder: (BuildContext context) {
+                return {'about', 'help'}.map((String choice) {
+                  return PopupMenuItem<String>(
+                    value: choice,
+                    child: LocalizedText(choice),
+                  );
+                }).toList();
+              },
+            ),
           ),
         ],
       ),
