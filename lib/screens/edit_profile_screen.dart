@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io';
+import '../services/language_service.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -19,6 +20,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
   final _locationController = TextEditingController();
+  final _languageService = LanguageService();
   XFile? _profileImage;
   Uint8List? _profileImageBytes;
   bool _isLoading = false;
@@ -62,8 +64,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       });
 
       try {
-        // Here you would typically save the profile data to your backend
-        // For now, we'll just simulate a delay
         await Future.delayed(const Duration(seconds: 1));
 
         if (!mounted) return;
@@ -101,51 +101,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: _pickImage,
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: _profileImageBytes != null
-                          ? MemoryImage(_profileImageBytes!)
-                          : _profileImage != null
-                              ? FileImage(File(_profileImage!.path))
-                                  as ImageProvider<Object>?
-                              : null,
-                      child: _profileImageBytes == null
-                          ? const Icon(Icons.person, size: 50)
-                          : null,
-                    ),
-                    Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.camera_alt,
-                          color: Colors.white,
-                          size: 20,
+              Tooltip(
+                message: _languageService.getText('change_photo_hover'),
+                child: GestureDetector(
+                  onTap: _pickImage,
+                  child: Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: _profileImageBytes != null
+                            ? MemoryImage(_profileImageBytes!)
+                            : _profileImage != null
+                                ? FileImage(File(_profileImage!.path))
+                                    as ImageProvider<Object>?
+                                : null,
+                        child: _profileImageBytes == null
+                            ? const Icon(Icons.person, size: 50)
+                            : null,
+                      ),
+                      Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                            size: 20,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
               TextFormField(
                 controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                  prefixIcon: Icon(Icons.person),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('name'),
+                  hintText: _languageService.getText('enter_name'),
+                  prefixIcon: const Icon(Icons.person),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
+                    return _languageService.getText('name_required');
                   }
                   return null;
                 },
@@ -153,18 +157,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('email'),
+                  hintText: _languageService.getText('enter_email'),
+                  prefixIcon: const Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
+                    return _languageService.getText('email_required_');
                   }
                   if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                       .hasMatch(value)) {
-                    return 'Please enter a valid email';
+                    return _languageService.getText('email_invalid');
                   }
                   return null;
                 },
@@ -172,14 +177,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _phoneController,
-                decoration: const InputDecoration(
-                  labelText: 'Phone',
-                  prefixIcon: Icon(Icons.phone),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('phone'),
+                  hintText: _languageService.getText('enter_phone'),
+                  prefixIcon: const Icon(Icons.phone),
                 ),
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your phone number';
+                    return _languageService.getText('phone_required_');
                   }
                   return null;
                 },
@@ -187,32 +193,36 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _locationController,
-                decoration: const InputDecoration(
-                  labelText: 'Location',
-                  prefixIcon: Icon(Icons.location_on),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('location'),
+                  hintText: _languageService.getText('enter_location'),
+                  prefixIcon: const Icon(Icons.location_on),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your location';
+                    return _languageService.getText('location_required');
                   }
                   return null;
                 },
               ),
               const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _saveProfile,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+              Tooltip(
+                message: _languageService.getText('save_changes_hover'),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _saveProfile,
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const LocalizedText('save_changes'),
                   ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const LocalizedText('save_changes'),
                 ),
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
@@ -13,6 +14,7 @@ class CommunityScreen extends StatefulWidget {
 class CommunityScreenState extends State<CommunityScreen> {
   final List<Post> _posts = [];
   final String _currentUser = 'CurrentUser';
+  final _languageService = LanguageService();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class CommunityScreenState extends State<CommunityScreen> {
         },
       ),
       floatingActionButton: Tooltip(
-        message: 'Add new post',
+        message: _languageService.getText('hover_post'),
         child: FloatingActionButton(
           onPressed: () => _showPostDialog(context),
           child: const Icon(Icons.add),
@@ -49,7 +51,7 @@ class CommunityScreenState extends State<CommunityScreen> {
               child: Icon(Icons.person),
             ),
             title: Text(post.username),
-            subtitle: Text(post.timeAgo),
+            subtitle: LocalizedText(post.timeAgo),
             trailing: post.username == _currentUser
                 ? PopupMenuButton<String>(
                     onSelected: (value) {
@@ -156,7 +158,8 @@ class CommunityScreenState extends State<CommunityScreen> {
                   controller: contentController,
                   maxLines: 5,
                   decoration: InputDecoration(
-                    hintText: ('What Is on your mind?').toString(),
+                    hintText:
+                        _languageService.getText('whats_on_mind').toString(),
                     border: const OutlineInputBorder(),
                   ),
                 ),
@@ -229,7 +232,7 @@ class CommunityScreenState extends State<CommunityScreen> {
                 Navigator.pop(context);
               }
             },
-            child: LocalizedText(isEditing ? 'update' : 'Post'),
+            child: LocalizedText(isEditing ? 'update' : 'post_button'),
           ),
         ],
       ),
@@ -246,7 +249,7 @@ class CommunityScreenState extends State<CommunityScreen> {
           username: _currentUser,
           content: content,
           imageBytes: imageBytes,
-          timeAgo: 'Just now',
+          timeAgo: 'just_now',
           likes: 0,
           comments: 0,
         ),
@@ -290,7 +293,7 @@ class CommunityScreenState extends State<CommunityScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const LocalizedText(
-              'Comments',
+              'comments_title',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -298,7 +301,7 @@ class CommunityScreenState extends State<CommunityScreen> {
             ),
             const SizedBox(height: 16),
             const Center(
-              child: LocalizedText('No Comments'),
+              child: LocalizedText('no_comments'),
             ),
           ],
         ),

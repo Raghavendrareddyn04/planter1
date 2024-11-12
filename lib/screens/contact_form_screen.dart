@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart';
 
 class ContactFormScreen extends StatefulWidget {
   const ContactFormScreen({super.key});
@@ -18,6 +19,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
   final _descriptionController = TextEditingController();
+  final _languageService = LanguageService();
   XFile? _screenshot;
   Uint8List? _screenshotBytes;
   bool _isLoading = false;
@@ -93,11 +95,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: LocalizedText(
-              'error_submitting_form',
-              style: TextStyle(color: Colors.red),
-            ),
+          const SnackBar(
+            content: LocalizedText('error_submitting_form'),
           ),
         );
       } finally {
@@ -129,13 +128,14 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
             children: [
               TextFormField(
                 controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                  prefixIcon: Icon(Icons.person),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('name_label'),
+                  hintText: _languageService.getText('enter_name_hint'),
+                  prefixIcon: const Icon(Icons.person),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please Enter Name';
+                    return _languageService.getText('name_required');
                   }
                   return null;
                 },
@@ -143,18 +143,19 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('email_label'),
+                  hintText: _languageService.getText('enter_email_hint'),
+                  prefixIcon: const Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please Enter Email';
+                    return _languageService.getText('email_required_');
                   }
                   if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                       .hasMatch(value)) {
-                    return 'Please Enter Valid Email';
+                    return _languageService.getText('email_invalid');
                   }
                   return null;
                 },
@@ -162,17 +163,15 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _phoneController,
-                decoration: const InputDecoration(
-                  labelText: 'Phone',
-                  prefixIcon: Icon(Icons.phone),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('phone_label'),
+                  hintText: _languageService.getText('enter_phone_hint'),
+                  prefixIcon: const Icon(Icons.phone),
                 ),
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please Enter Phone';
-                  }
-                  if (!RegExp(r'^\+?[\d\s-]+$').hasMatch(value)) {
-                    return 'Please Enter Valid Phone';
+                    return _languageService.getText('phone_required_');
                   }
                   return null;
                 },
@@ -184,9 +183,9 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const LocalizedText(
+                      LocalizedText(
                         'screenshot',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
                         ),
@@ -213,12 +212,15 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                             ),
                           ],
                         ),
-                      ElevatedButton.icon(
-                        onPressed: _pickImage,
-                        icon: const Icon(Icons.add_photo_alternate),
-                        label: LocalizedText(_screenshot == null
-                            ? 'add_screenshot'
-                            : 'change_screenshot'),
+                      Tooltip(
+                        message: _languageService.getText('add_screenshot'),
+                        child: ElevatedButton.icon(
+                          onPressed: _pickImage,
+                          icon: const Icon(Icons.add_photo_alternate),
+                          label: LocalizedText(_screenshot == null
+                              ? 'add_screenshot'
+                              : 'change_screenshot'),
+                        ),
                       ),
                     ],
                   ),
@@ -227,32 +229,36 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _descriptionController,
-                decoration: const InputDecoration(
-                  labelText: 'Description',
-                  prefixIcon: Icon(Icons.description),
+                decoration: InputDecoration(
+                  labelText: _languageService.getText('description_label'),
+                  hintText: _languageService.getText('enter_description_hint'),
+                  prefixIcon: const Icon(Icons.description),
                   alignLabelWithHint: true,
                 ),
                 maxLines: 5,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please Enter Description';
+                    return _languageService.getText('description_required_');
                   }
                   return null;
                 },
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _isLoading ? null : _submitForm,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+              Tooltip(
+                message: _languageService.getText('send'),
+                child: ElevatedButton(
+                  onPressed: _isLoading ? null : _submitForm,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  child: _isLoading
+                      ? const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const LocalizedText('send'),
                 ),
-                child: _isLoading
-                    ? const SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const LocalizedText('send'),
               ),
             ],
           ),

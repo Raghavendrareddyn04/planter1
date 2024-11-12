@@ -211,7 +211,7 @@ class LanguageService {
       'English': 'Contact Us',
       'Telugu': 'మమ్మల్ని సంప్రదించండి',
     },
-    'name_required': {
+    'name_required_': {
       'English': 'Name *',
       'Telugu': 'పేరు *',
     },
@@ -757,7 +757,7 @@ class LanguageService {
       'English': 'Learn how to use the basic features of the app',
       'Telugu': 'యాప్ యొక్క ప్రాథమిక లక్షణాలను ఎలా ఉపయోగించాలో తెలుసుకోండి',
     },
-    'create_account': {
+    'create_account_': {
       'English': 'Create an account or log in',
       'Telugu': 'ఖాతాను సృష్టించండి లేదా లాగిన్ అవ్వండి',
     },
@@ -832,6 +832,219 @@ class LanguageService {
     'order_tracking': {
       'English': 'Order tracking',
       'Telugu': 'ఆర్డర్ ట్రాకింగ్',
+    },
+    // Form Fields
+    'name': {
+      'English': 'Name',
+      'Telugu': 'పేరు',
+    },
+    'email': {
+      'English': 'Email',
+      'Telugu': 'ఇమెయిల్',
+    },
+    'phone': {
+      'English': 'Phone',
+      'Telugu': 'ఫోన్',
+    },
+    'location': {
+      'English': 'Location',
+      'Telugu': 'ప్రాంతం',
+    },
+    'description': {
+      'English': 'Description',
+      'Telugu': 'వివరణ',
+    },
+    'password': {
+      'English': 'Password',
+      'Telugu': 'పాస్వర్డ్',
+    },
+
+    // Placeholders/Hints
+    'enter_name': {
+      'English': 'Enter your name',
+      'Telugu': 'మీ పేరు నమోదు చేయండి',
+    },
+    'enter_email': {
+      'English': 'Enter your email',
+      'Telugu': 'మీ ఇమెయిల్ నమోదు చేయండి',
+    },
+    'enter_phone': {
+      'English': 'Enter your phone number',
+      'Telugu': 'మీ ఫోన్ నంబర్ నమోదు చేయండి',
+    },
+    'enter_location': {
+      'English': 'Enter your location',
+      'Telugu': 'మీ ప్రాంతాన్ని నమోదు చేయండి',
+    },
+    'enter_description': {
+      'English': 'Enter description',
+      'Telugu': 'వివరణను నమోదు చేయండి',
+    },
+    'enter_password': {
+      'English': 'Enter password',
+      'Telugu': 'పాస్వర్డ్ నమోదు చేయండి',
+    },
+
+    // Validation Messages
+    'name_required': {
+      'English': 'Please enter your name',
+      'Telugu': 'దయచేసి మీ పేరు నమోదు చేయండి',
+    },
+    'email_required_': {
+      'English': 'Please enter your email',
+      'Telugu': 'దయచేసి మీ ఇమెయిల్ నమోదు చేయండి',
+    },
+    'email_invalid': {
+      'English': 'Please enter a valid email',
+      'Telugu': 'దయచేసి చెల్లుబాటు అయ్యే ఇమెయిల్ నమోదు చేయండి',
+    },
+    'phone_required_': {
+      'English': 'Please enter your phone number',
+      'Telugu': 'దయచేసి మీ ఫోన్ నంబర్ నమోదు చేయండి',
+    },
+    'phone_invalid': {
+      'English': 'Please enter a valid phone number',
+      'Telugu': 'దయచేసి చెల్లుబాటు అయ్యే ఫోన్ నంబర్ నమోదు చేయండి',
+    },
+    'location_required': {
+      'English': 'Please enter your location',
+      'Telugu': 'దయచేసి మీ ప్రాంతాన్ని నమోదు చేయండి',
+    },
+    'description_required_': {
+      'English': 'Please enter description',
+      'Telugu': 'దయచేసి వివరణను నమోదు చేయండి',
+    },
+
+    // Hover Texts
+    'edit_profile_hover': {
+      'English': 'Edit your profile information',
+      'Telugu': 'మీ ప్రొఫైల్ సమాచారాన్ని సవరించండి',
+    },
+    'change_photo_hover': {
+      'English': 'Change profile photo',
+      'Telugu': 'ప్రొఫైల్ ఫోటోను మార్చండి',
+    },
+    'save_changes_hover': {
+      'English': 'Save your changes',
+      'Telugu': 'మీ మార్పులను సేవ్ చేయండి',
+    },
+    'add_photo_hover': {
+      'English': 'Add a photo',
+      'Telugu': 'ఫోటోను జోడించండి',
+    },
+
+    // Login/Register Fields
+    'email_phone': {
+      'English': 'Email or Phone number',
+      'Telugu': 'ఇమెయిల్ లేదా ఫోన్ నంబర్',
+    },
+    'create_account': {
+      'English': 'Create Account',
+      'Telugu': 'ఖాతాను సృష్టించండి',
+    },
+    'forgot_password': {
+      'English': 'Forgot Password?',
+      'Telugu': 'పాస్వర్డ్ మర్చిపోయారా?',
+    },
+    'name_label': {
+      'English': 'Name',
+      'Telugu': 'పేరు',
+    },
+    'email_label': {
+      'English': 'Email',
+      'Telugu': 'ఇమెయిల్',
+    },
+    'phone_label': {
+      'English': 'Phone',
+      'Telugu': 'ఫోన్',
+    },
+    'description_label': {
+      'English': 'Description',
+      'Telugu': 'వివరణ',
+    },
+    'enter_name_hint': {
+      'English': 'Enter your name',
+      'Telugu': 'మీ పేరు నమోదు చేయండి',
+    },
+    'enter_email_hint': {
+      'English': 'Enter your email',
+      'Telugu': 'మీ ఇమెయిల్ నమోదు చేయండి',
+    },
+    'enter_phone_hint': {
+      'English': 'Enter your phone number',
+      'Telugu': 'మీ ఫోన్ నంబర్ నమోదు చేయండి',
+    },
+    'enter_description_hint': {
+      'English': 'Enter description',
+      'Telugu': 'వివరణను నమోదు చేయండి',
+    },
+    'whats_on_your_mind_hint': {
+      'English': 'What\'s on your mind?',
+      'Telugu': 'మీ మనసులో ఏముంది?',
+    },
+    'post_button': {
+      'English': 'Post',
+      'Telugu': 'పోస్ట్',
+    },
+    'edit_button': {
+      'English': 'Edit',
+      'Telugu': 'సవరించు',
+    },
+    'delete_button': {
+      'English': 'Delete',
+      'Telugu': 'తొలగించు',
+    },
+    'comments_title': {
+      'English': 'Comments',
+      'Telugu': 'వ్యాఖ్యలు',
+    },
+    'no_comments': {
+      'English': 'No Comments',
+      'Telugu': 'వ్యాఖ్యలు లేవు',
+    },
+    'just_now': {
+      'English': 'Just now',
+      'Telugu': 'ఇప్పుడే',
+    },
+    'select_language_login': {
+      'English': 'Select Language',
+      'Telugu': 'భాషను ఎంచుకోండి',
+    },
+    'hover_post': {
+      'English': 'Share your thoughts',
+      'Telugu': 'మీ ఆలోచనలను పంచుకోండి',
+    },
+    'hover_edit': {
+      'English': 'Edit your post',
+      'Telugu': 'మీ పోస్ట్‌ని సవరించండి',
+    },
+    'hover_delete': {
+      'English': 'Delete your post',
+      'Telugu': 'మీ పోస్ట్‌ని తొలగించండి',
+    },
+    'hover_comment': {
+      'English': 'Add a comment',
+      'Telugu': 'వ్యాఖ్యను జోడించండి',
+    },
+    'hover_like': {
+      'English': 'Like this post',
+      'Telugu': 'ఈ పోస్ట్‌ని ఇష్టపడండి',
+    },
+    'hover_share': {
+      'English': 'Share this post',
+      'Telugu': 'ఈ పోస్ట్‌ని షేర్ చేయండి',
+    },
+    'login': {
+      'English': 'Login',
+      'Telugu': ' లాగిన్',
+    },
+    'planter_title': {
+      'English': 'Planter',
+      'Telugu': ' ప్లాంటర్',
+    },
+    'hover_language': {
+      'English': 'Change language',
+      'Telugu': 'భాషను మార్చండి',
     },
   };
 }

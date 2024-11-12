@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'login_page.dart';
+import '../widgets/localized_text.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -35,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
               ),
               const SizedBox(height: 20),
-              const Text(
-                'Planter',
+              const LocalizedText(
+                'planter_title',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,

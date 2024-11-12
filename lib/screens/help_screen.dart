@@ -18,7 +18,7 @@ class HelpScreen extends StatelessWidget {
             'getting_started_title',
             'getting_started_desc',
             [
-              'create_account',
+              'create_account_',
               'add_first_plant',
               'setup_weather',
               'browse_catalog'

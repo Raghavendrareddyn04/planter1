@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
+import '../services/language_service.dart';
 
 class FertilizerCalculatorScreen extends StatefulWidget {
   const FertilizerCalculatorScreen({super.key});
@@ -16,6 +17,7 @@ class _FertilizerCalculatorScreenState
   double _fieldSize = 0;
   String _sizeUnit = 'Acres';
   final _formKey = GlobalKey<FormState>();
+  final _languageService = LanguageService();
 
   final Map<String, List<String>> _cropCategories = {
     'cereals': ['rice', 'wheat', 'corn'],
@@ -210,9 +212,11 @@ class _FertilizerCalculatorScreenState
                               flex: 2,
                               child: TextFormField(
                                 keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  border: const OutlineInputBorder(),
-                                  hintText: ' Enter Field Size',
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: _languageService
+                                      .getText('enter_field_size')
+                                      .toString(),
                                   contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                     vertical: 8,

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'home_page.dart';
+import '../services/language_service.dart';
+import '../widgets/localized_text.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final _languageService = LanguageService();
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +74,10 @@ class LoginPage extends StatelessWidget {
                       duration: const Duration(milliseconds: 1600),
                       child: Container(
                         margin: const EdgeInsets.only(top: 50),
-                        child: const Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
+                        child: Center(
+                          child: LocalizedText(
+                            'login',
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
@@ -122,7 +126,8 @@ class LoginPage extends StatelessWidget {
                             child: TextField(
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Email or Phone number",
+                                hintText:
+                                    _languageService.getText('email_phone'),
                                 hintStyle: TextStyle(color: Colors.grey[700]),
                               ),
                             ),
@@ -133,7 +138,7 @@ class LoginPage extends StatelessWidget {
                               obscureText: true,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Password",
+                                hintText: _languageService.getText('password'),
                                 hintStyle: TextStyle(color: Colors.grey[700]),
                               ),
                             ),
@@ -165,10 +170,10 @@ class LoginPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
+                        child: Center(
+                          child: LocalizedText(
+                            'login',
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
@@ -192,10 +197,10 @@ class LoginPage extends StatelessWidget {
                             color: const Color.fromRGBO(143, 148, 251, 1),
                           ),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "Create Account",
-                            style: TextStyle(
+                        child: Center(
+                          child: LocalizedText(
+                            'create_account',
+                            style: const TextStyle(
                               color: Color.fromRGBO(143, 148, 251, 1),
                               fontWeight: FontWeight.bold,
                             ),
@@ -207,9 +212,9 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   FadeInUp(
                     duration: const Duration(milliseconds: 2100),
-                    child: const Text(
-                      "Forgot Password?",
-                      style: TextStyle(
+                    child: LocalizedText(
+                      'forgot_password',
+                      style: const TextStyle(
                         color: Color.fromRGBO(143, 148, 251, 1),
                       ),
                     ),

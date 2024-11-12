@@ -5,6 +5,14 @@ import 'package:intl/intl.dart';
 import 'localized_text.dart';
 import 'dart:async';
 
+class LanguageService {
+  String getText(String key) {
+    // Implement your localization logic here
+    // For example, return a localized string based on the key
+    return key; // Placeholder implementation
+  }
+}
+
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({super.key});
 
@@ -14,6 +22,7 @@ class WeatherWidget extends StatefulWidget {
 
 class _WeatherWidgetState extends State<WeatherWidget> {
   final WeatherService _weatherService = WeatherService();
+  final LanguageService _languageService = LanguageService();
   Weather? _weather;
   bool _isLoading = true;
   String _error = '';
@@ -370,19 +379,21 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     List<String> issues = [];
 
     if (windSpeed >= 10) {
-      issues.add('Wind speed is too high (${windSpeed.round()} km/h)');
+      issues.add(_languageService.getText('wind_high') +
+          ' (${windSpeed.round()} km/h)');
     }
     if (humidity <= 40) {
-      issues.add('Humidity is too low ($humidity%)');
+      issues.add(_languageService.getText('humidity_low') + ' ($humidity%)');
     }
     if (humidity >= 90) {
-      issues.add('Humidity is too high ($humidity%)');
+      issues.add(_languageService.getText('humidity_high') + ' ($humidity%)');
     }
     if (temp <= 10) {
-      issues.add('Temperature is too low (${temp.round()}°C)');
+      issues.add(_languageService.getText('temp_low') + ' (${temp.round()}°C)');
     }
     if (temp >= 30) {
-      issues.add('Temperature is too high (${temp.round()}°C)');
+      issues
+          .add(_languageService.getText('temp_high') + ' (${temp.round()}°C)');
     }
 
     if (issues.isEmpty) {

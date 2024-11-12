@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import '../widgets/weather_widget.dart';
-import '../services/language_service.dart';
+import '../services/language_service.dart' as language_service;
 import '../widgets/localized_text.dart';
-import '../widgets/chat_bot.dart'; // Add this import
+import '../widgets/chat_bot.dart';
 import 'fertilizer_calculator_screen.dart';
 import 'pests_diseases_screen.dart';
 import 'cultivation_tips_screen.dart';
@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   final _pageController = PageController();
   final ImagePicker _picker = ImagePicker();
-  final _languageService = LanguageService();
+  final language_service.LanguageService _languageService =
+      language_service.LanguageService();
 
   @override
   void dispose() {
@@ -239,7 +240,7 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           Tooltip(
-            message: 'Change language',
+            message: _languageService.getText('hover_language'),
             child: IconButton(
               icon: const Icon(Icons.language),
               onPressed: _showLanguageDialog,
