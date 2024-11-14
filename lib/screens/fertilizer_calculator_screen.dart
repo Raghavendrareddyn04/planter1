@@ -10,8 +10,7 @@ class FertilizerCalculatorScreen extends StatefulWidget {
       _FertilizerCalculatorScreenState();
 }
 
-class _FertilizerCalculatorScreenState
-    extends State<FertilizerCalculatorScreen> {
+class _FertilizerCalculatorScreenState extends State<FertilizerCalculatorScreen> {
   String _selectedCategory = 'fruits';
   String _selectedCrop = 'mango';
   double _fieldSize = 0;
@@ -20,9 +19,9 @@ class _FertilizerCalculatorScreenState
   final LanguageService _languageService = LanguageService();
 
   final Map<String, List<String>> _cropCategories = {
-    'cereals': ['rice', 'wheat', 'corn'],
-    'commercial': ['cotton', 'sugarcane', 'groundnut'],
-    'fruits': ['mango', 'banana', 'apple', 'grape', 'orange'],
+    'cereals': ['rice', 'wheat', 'corn', 'millets', 'pulses'],
+    'commercial': ['cotton', 'sugarcane', 'groundnut', 'jute', 'tea'],
+    'fruits': ['mango', 'banana', 'apple', 'grape', 'orange']
   };
 
   final Map<String, String> _cropImages = {
@@ -37,20 +36,28 @@ class _FertilizerCalculatorScreenState
     'apple': 'assets/images/crops/apple.png',
     'grape': 'assets/images/crops/grape.png',
     'orange': 'assets/images/crops/orange.png',
+    'millets': 'assets/images/crops/millets.png',
+    'pulses': 'assets/images/crops/pulses.png',
+    'jute': 'assets/images/crops/jute.png',
+    'tea': 'assets/images/crops/tea.png',
   };
 
   final Map<String, Map<String, double>> _fertilizerRatios = {
-    'rice': {'N': 50, 'P': 25, 'K': 20},
-    'wheat': {'N': 40, 'P': 20, 'K': 10},
-    'corn': {'N': 80, 'P': 40, 'K': 30},
-    'cotton': {'N': 40, 'P': 25, 'K': 25},
-    'sugarcane': {'N': 100, 'P': 45, 'K': 45},
-    'groundnut': {'N': 8, 'P': 16, 'K': 16},
-    'mango': {'N': 75, 'P': 35, 'K': 75},
-    'banana': {'N': 100, 'P': 50, 'K': 150},
-    'apple': {'N': 60, 'P': 30, 'K': 60},
-    'grape': {'N': 65, 'P': 32, 'K': 65},
-    'orange': {'N': 80, 'P': 40, 'K': 80},
+    'rice': {'N': 20.2, 'P': 10.1, 'K': 8.1},
+    'wheat': {'N': 16.2, 'P': 8.1, 'K': 4.1},
+    'corn': {'N': 32.4, 'P': 16.2, 'K': 12.1},
+    'millets': {'N': 24.3, 'P': 8.1, 'K': 8.1},
+    'pulses': {'N': 8.1, 'P': 16.2, 'K': 8.1},
+    'cotton': {'N': 16.2, 'P': 10.1, 'K': 10.1},
+    'sugarcane': {'N': 40.5, 'P': 18.2, 'K': 18.2},
+    'groundnut': {'N': 3.2, 'P': 6.5, 'K': 6.5},
+    'jute': {'N': 12.1, 'P': 6.1, 'K': 10.1},
+    'tea': {'N': 28.3, 'P': 14.2, 'K': 18.2},
+    'mango': {'N': 30.4, 'P': 14.2, 'K': 30.4},
+    'banana': {'N': 40.5, 'P': 20.2, 'K': 60.7},
+    'apple': {'N': 24.3, 'P': 12.1, 'K': 24.3},
+    'grape': {'N': 26.3, 'P': 12.9, 'K': 26.3},
+    'orange': {'N': 32.4, 'P': 16.2, 'K': 32.4}
   };
 
   Map<String, double> _calculateFertilizers(Map<String, double> npk) {
@@ -65,14 +72,97 @@ class _FertilizerCalculatorScreenState
     };
   }
 
+  void _showResults() {
+    final ratios = _fertilizerRatios[_selectedCrop]!;
+    final multiplier = _sizeUnit == 'Hectares' ? 2.47 : 1.0;
+
+    final npkValues = {
+      'N': ratios['N']! * _fieldSize * multiplier,
+      'P': ratios['P']! * _fieldSize * multiplier,
+      'K': ratios['K']! * _fieldSize * multiplier,
+    };
+
+    final fertilizers = _calculateFertilizers(npkValues);
+
+    // Define detailed guide messages for each category
+    String detailedGuideMessage;
+    if (_selectedCategory == 'cereals') {
+      detailedGuideMessage = _languageService.getText('cereals_detailed_guide');
+    } else if (_selectedCategory == 'commercial') {
+      detailedGuideMessage = _languageService.getText('commercial_detailed_guide');
+    } else if (_selectedCategory == 'fruits') {
+      detailedGuideMessage = _languageService.getText('fruits_detailed_guide');
+    } else {
+      detailedGuideMessage = _languageService.getText('default_detailed_guide');
+    }
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const LocalizedText(
+          'recommended_fertilizer',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const LocalizedText('field_size_label'),
+                  Text(': $_fieldSize '),
+                  LocalizedText(_sizeUnit),
+                ],
+              ),
+              const SizedBox(height: 16),
+              const LocalizedText(
+                'recommended_npk',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text('N: ${npkValues['N']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              Text('P: ${npkValues['P']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              Text('K: ${npkValues['K']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              const SizedBox(height: 16),
+              const LocalizedText(
+                'required_fertilizers',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text('${_languageService.getText('urea')}: ${fertilizers['Urea']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              Text('${_languageService.getText('tsp')}: ${fertilizers['TSP']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              Text('${_languageService.getText('mop')}: ${fertilizers['MOP']!.toStringAsFixed(1)} ${_languageService.getText('kg')}'),
+              const SizedBox(height: 16),
+              const LocalizedText(
+                'schedule_',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              const LocalizedText('schedule__'),
+              const LocalizedText('schedule___'),
+              const LocalizedText('schedule____'),
+              const SizedBox(height: 16),
+              Text(detailedGuideMessage, style: const TextStyle(fontSize: 14)),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const LocalizedText('close'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Tooltip(
-          message: _languageService
-              .getText('back')
-              .toString(), // Localized text for "Back"
+          message: _languageService.getText('back').toString(),
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -140,11 +230,9 @@ class _FertilizerCalculatorScreenState
                           height: 120,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount:
-                                _cropCategories[_selectedCategory]!.length,
+                            itemCount: _cropCategories[_selectedCategory]!.length,
                             itemBuilder: (context, index) {
-                              final crop =
-                                  _cropCategories[_selectedCategory]![index];
+                              final crop = _cropCategories[_selectedCategory]![index];
                               return GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -171,8 +259,7 @@ class _FertilizerCalculatorScreenState
                                         height: 60,
                                         width: 60,
                                         fit: BoxFit.cover,
-                                        errorBuilder:
-                                            (context, error, stackTrace) {
+                                        errorBuilder: (context, error, stackTrace) {
                                           return Icon(
                                             Icons.grass,
                                             size: 40,
@@ -298,79 +385,6 @@ class _FertilizerCalculatorScreenState
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  void _showResults() {
-    final ratios = _fertilizerRatios[_selectedCrop]!;
-    final multiplier = _sizeUnit == 'Hectares' ? 2.47 : 1.0;
-
-    final npkValues = {
-      'N': ratios['N']! * _fieldSize * multiplier,
-      'P': ratios['P']! * _fieldSize * multiplier,
-      'K': ratios['K']! * _fieldSize * multiplier,
-    };
-
-    final fertilizers = _calculateFertilizers(npkValues);
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const LocalizedText(
-          'recommended_fertilizer',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const LocalizedText('field_size_label'),
-                  Text(': $_fieldSize '),
-                  LocalizedText(_sizeUnit),
-                ],
-              ),
-              const SizedBox(height: 16),
-              const LocalizedText(
-                'recommended_npk',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text('N: ${npkValues['N']!.toStringAsFixed(1)} kg'),
-              Text('P: ${npkValues['P']!.toStringAsFixed(1)} kg'),
-              Text('K: ${npkValues['K']!.toStringAsFixed(1)} kg'),
-              const SizedBox(height: 16),
-              const LocalizedText(
-                'required_fertilizers',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                  'Urea (46-0-0): ${fertilizers['Urea']!.toStringAsFixed(1)} kg'),
-              Text(
-                  'TSP (0-46-0): ${fertilizers['TSP']!.toStringAsFixed(1)} kg'),
-              Text(
-                  'MOP (0-0-60): ${fertilizers['MOP']!.toStringAsFixed(1)} kg'),
-              const SizedBox(height: 8),
-              const LocalizedText(
-                'schedule_',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const LocalizedText('schedule__'),
-              const LocalizedText('schedule___'),
-              const LocalizedText('schedule____'),
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const LocalizedText('close'),
-          ),
-        ],
       ),
     );
   }

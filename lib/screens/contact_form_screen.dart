@@ -24,8 +24,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   Uint8List? _screenshotBytes;
   bool _isLoading = false;
 
-  static const String _sheetsUrl =
-      'https://script.google.com/macros/s/AKfycbw0bV7hFElazNHHIcP6XKNrbUF0yk8yMP177nGlPK5hwtK-vCM0Plb_1rOtm1Gdwa5ATg/exec';
+  // Replace with a proper endpoint (e.g., a Google Apps Script URL) that can receive POST requests
+  static const String _sheetsUrl = 'https://script.google.com/macros/s/AKfycbw9yDJpv_rQhh58lgCrZa8sQwgeK_O3lVddJdzOJMW0RrATKXa1tvvr7BDR3FgNHDRr/exec';
 
   @override
   void dispose() {
@@ -60,6 +60,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   }
 
   Future<void> _submitForm() async {
+    // Validate form and check if screenshot is attached
     if (_formKey.currentState!.validate() && _screenshotBytes != null) {
       setState(() {
         _isLoading = true;
@@ -76,6 +77,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
           'screenshot': base64Image,
           'timestamp': DateTime.now().toIso8601String(),
         };
+
+        print("Submitting form with data: $formData");
 
         final response = await http.post(
           Uri.parse(_sheetsUrl),
@@ -95,9 +98,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: LocalizedText('error_submitting_form'),
-          ),
+          SnackBar(content: Text('Error submitting form: $e')),
         );
       } finally {
         setState(() {
@@ -118,9 +119,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Tooltip(
-          message: _languageService
-              .getText('back')
-              .toString(), // Localized tooltip for "Back"
+          message: _languageService.getText('back').toString(),
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {

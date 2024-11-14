@@ -436,7 +436,7 @@ class LanguageService {
     // Cultivation Tips Screen
     'soil_preparation_title': {
       'English': 'Soil Preparation',
-      'Telugu': 'నేల తయారీ',
+      'Telugu': 'మట్టి తయారీ',
     },
     'soil_preparation_desc': {
       'English': 'Learn how to prepare soil for optimal plant growth',
@@ -527,7 +527,7 @@ class LanguageService {
     },
     'damping_off': {
       'English': 'Damping-Off of Seedlings',
-      'Telugu': 'మొలకల ���్యాంపంగ్-ఆఫ్',
+      'Telugu': 'మొలకల డాంపింగ్-ఆఫ్',
     },
     'bacterial_black_spot': {
       'English': 'Bacterial Black Spot',
@@ -727,11 +727,11 @@ class LanguageService {
       'English':
           'Apply N-P-K fertilizer before planting to support initial root and shoot growth.',
       'Telugu':
-          '  వేర్ల మరియు మొలకల మొదటి వృద్ధిని ప్రోత్సహించడాని��ి నాటడానికి ముందు N-P-K ఎరువు పెట్టండి. ',
+          'వేర్ల మరియు మొలకల మొదటి వృద్ధిని ప్రోత్సహించడాని��ి నాటడానికి ముందు N-P-K ఎరువు పెట్టండి. ',
     },
     'schedule___': {
       'English':
-          ' Apply a Nitrogen-rich fertilizer 2-4 weeks after planting to boost vegetative growth.',
+          'Apply a Nitrogen-rich fertilizer 2-4 weeks after planting to boost vegetative growth.',
       'Telugu':
           ' 2-4 వారాల తరువాత, శాక వృద్ధిని పెంచడానికి నైట్రోజన్ ఎక్కువగా ఉండే ఎరువును ఉపయోగించండి. ',
     },
@@ -1250,5 +1250,1157 @@ class LanguageService {
       'English': 'Are you sure you want to logout?',
       'Telugu': 'మీరు నిజంగా లాగ్ అవుట్ కావాలనుకుంటున్నారా?',
     },
+    'fertilizer_application_title': {
+      'English': 'Fertilizer Application',
+      'Telugu': 'ఎరువు ప్రయోగం',
+    },
+    'pest_control_title': {
+      'English': 'Pest Control',
+      'Telugu': 'కీటక నియంత్రణ',
+    },
+    'pruning_title': {
+      'English': 'Pruning',
+      'Telugu': 'తొలగింపు',
+    },
+    'harvesting_title': {
+      'English': 'Harvesting',
+      'Telugu': 'పంట కోత',
+    },
+    'composting_title': {
+      'English': 'Composting',
+      'Telugu': 'కంపోస్టు తయారీ',
+    },
+    'mulching_title': {
+      'English': 'Mulching',
+      'Telugu': 'మట్టి కప్పడం',
+    },
+    'crop_rotation_title': {
+      'English': 'Crop Rotation',
+      'Telugu': 'పంటల మార్పిడి',
+    },
+    'climate_adaptation_title': {
+      'English': 'Climate Adaptation',
+      'Telugu': 'వాతావరణ అనుకూలనం',
+    },
+    'soil_preparation_desc_line_0': {
+      'English':
+          '•Soil preparation is the essential first step in successful cultivation.',
+      'Telugu': '•మట్టి సిద్ధం చేయడం విజయవంతమైన సాగుకు తొలి కీలకమైన దశ.',
+    },
+    'soil_preparation_desc_line_1': {
+      'English':
+          '•Begin by clearing any weeds, stones, or debris from the area.',
+      'Telugu':
+          '•మొదటగా మట్టిలోని కలుపు మొక్కలు, రాళ్లు, ఇతర వ్యర్థాలను తొలగించాలి.',
+    },
+    'soil_preparation_desc_line_2': {
+      'English': '•Loosen the soil to improve aeration and water penetration.',
+      'Telugu':
+          '•గాలి ప్రవేశం మరియు నీటి శోషణను మెరుగుపరచడానికి మట్టిని దులిపి తీసుకోవాలి.',
+    },
+    'soil_preparation_desc_line_3': {
+      'English':
+          '•Tilling or plowing the soil helps break up compacted layers.',
+      'Telugu': '•టిల్లింగ్ లేదా దున్నడం ద్వారా గట్టి మట్టి పొరలు విరగడవుతాయి.',
+    },
+    'soil_preparation_desc_line_4': {
+      'English':
+          'Test the soil to determine its pH level and nutrient content.',
+      'Telugu': 'పీహెచ్ స్థాయి మరియు పోషక పదార్థాల కోసం మట్టిని పరీక్షించండి.',
+    },
+    'soil_preparation_desc_line_5': {
+      'English':
+          'Add organic matter, such as compost, to enrich the soil with nutrients.',
+      'Telugu':
+          'మట్టిని సమృద్ధిగా పోషకాలతో పెంచడానికి కంపోస్టు వంటి సేంద్రీయ పదార్థాలను జోడించాలి.',
+    },
+    'soil_preparation_desc_line_6': {
+      'English':
+          'If necessary, apply lime or sulfur to adjust the soil pH for optimal growth.',
+      'Telugu':
+          'అవసరమైతే, పంట వృద్ధికి అనువుగా ఉండేందుకు పీహెచ్ స్థాయిని సర్దుబాటు చేయడానికి లైమ్ లేదా సల్ఫర్ ఉపయోగించండి.',
+    },
+    'soil_preparation_desc_line_7': {
+      'English': 'Level the soil to create an even surface for planting.',
+      'Telugu': 'నాటడానికి సమంగా ఉండేలా మట్టిని సాఫుగా చేయాలి.',
+    },
+    'soil_preparation_desc_line_8': {
+      'English': 'Ensure proper drainage to prevent waterlogging and root rot.',
+      'Telugu':
+          'నీరు నిల్వవద్దు మరియు రూట్ రాట్ నివారించేందుకు తగిన రక్షణ కలిగించాలి.',
+    },
+    'soil_preparation_desc_line_9': {
+      'English':
+          'Allow the soil to rest for a few days before planting to settle nutrients.',
+      'Telugu':
+          'పంట నాటకముందు మట్టిని కొన్ని రోజులు విశ్రాంతి తీసుకోనివ్వండి, తద్వారా పోషకాలు స్థిరపడతాయి.',
+    },
+    'watering_guide_desc_line_0': {
+      'English':
+          'Watering is a crucial practice to ensure plant health and growth.',
+      'Telugu': 'నీటిపారుదల మొక్కల ఆరోగ్యం మరియు వృద్ధి కోసం కీలకమైన పద్ధతి.',
+    },
+    'watering_guide_desc_line_1': {
+      'English':
+          'Water early in the morning or late in the evening for best results.',
+      'Telugu': 'ఉత్తమ ఫలితాల కోసం ఉదయం లేదా సాయంత్రం నీరు పోయాలి.',
+    },
+    'watering_guide_desc_line_2': {
+      'English':
+          'Avoid watering during peak sun hours to prevent evaporation loss.',
+      'Telugu': 'ఉష్ణతరం సమయాలలో నీరు పోయడం నివారించాలి, ఆవిరి తగ్గించేందుకు.',
+    },
+    'watering_guide_desc_line_3': {
+      'English':
+          'Use a watering can or drip system for controlled water distribution.',
+      'Telugu':
+          'నీటి పంపిణీని నియంత్రించడానికి నీటి డబ్బా లేదా డ్రిప్ సిస్టమ్ ఉపయోగించండి.',
+    },
+    'watering_guide_desc_line_4': {
+      'English':
+          'Water deeply to encourage roots to grow deeper into the soil.',
+      'Telugu': 'మట్టి లోతుగా నీరు పోసి రూట్లను లోతుగా వృద్ధిచేయాలి.',
+    },
+    'watering_guide_desc_line_5': {
+      'English':
+          'Check soil moisture levels to avoid overwatering or underwatering.',
+      'Telugu':
+          'అధికంగా లేదా తక్కువగా నీరు పోయకుండా మట్టి తేమ స్థాయిని తనిఖీ చేయండి.',
+    },
+    'watering_guide_desc_line_6': {
+      'English':
+          'Reduce watering frequency during rainy or high humidity periods.',
+      'Telugu': 'వర్షాకాలంలో లేదా అధిక ఆర్ద్రత సమయంలో నీటి పరిమాణం తగ్గించండి.',
+    },
+    'watering_guide_desc_line_7': {
+      'English': 'Ensure the soil is well-drained to prevent root diseases.',
+      'Telugu': 'రూట్ వ్యాధులను నివారించేందుకు మట్టిని బాగా పారబోనివ్వాలి.',
+    },
+    'watering_guide_desc_line_8': {
+      'English':
+          'Mulch around plants to retain soil moisture and reduce evaporation.',
+      'Telugu': 'మట్టిలో తేమ నిల్వ ఉంచడానికి మొక్కల చుట్టూ మల్చింగ్ చేయండి.',
+    },
+    'watering_guide_desc_line_9': {
+      'English':
+          'Observe plant leaves; wilting may indicate insufficient water.',
+      'Telugu':
+          'మొక్కల ఆకులను పరిశీలించండి; వాడిపోవడం తగినంత నీరు లేకపోవడాన్ని సూచించవచ్చు.',
+    },
+    'fertilizer_application_desc_line_0': {
+      'English':
+          'Fertilizer application is essential to provide plants with nutrients.',
+      'Telugu': 'మొక్కలకు పోషకాలను అందించడానికి ఎరువు ఉపయోగించడం ముఖ్యమైనది.',
+    },
+    'fertilizer_application_desc_line_1': {
+      'English':
+          'Identify the right type of fertilizer based on soil test results.',
+      'Telugu': 'మట్టిలోని పరీక్షా ఫలితాల ఆధారంగా సరైన ఎరువును గుర్తించాలి.',
+    },
+    'fertilizer_application_desc_line_2': {
+      'English':
+          'Organic fertilizers like compost are beneficial for soil health.',
+      'Telugu':
+          'కంపోస్టు వంటి సేంద్రీయ ఎరువులు మట్టి ఆరోగ్యానికి మేలుకలిగిస్తాయి.',
+    },
+    'fertilizer_application_desc_line_3': {
+      'English':
+          'Apply fertilizers in the right amounts to avoid nutrient overload.',
+      'Telugu': 'పోషకాల అధిక భారం కాకుండా సరైన పరిమాణంలో ఎరువులు ఉపయోగించండి.',
+    },
+    'fertilizer_application_desc_line_4': {
+      'English':
+          'Follow recommended guidelines for fertilizer application timing.',
+      'Telugu': 'ఎరువు ఉపయోగం సమయానికి సూచించిన మార్గదర్శకాలను అనుసరించండి.',
+    },
+    'fertilizer_application_desc_line_5': {
+      'English':
+          'Apply fertilizers evenly to ensure all plants receive nutrients.',
+      'Telugu':
+          'అన్ని మొక్కలకు పోషకాలు అందాలనే ఉద్దేశంతో ఎరువులు సమానంగా వాడండి.',
+    },
+    'fertilizer_application_desc_line_6': {
+      'English':
+          'Avoid applying fertilizer close to the plant stem to prevent burn.',
+      'Telugu': 'మొక్కల కాండం దగ్గర ఎరువులు పడకుండా ఉండేలా జాగ్రత్త వహించాలి.',
+    },
+    'fertilizer_application_desc_line_7': {
+      'English':
+          'Water the soil after applying fertilizers to aid nutrient absorption.',
+      'Telugu':
+          'పోషకాలు శోషించుకునేందుకు ఎరువులు వేసిన తర్వాత మట్టికి నీరు పోయాలి.',
+    },
+    'fertilizer_application_desc_line_8': {
+      'English':
+          'Use slow-release fertilizers for sustained nutrient availability.',
+      'Telugu':
+          'పోషకాలు నెమ్మదిగా విడుదలవుతూ ఉండేందుకు స్లో-రిస్లీస్ ఎరువులు వాడండి.',
+    },
+    'fertilizer_application_desc_line_9': {
+      'English':
+          'Observe plant health to determine if additional fertilizer is needed.',
+      'Telugu':
+          'మరింత ఎరువు అవసరమేమో తెలుసుకోవడానికి మొక్కల ఆరోగ్యాన్ని పరిశీలించండి.',
+    },
+    'pest_control_desc_line_0': {
+      'English':
+          'Pest control is essential to protect crops from harmful insects.',
+      'Telugu':
+          'పంటలను హానికర కీటకాల నుంచి రక్షించేందుకు కీటక నియంత్రణ చాలా అవసరం.',
+    },
+    'pest_control_desc_line_1': {
+      'English':
+          'Regularly inspect plants for signs of pest damage or infestation.',
+      'Telugu': 'పంటలపై కీటకాల దెబ్బ లేదా ఉనికి సూచనలను తరచూ పరిశీలించాలి.',
+    },
+    'pest_control_desc_line_2': {
+      'English':
+          'Use organic pest control methods like neem oil to reduce chemical usage.',
+      'Telugu':
+          'రసాయనాల వాడకం తగ్గించేందుకు నిమ్మ చెట్టు నూనె వంటి సేంద్రీయ పద్ధతులను ఉపయోగించండి.',
+    },
+    'pest_control_desc_line_3': {
+      'English':
+          'Encourage natural predators, such as ladybugs, to control pest populations.',
+      'Telugu':
+          'కీటకాల సంఖ్యను నియంత్రించేందుకు లేడీబగ్ వంటి సహజ ప్రత్యర్థులను ప్రోత్సహించండి.',
+    },
+    'pest_control_desc_line_4': {
+      'English':
+          'Rotate crops to disrupt pest breeding cycles and reduce infestations.',
+      'Telugu':
+          'పంటల మార్పిడి ద్వారా కీటకాల ప్రজনనాన్ని ఆపి, వారి ఉనికిని తగ్గించండి.',
+    },
+    'pest_control_desc_line_5': {
+      'English': 'Remove infected plants immediately to prevent pest spread.',
+      'Telugu':
+          'కీటకాల వ్యాప్తి నివారించేందుకు బాధిత మొక్కలను వెంటనే తొలగించండి.',
+    },
+    'pest_control_desc_line_6': {
+      'English': 'Use insect traps to monitor and reduce pest populations.',
+      'Telugu':
+          'కీటకాల సంఖ్యను తగ్గించేందుకు మరియు పర్యవేక్షించేందుకు కీటక పుటలు ఉపయోగించండి.',
+    },
+    'pest_control_desc_line_7': {
+      'English':
+          'Apply pesticides only when necessary and follow safety guidelines.',
+      'Telugu':
+          'అవసరమైతేనే పురుగుమందులను వాడండి మరియు భద్రతా మార్గదర్శకాలను అనుసరించండి.',
+    },
+    'pest_control_desc_line_8': {
+      'English': 'Wear protective gear when applying chemical pest controls.',
+      'Telugu': 'రసాయన పద్దతులు ఉపయోగిస్తున్నప్పుడు రక్షణ పరికరాలు ధరించండి.',
+    },
+    'pest_control_desc_line_9': {
+      'English':
+          'Maintain a clean garden area to reduce hiding spots for pests.',
+      'Telugu':
+          'కీటకాల తలదాచుకునే ప్రదేశాలు తగ్గించేందుకు తోటను శుభ్రంగా ఉంచండి.',
+    },
+    'pruning_desc_line_0': {
+      'English':
+          'Pruning helps improve plant growth and shape by removing dead parts.',
+      'Telugu':
+          'ప్రూనింగ్ ద్వారా సొంపైన ఆకారం కోసం మరియు వృద్ధి మెరుగుపడేందుకు చనిపోయిన భాగాలను తొలగించవచ్చు.',
+    },
+    'pruning_desc_line_1': {
+      'English':
+          'Trim branches and leaves that block sunlight from reaching lower areas.',
+      'Telugu':
+          'కింద ఉన్న ప్రాంతాలకు సూర్యరశ్మి చేరడానికి అడ్డం ఉన్న కొమ్మలు మరియు ఆకులను కత్తిరించండి.',
+    },
+    'pruning_desc_line_2': {
+      'English':
+          'Use clean, sharp tools to make precise cuts without damaging the plant.',
+      'Telugu':
+          'మొక్కను హానీ చేయకుండా ఖచ్చితంగా కోసేందుకు పరిశుభ్రమైన, పదును ఉన్న పరికరాలు ఉపయోగించండి.',
+    },
+    'pruning_desc_line_3': {
+      'English':
+          'Prune during the dormant season to minimize stress on the plant.',
+      'Telugu':
+          'మొక్కలపై ఒత్తిడి తగ్గించేందుకు నిద్రావస్థలో ఉన్నప్పుడు ప్రూనింగ్ చేయండి.',
+    },
+    'pruning_desc_line_4': {
+      'English':
+          'Remove diseased branches to prevent the spread of infections.',
+      'Telugu':
+          'సంవాహక వ్యాధులు వ్యాప్తి చెందకుండా కీటకాల బాధిత కొమ్మలను తొలగించండి.',
+    },
+    'pruning_desc_line_5': {
+      'English': 'Thin out crowded branches to allow better air circulation.',
+      'Telugu':
+          'మంచి గాలిరాకపోవడానికి భూలోకము దగ్గర ఎలాంటి చిక్కటి ఖాతలను తొలగించండి.',
+    },
+    'pruning_desc_line_6': {
+      'English': 'Prune flowering plants after blooming to shape the plant.',
+      'Telugu':
+          'పువ్వుల మొక్కలను పువ్వులు ముగిసిన తర్వాత ఆకారంగా ఉండేలా ప్రూనింగ్ చేయండి.',
+    },
+    'pruning_desc_line_7': {
+      'English': 'Remove suckers from the base to focus energy on main growth.',
+      'Telugu':
+          'ముఖ్యమైన వృద్ధికి శక్తి కేంద్రీకృతం కావాలనే ఉద్దేశంతో అడుగు నుండి చనిపోయిన భాగాలను తొలగించండి.',
+    },
+    'pruning_desc_line_8': {
+      'English': 'Avoid excessive pruning to prevent weakening the plant.',
+      'Telugu': 'మొక్కల విపత్తు నివారించేందుకు ఎక్కువ ప్రూనింగ్ చేయకండి.',
+    },
+    'pruning_desc_line_9': {
+      'English':
+          'Prune regularly to maintain a neat and healthy garden appearance.',
+      'Telugu':
+          'శుభ్రమైన మరియు ఆరోగ్యకరమైన తోట ఆకృతిని ఉంచేందుకు క్రమం తప్పకుండా ప్రూనింగ్ చేయండి.',
+    },
+    'composting_desc_line_0': {
+      'English':
+          'Composting is the process of recycling organic waste into nutrient-rich soil.',
+      'Telugu':
+          'కంపోస్టింగ్ అనేది సేంద్రీయ వ్యర్థాలను పోషకాలు పుష్కలంగా ఉన్న మట్టిగా మార్చే ప్రక్రియ.',
+    },
+    'composting_desc_line_1': {
+      'English':
+          'Start composting by collecting kitchen scraps, yard waste, and leaves.',
+      'Telugu':
+          'వంటగది అవశేషాలు, తోట వ్యర్థాలు మరియు ఆకులను సేకరించడం ద్వారా కంపోస్టింగ్ ప్రారంభించండి.',
+    },
+    'composting_desc_line_2': {
+      'English':
+          'Layer brown materials (like dry leaves) and green materials (like vegetable scraps).',
+      'Telugu':
+          'బూడిద రంగు పదార్థాలు (పొడి ఆకులు) మరియు ఆకుపచ్చ పదార్థాలు (కూరగాయల తుక్కు) పంచుకొనాలి.',
+    },
+    'composting_desc_line_3': {
+      'English':
+          'Maintain moisture by watering the compost pile lightly as needed.',
+      'Telugu':
+          'అవసరానికి అనుగుణంగా కంపోస్ట్ గుట్టను స్వల్పంగా నీరు పోసి తేమను ఉంచండి.',
+    },
+    'composting_desc_line_4': {
+      'English':
+          'Turn the compost regularly to speed up the decomposition process.',
+      'Telugu': 'అలిగి వేయడం వలన కుళ్లే ప్రక్రియ వేగవంతమవుతుంది.',
+    },
+    'composting_desc_line_5': {
+      'English': 'Composting reduces the amount of waste sent to landfills.',
+      'Telugu':
+          'కంపోస్టింగ్ ల్యాండ్‌ఫిల్‌లకు పంపే వ్యర్థాల పరిమాణాన్ని తగ్గిస్తుంది.',
+    },
+    'composting_desc_line_6': {
+      'English': 'Finished compost looks dark and has an earthy smell.',
+      'Telugu': 'పూర్తయిన కంపోస్ట్ నల్లగా మరియు భూమి వాసనతో కనిపిస్తుంది.',
+    },
+    'composting_desc_line_7': {
+      'English': 'Use compost as a natural fertilizer to enrich garden soil.',
+      'Telugu':
+          'తోట మట్టిని సమృద్ధిగా పోషించడానికి సేంద్రియ ఎరువుగా కంపోస్ట్ ఉపయోగించండి.',
+    },
+    'composting_desc_line_8': {
+      'English': 'Compost improves soil structure and water retention.',
+      'Telugu':
+          'కంపోస్ట్ మట్టి నిర్మాణం మరియు నీరు నిల్వ సామర్థ్యాన్ని మెరుగుపరుస్తుంది.',
+    },
+    'composting_desc_line_9': {
+      'English': 'Adding compost regularly enhances plant growth and health.',
+      'Telugu':
+          'కంపోస్టును క్రమం తప్పకుండా జోడించడం వల్ల మొక్కల వృద్ధి మరియు ఆరోగ్యం మెరుగుపడుతుంది.',
+    },
+    'mulching_desc_line_0': {
+      'English':
+          'Mulching involves covering the soil surface with organic or inorganic materials.',
+      'Telugu':
+          'మల్చింగ్ అనేది మట్టిపై సేంద్రీయ లేదా అసేంద్రీయ పదార్థాలను కప్పే ప్రక్రియ.',
+    },
+    'mulching_desc_line_1': {
+      'English': 'It helps retain soil moisture by reducing evaporation.',
+      'Telugu': 'ఇది ఆవిరి తగ్గించడం ద్వారా మట్టి తేమను నిల్వ చేస్తుంది.',
+    },
+    'mulching_desc_line_2': {
+      'English': 'Mulching also helps regulate soil temperature.',
+      'Telugu': 'మట్టిలో ఉష్ణోగ్రతను నియంత్రించడంలో మల్చింగ్ సహాయపడుతుంది.',
+    },
+    'mulching_desc_line_3': {
+      'English':
+          'Organic mulches, like straw and leaves, add nutrients to the soil.',
+      'Telugu':
+          'విప్ప మరియు ఆకులు వంటి సేంద్రీయ మల్చ్ మట్టికి పోషకాలను అందిస్తాయి.',
+    },
+    'mulching_desc_line_4': {
+      'English': 'Mulch suppresses weed growth by blocking sunlight.',
+      'Telugu':
+          'సూర్యరశ్మిని అడ్డుకోవడం ద్వారా మల్చ్ కలుపు మొక్కల పెరుగుదలను తగ్గిస్తుంది.',
+    },
+    'mulching_desc_line_5': {
+      'English': 'A layer of mulch prevents soil erosion during heavy rains.',
+      'Telugu': 'భారీ వర్షాల్లో మట్టి కాపాడేందుకు మల్చ్ పొర ఉపయోగపడుతుంది.',
+    },
+    'mulching_desc_line_6': {
+      'English':
+          'Apply mulch around plants, but keep it away from stems to prevent rot.',
+      'Telugu':
+          'మొక్కల చుట్టూ మల్చ్ వేయండి, కానీ కాండం దగ్గర పెట్టకండి, తద్వారా కుళ్ళదు.',
+    },
+    'mulching_desc_line_7': {
+      'English': 'Mulching reduces the need for frequent watering.',
+      'Telugu': 'మల్చింగ్ వల్ల తరచుగా నీరు పోసే అవసరం తగ్గుతుంది.',
+    },
+    'mulching_desc_line_8': {
+      'English':
+          'It improves soil structure and supports beneficial organisms.',
+      'Telugu':
+          'ఇది మట్టిని మెరుగుపరుస్తుంది మరియు ఉపయోగకరమైన జీవులను ప్రోత్సహిస్తుంది.',
+    },
+    'mulching_desc_line_9': {
+      'English':
+          'Mulch should be reapplied periodically as it decomposes over time.',
+      'Telugu': 'మల్చ్ క్రమంగా కుళ్ళిపోవడంతో అది తరచుగా పునరుద్ధరించాలి.',
+    },
+    'crop_rotation_desc_line_0': {
+      'English':
+          'Crop rotation involves changing the type of crop grown in a field each season.',
+      'Telugu':
+          'పంటల మార్పిడి అనేది ప్రతి సీజన్‌లో పొలంలో పెంచే పంట రకాన్ని మార్చడం.',
+    },
+    'crop_rotation_desc_line_1': {
+      'English':
+          'It helps prevent soil depletion by alternating nutrient requirements.',
+      'Telugu':
+          'వివిధ పోషకాల అవసరాల మార్పు ద్వారా మట్టిలో పోషకాలు తగ్గకుండా చేస్తుంది.',
+    },
+    'crop_rotation_desc_line_2': {
+      'English':
+          'Legumes in rotation add nitrogen to the soil, enriching it naturally.',
+      'Telugu':
+          'మార్పిడి చక్రంలో పప్పుదినుసులు నైట్రోజన్‌ను మట్టిలోకి ఇనుమడింపజేస్తాయి.',
+    },
+    'crop_rotation_desc_line_3': {
+      'English':
+          'It helps control pests and diseases by disrupting their life cycles.',
+      'Telugu':
+          'పంట మార్పిడి ద్వారా కీటకాలు మరియు రోగాల జీవన చక్రాన్ని భంగపరిచి వాటిని నియంత్రించవచ్చు.',
+    },
+    'crop_rotation_desc_line_4': {
+      'English':
+          'Rotating crops improves soil structure and reduces soil erosion.',
+      'Telugu':
+          'పంటలను మార్చడం మట్టిని మెరుగుపరుస్తుంది మరియు మట్టి దెబ్బతినకుండా కాపాడుతుంది.',
+    },
+    'crop_rotation_desc_line_5': {
+      'English':
+          'Different crops absorb different nutrients, maintaining soil balance.',
+      'Telugu':
+          'వివిధ పంటలు వివిధ పోషకాలను గ్రహిస్తాయి, తద్వారా మట్టిలో సంతులనం నిలవ ఉంటుంది.',
+    },
+    'crop_rotation_desc_line_6': {
+      'English':
+          'It reduces the dependency on chemical fertilizers and pesticides.',
+      'Telugu': 'ఇది రసాయన ఎరువులు మరియు పురుగుమందులపై ఆధారపడకుండా చేస్తుంది.',
+    },
+    'crop_rotation_desc_line_7': {
+      'English':
+          'Crop rotation enhances biodiversity in the field environment.',
+      'Telugu': 'పంటల మార్పిడి పొలంలో జీవ వైవిధ్యాన్ని పెంచుతుంది.',
+    },
+    'crop_rotation_desc_line_8': {
+      'English': 'It can increase yields by maintaining long-term soil health.',
+      'Telugu':
+          'మట్టిలో దీర్ఘకాల ఆరోగ్యాన్ని నిలుపుకోవడం ద్వారా దిగుబడులు పెరుగుతాయి.',
+    },
+    'crop_rotation_desc_line_9': {
+      'English':
+          'Crop rotation is an eco-friendly and sustainable farming practice.',
+      'Telugu': 'పంటల మార్పిడి పర్యావరణ అనుకూల మరియు సుస్థిర వ్యవసాయ పద్ధతి.',
+    },
+    'climate_adaptation_desc_line_0': {
+      'English':
+          'Climate adaptation involves adjusting practices to cope with changing climates.',
+      'Telugu':
+          'వాతావరణ అనుకూలనం అనేది మారుతున్న వాతావరణాలతో తట్టుకునేందుకు పద్ధతులను సర్దుబాటు చేయడం.',
+    },
+    'climate_adaptation_desc_line_1': {
+      'English':
+          'Farmers can choose crop varieties that are more resilient to climate stress.',
+      'Telugu': 'రైతులు వాతావరణ ఒత్తిడిని తట్టుకునే పంట రకాలను ఎంచుకోవచ్చు.',
+    },
+    'climate_adaptation_desc_line_2': {
+      'English':
+          'Improved irrigation methods help conserve water during droughts.',
+      'Telugu':
+          'మెరుగైన నీటిపారుదల పద్ధతులు ఎడారిలో నీటిని సంరక్షించడంలో సహాయపడతాయి.',
+    },
+    'climate_adaptation_desc_line_3': {
+      'English':
+          'Mulching helps retain soil moisture, especially in warmer climates.',
+      'Telugu':
+          'మల్చింగ్ వలన మట్టి తేమ నిలవడం, ముఖ్యంగా వేడి వాతావరణాల్లో సహాయపడుతుంది.',
+    },
+    'climate_adaptation_desc_line_4': {
+      'English':
+          'Shade nets and greenhouses protect crops from extreme temperatures.',
+      'Telugu':
+          'షేడ్ నెట్‌లు మరియు గ్రీన్‌హౌస్‌లు తీవ్రమైన ఉష్ణోగ్రతల నుంచి పంటలను రక్షిస్తాయి.',
+    },
+    'climate_adaptation_desc_line_5': {
+      'English':
+          'Soil conservation techniques prevent erosion during heavy rains.',
+      'Telugu': 'భారీ వర్షాల్లో మట్టి దెబ్బతినకుండా రక్షణ పద్ధతులు సహాయపడతాయి.',
+    },
+    'climate_adaptation_desc_line_6': {
+      'English':
+          'Using drought-resistant crops reduces the impact of water scarcity.',
+      'Telugu': 'ఎడారి నిరోధక పంటలు నీటి కొరత ప్రభావాన్ని తగ్గిస్తాయి.',
+    },
+    'climate_adaptation_desc_line_7': {
+      'English':
+          'Early warning systems help farmers prepare for extreme weather events.',
+      'Telugu':
+          'తీవ్ర వాతావరణ పరిస్థితులకు సన్నద్ధం కావడానికి ముందస్తు హెచ్చరికా వ్యవస్థలు సహాయపడతాయి.',
+    },
+    'climate_adaptation_desc_line_8': {
+      'English':
+          'Diversifying crops reduces risk and enhances resilience to climate change.',
+      'Telugu':
+          'పంటల వైవిధ్యం ద్వారా సురక్షితత పెరుగుతుంది మరియు వాతావరణ మార్పులకు సహనంగా ఉంటుంది.',
+    },
+    'climate_adaptation_desc_line_9': {
+      'English':
+          'Climate adaptation ensures sustainable farming in the face of global warming.',
+      'Telugu':
+          'భూమి తాపన పరిస్థితుల మధ్య సుస్థిర వ్యవసాయానికి వాతావరణ అనుకూలనం అవసరం.',
+    },
+    'harvesting_desc_line_0': {
+      'English':
+          'Harvesting is the process of collecting mature crops from the field.',
+      'Telugu':
+          'పంట కోత అనేది పొలంలో నూతనంగా పెరిగిన పంటలను సేకరించే ప్రక్రియ.',
+    },
+    'harvesting_desc_line_1': {
+      'English':
+          'It’s essential to harvest crops at the right time for best quality.',
+      'Telugu': 'అత్యుత్తమ నాణ్యత కోసం సరైన సమయానికి పంటలను కోత చేయడం అవసరం.',
+    },
+    'harvesting_desc_line_2': {
+      'English': 'Use appropriate tools for harvesting to prevent crop damage.',
+      'Telugu': 'పంట నష్టాన్ని తగ్గించడానికి సరైన పరికరాలు ఉపయోగించాలి.',
+    },
+    'harvesting_desc_line_3': {
+      'English':
+          'Harvesting early in the morning helps retain moisture in crops.',
+      'Telugu': 'పంటల్లో తేమ నిల్వ ఉండేందుకు ఉదయం కోత జరిపి సేకరించడం మంచిది.',
+    },
+    'harvesting_desc_line_4': {
+      'English':
+          'Store harvested crops in a cool, dry place to preserve freshness.',
+      'Telugu':
+          'కోసిన పంటలను చల్లని, పొడి ప్రదేశంలో నిల్వ ఉంచితే తాజాదనంగా ఉంటాయి.',
+    },
+    'harvesting_desc_line_5': {
+      'English': 'Separate damaged produce to maintain overall crop quality.',
+      'Telugu':
+          'మొత్తం పంట నాణ్యతను కాపాడేందుకు దెబ్బతిన్న ఉత్పత్తిని విడదీయాలి.',
+    },
+    'harvesting_desc_line_6': {
+      'English': 'Proper harvesting reduces post-harvest losses and spoilage.',
+      'Telugu': 'సరైన కోత అనంతర నష్టాలను మరియు పంట పాడును తగ్గిస్తుంది.',
+    },
+    'harvesting_desc_line_7': {
+      'English': 'Some crops require gentle handling to avoid bruising.',
+      'Telugu': 'కొన్ని పంటలను పగుళ్లు రాకుండా మృదువుగా సంరక్షించాలి.',
+    },
+    'harvesting_desc_line_8': {
+      'English': 'Timely harvesting ensures maximum yield and profitability.',
+      'Telugu': 'సమయానికి కోత పెరిగిన దిగుబడిని మరియు లాభదాయకతను కలిగిస్తుంది.',
+    },
+    'harvesting_desc_line_9': {
+      'English':
+          'Harvested crops should be processed quickly to maintain quality.',
+      'Telugu': 'నాణ్యతను నిలుపుకునేందుకు కోసిన పంటలను త్వరగా ప్రాసెస్ చేయాలి.',
+    },
+    'damping_off_desc_line_0': {
+      'English': 'Damping off is a common disease that affects seedlings.',
+      'Telugu':
+          'డాంపింగ్ ఆఫ్ అనేది పిండి మొక్కలను ప్రభావితం చేసే సాధారణ వ్యాధి.',
+    },
+    'damping_off_desc_line_1': {
+      'English': 'It is caused by soil-borne fungi that attack young plants.',
+      'Telugu':
+          'ఇది పిన్న మొక్కలను దాడి చేసే మట్టి ద్వారా వ్యాపించే శిలీంధ్రాల వల్ల సంభవిస్తుంది.',
+    },
+    'damping_off_desc_line_2': {
+      'English': 'Symptoms include wilting, stem rot, and seedling collapse.',
+      'Telugu':
+          'లక్షణాలలో వాడిపోవడం, కాండం కుళ్ళడం మరియు మొక్కలు పతనమవడం ఉన్నాయి.',
+    },
+    'damping_off_desc_line_3': {
+      'English': 'Damping off usually occurs in moist, poorly drained soils.',
+      'Telugu':
+          'డాంపింగ్ ఆఫ్ సాధారణంగా తడిగా, తక్కువ నీరు కలిగిన మట్టిలో వస్తుంది.',
+    },
+    'damping_off_desc_line_4': {
+      'English': 'Overcrowded planting increases the risk of damping off.',
+      'Telugu': 'మొక్కలను సమీకరించి నాటడం డాంపింగ్ ఆఫ్ ప్రమాదాన్ని పెంచుతుంది.',
+    },
+    'damping_off_desc_line_5': {
+      'English':
+          'Proper soil drainage helps reduce the incidence of this disease.',
+      'Telugu': 'సరైన మట్టి డ్రైనేజీ ఈ వ్యాధి వచ్చే అవకాశాన్ని తగ్గిస్తుంది.',
+    },
+    'damping_off_desc_line_6': {
+      'English':
+          'Use sterilized soil to prevent fungus from spreading to seedlings.',
+      'Telugu':
+          'పిండి మొక్కలకు శిలీంధ్రం వ్యాపించకుండా ఉండేందుకు శుద్ధి చేసిన మట్టిని ఉపయోగించాలి.',
+    },
+    'damping_off_desc_line_7': {
+      'English': 'Avoid overwatering to keep the soil from becoming too damp.',
+      'Telugu':
+          'మట్టిని తడి కాకుండా ఉండేందుకు నీరు ఎక్కువగా పోయకుండా జాగ్రత్త వహించాలి.',
+    },
+    'damping_off_desc_line_8': {
+      'English':
+          'Applying fungicides can help protect seedlings from damping off.',
+      'Telugu':
+          'ఫంగిసైడ్లను ఉపయోగించడం ద్వారా పిండి మొక్కలను డాంపింగ్ ఆఫ్ నుండి రక్షించవచ్చు.',
+    },
+    'damping_off_desc_line_9': {
+      'English':
+          'Ensure good air circulation around seedlings to prevent disease.',
+      'Telugu':
+          'వ్యాధిని నివారించేందుకు పిండి మొక్కల చుట్టూ గాలి ప్రసరణ బాగా ఉండేలా చూడాలి.',
+    },
+    'bacterial_black_spot_desc_line_0': {
+      'English': 'Bacterial black spot is a disease affecting citrus plants.',
+      'Telugu':
+          'బ్యాక్టీరియల్ బ్లాక్ స్పాట్ అనేది సిట్రస్ మొక్కలను ప్రభావితం చేసే వ్యాధి.',
+    },
+    'bacterial_black_spot_desc_line_1': {
+      'English': 'It is caused by the bacterium Xanthomonas citri.',
+      'Telugu': 'ఇది జాంటోమోనాస్ సిట్రి అనే బ్యాక్టీరియా వల్ల సంభవిస్తుంది.',
+    },
+    'bacterial_black_spot_desc_line_2': {
+      'English': 'Symptoms include small, black lesions on leaves and fruit.',
+      'Telugu': 'లక్షణాల్లో ఆకులు మరియు పండ్లపై చిన్న నల్లటి మచ్చలు ఉంటాయి.',
+    },
+    'bacterial_black_spot_desc_line_3': {
+      'English': 'The lesions may have a yellow halo around them.',
+      'Telugu': 'మచ్చల చుట్టూ పసుపు రంగు హాలో ఉండవచ్చు.',
+    },
+    'bacterial_black_spot_desc_line_4': {
+      'English':
+          'The disease spreads through wind, rain, and contaminated tools.',
+      'Telugu':
+          'ఈ వ్యాధి గాలి, వర్షం మరియు కాలుష్యకరమైన పరికరాల ద్వారా వ్యాపిస్తుంది.',
+    },
+    'bacterial_black_spot_desc_line_5': {
+      'English': 'Warm, humid conditions favor the spread of this bacteria.',
+      'Telugu':
+          'ఈ బ్యాక్టీరియా వ్యాప్తికి వేడి, తేమ ఉన్న పరిస్థితులు అనుకూలంగా ఉంటాయి.',
+    },
+    'bacterial_black_spot_desc_line_6': {
+      'English':
+          'Prune affected branches and dispose of infected plant material.',
+      'Telugu':
+          'ప్రభావిత కొమ్మలను కత్తిరించి, బాధిత మొక్కల భాగాలను తీసివేయాలి.',
+    },
+    'bacterial_black_spot_desc_line_7': {
+      'English': 'Copper-based sprays can help reduce bacterial black spot.',
+      'Telugu':
+          'కాపర్ ఆధారిత స్ప్రేలు బ్యాక్టీరియల్ బ్లాక్ స్పాట్‌ను తగ్గించడంలో సహాయపడతాయి.',
+    },
+    'bacterial_black_spot_desc_line_8': {
+      'English': 'Use disease-free seeds and seedlings to prevent infection.',
+      'Telugu':
+          'వ్యాధి రహిత విత్తనాలు మరియు పిండి మొక్కలను ఉపయోగించడం ద్వారా సంక్రమణను నివారించవచ్చు.',
+    },
+    'bacterial_black_spot_desc_line_9': {
+      'English': 'Practice crop rotation and avoid planting in infected soil.',
+      'Telugu':
+          'పంటల మార్పిడి పాటించాలి మరియు వ్యాధిగ్రస్తమైన మట్టిలో నాటడాన్ని నివారించాలి.',
+    },
+    'aphids_desc_line_0': {
+      'English':
+          'Aphids are small, soft-bodied insects that feed on plant sap.',
+      'Telugu':
+          'ఆఫిడ్లు చిన్న, మృదువైన శరీర కలిగిన పురుగులు, ఇవి మొక్కల రసాన్ని తింటాయి.',
+    },
+    'aphids_desc_line_1': {
+      'English':
+          'They are usually found in clusters on leaves, stems, and buds.',
+      'Telugu':
+          'ఇవి సాధారణంగా ఆకులు, కాండం మరియు మొగ్గలపై గుంపులుగా కనిపిస్తాయి.',
+    },
+    'aphids_desc_line_2': {
+      'English': 'Aphids can cause yellowing and curling of leaves.',
+      'Telugu':
+          'ఆఫిడ్లు ఆకులు పసుపు రంగులోకి మారడం మరియు మడతపెట్టడం వంటి సమస్యలకు దారి తీస్తాయి.',
+    },
+    'aphids_desc_line_3': {
+      'English':
+          'They excrete a sticky substance called honeydew, which attracts ants.',
+      'Telugu':
+          'ఇవి హనిడ్యూ అనే కొమలమైన పదార్థాన్ని ఉత్పత్తి చేస్తాయి, ఇది చీమలను ఆకర్షిస్తుంది.',
+    },
+    'aphids_desc_line_4': {
+      'English': 'Honeydew can lead to sooty mold growth on plant surfaces.',
+      'Telugu': 'హనిడ్యూ వల్ల మొక్కల మీద నల్ల కూజాడు పెరగడం జరుగుతుంది.',
+    },
+    'aphids_desc_line_5': {
+      'English': 'Aphids reproduce quickly, leading to large infestations.',
+      'Telugu':
+          'ఆఫిడ్లు త్వరగా పెరుగుతాయి, దీని వలన పెద్ద స్థాయిలో వ్యాప్తి చెందుతాయి.',
+    },
+    'aphids_desc_line_6': {
+      'English':
+          'Introduce natural predators like ladybugs to control aphid populations.',
+      'Telugu':
+          'ఆఫిడ్ జనాభాను నియంత్రించేందుకు లేడీబగ్ వంటి సహజ ప్రత్యర్థులను పరిచయం చేయండి.',
+    },
+    'aphids_desc_line_7': {
+      'English':
+          'Spraying neem oil is an effective organic method to reduce aphids.',
+      'Telugu':
+          'నిమ్మ నూనెను పిచికారీ చేయడం ఆఫిడ్లను తగ్గించడానికి సమర్థవంతమైన సేంద్రీయ విధానం.',
+    },
+    'aphids_desc_line_8': {
+      'English':
+          'Avoid over-fertilizing plants, as this can encourage aphid growth.',
+      'Telugu':
+          'మొక్కలకు అధిక ఎరువు ఇవ్వడం నివారించండి, ఇది ఆఫిడ్ పెరుగుదలకు ప్రోత్సాహం ఇస్తుంది.',
+    },
+    'aphids_desc_line_9': {
+      'English':
+          'Regularly inspect plants to catch and treat aphid infestations early.',
+      'Telugu':
+          'ఆఫిడ్ వ్యాప్తిని తొందరగా గుర్తించి చికిత్స చేయడానికి మొక్కలను క్రమం తప్పకుండా పరిశీలించండి.',
+    },
+    'black_citrus_aphid_desc_line_0': {
+      'English':
+          'Black citrus aphids are pests that primarily affect citrus plants.',
+      'Telugu':
+          'బ్లాక్ సిట్రస్ ఆఫిడ్లు ప్రధానంగా సిట్రస్ మొక్కలను ప్రభావితం చేసే కీటకాలు.',
+    },
+    'black_citrus_aphid_desc_line_1': {
+      'English': 'They are small, dark-colored insects that feed on plant sap.',
+      'Telugu': 'ఇవి చిన్న, నలుపు రంగు కీటకాలు, ఇవి మొక్కల రసాన్ని తింటాయి.',
+    },
+    'black_citrus_aphid_desc_line_2': {
+      'English': 'Infestations can lead to curled and distorted leaves.',
+      'Telugu':
+          'వీటి వ్యాప్తి వల్ల ఆకులు మడతపెట్టడం మరియు ఆకారభంగం కలుగుతుంది.',
+    },
+    'black_citrus_aphid_desc_line_3': {
+      'English':
+          'They produce honeydew, which promotes the growth of sooty mold.',
+      'Telugu': 'ఇవి హనిడ్యూ ఉత్పత్తి చేస్తాయి, ఇది నల్ల కూజాడును పెంచుతుంది.',
+    },
+    'black_citrus_aphid_desc_line_4': {
+      'English': 'Sooty mold can reduce photosynthesis and weaken the plant.',
+      'Telugu':
+          'నల్ల కూజాడు ఫోటోసింథసిస్‌ను తగ్గిస్తుంది మరియు మొక్కలను బలహీనపరుస్తుంది.',
+    },
+    'black_citrus_aphid_desc_line_5': {
+      'English':
+          'Heavy infestations can stunt growth and reduce fruit quality.',
+      'Telugu':
+          'భారీ స్థాయి వ్యాప్తి వృద్ధిని అడ్డుకుంటుంది మరియు పండ్ల నాణ్యతను తగ్గిస్తుంది.',
+    },
+    'black_citrus_aphid_desc_line_6': {
+      'English':
+          'Ladybugs and parasitic wasps are natural predators of aphids.',
+      'Telugu':
+          'లేడీబగ్‌లు మరియు పరాన్నజీవి వాస్ప్‌లు ఆఫిడ్ల సహజ ప్రత్యర్థులు.',
+    },
+    'black_citrus_aphid_desc_line_7': {
+      'English':
+          'Insecticidal soap or neem oil can help control black citrus aphids.',
+      'Telugu':
+          'కీటక సంహారక సబ్బు లేదా నిమ్మ నూనె బ్లాక్ సిట్రస్ ఆఫిడ్లను నియంత్రించడంలో సహాయపడతాయి.',
+    },
+    'black_citrus_aphid_desc_line_8': {
+      'English': 'Prune infested branches to reduce the spread of aphids.',
+      'Telugu': 'ఆఫిడ్లు వ్యాప్తి చెందకుండా బాధిత కొమ్మలను కత్తిరించండి.',
+    },
+    'black_citrus_aphid_desc_line_9': {
+      'English':
+          'Inspect plants regularly to detect and manage infestations early.',
+      'Telugu':
+          'కీటక సంక్రమణను తొందరగా గుర్తించి నియంత్రించేందుకు మొక్కలను క్రమం తప్పకుండా పరిశీలించండి.',
+    },
+    'powdery_mildew_desc_line_0': {
+      'English':
+          'Powdery mildew is a fungal disease that affects a wide range of plants.',
+      'Telugu':
+          'పౌడరీ మిల్డ్యూ అనేది అనేక రకాల మొక్కలను ప్రభావితం చేసే శిలీంధ్ర వ్యాధి.',
+    },
+    'powdery_mildew_desc_line_1': {
+      'English':
+          'It appears as a white or gray powdery coating on leaves and stems.',
+      'Telugu':
+          'ఇది ఆకులు మరియు కాండంపై తెలుపు లేదా బూడిద రంగు పొడిగట్టు పూతగా కనిపిస్తుంది.',
+    },
+    'powdery_mildew_desc_line_2': {
+      'English':
+          'Powdery mildew thrives in warm, dry climates with high humidity.',
+      'Telugu':
+          'పౌడరీ మిల్డ్యూ వేడి, పొడి వాతావరణాలలో మరియు అధిక ఆర్ద్రతతో ఉన్న ప్రదేశాలలో విస్తరిస్తుంది.',
+    },
+    'powdery_mildew_desc_line_3': {
+      'English': 'Infected leaves may become yellow and distorted over time.',
+      'Telugu': 'బాధిత ఆకులు క్రమంగా పసుపుగా మరియు వంకరగా మారవచ్చు.',
+    },
+    'powdery_mildew_desc_line_4': {
+      'English': 'This disease can reduce photosynthesis, weakening the plant.',
+      'Telugu': 'ఈ వ్యాధి ఫోటోసింథసిస్‌ను తగ్గించి, మొక్కను బలహీనపరుస్తుంది.',
+    },
+    'powdery_mildew_desc_line_5': {
+      'English':
+          'Removing infected leaves can help prevent the disease from spreading.',
+      'Telugu': 'బాధిత ఆకులను తొలగించడం ద్వారా వ్యాధి వ్యాప్తి తగ్గించవచ్చు.',
+    },
+    'powdery_mildew_desc_line_6': {
+      'English':
+          'Water plants at the base to keep leaves dry and reduce mildew risk.',
+      'Telugu':
+          'మొక్కలను అడుగున నీరు పోయడం ద్వారా ఆకులు పొడిగా ఉండి, మిల్డ్యూ ప్రమాదాన్ని తగ్గించవచ్చు.',
+    },
+    'powdery_mildew_desc_line_7': {
+      'English': 'Apply sulfur or neem oil to help control powdery mildew.',
+      'Telugu':
+          'పౌడరీ మిల్డ్యూ నియంత్రించేందుకు గంధకం లేదా నిమ్మ నూనె ఉపయోగించండి.',
+    },
+    'powdery_mildew_desc_line_8': {
+      'English':
+          'Ensure good air circulation around plants to reduce humidity.',
+      'Telugu':
+          'మొక్కల చుట్టూ గాలి ప్రసరణ బాగా ఉండేలా చేయడం ద్వారా ఆర్ద్రత తగ్గుతుంది.',
+    },
+    'powdery_mildew_desc_line_9': {
+      'English': 'Plant disease-resistant varieties to prevent powdery mildew.',
+      'Telugu':
+          'పౌడరీ మిల్డ్యూ నివారించడానికి వ్యాధి నిరోధక మొక్కల రకాలను నాటండి.',
+    },
+    'phoma_blight_desc_line_0': {
+      'English':
+          'Phoma blight is a fungal disease that affects various crops and plants.',
+      'Telugu':
+          'ఫోమా బ్లైట్ అనేది వివిధ పంటలు మరియు మొక్కలను ప్రభావితం చేసే శిలీంధ్ర వ్యాధి.',
+    },
+    'phoma_blight_desc_line_1': {
+      'English':
+          'It appears as dark, sunken lesions on leaves, stems, and fruits.',
+      'Telugu':
+          'ఇది ఆకులు, కాండం మరియు పండ్లపై నలుపు రంగు ముంచిన మచ్చలుగా కనిపిస్తుంది.',
+    },
+    'phoma_blight_desc_line_2': {
+      'English': 'Infected areas may develop a yellow halo around the lesions.',
+      'Telugu': 'బాధిత ప్రాంతాల చుట్టూ పసుపు రంగు హాలో ఏర్పడవచ్చు.',
+    },
+    'phoma_blight_desc_line_3': {
+      'English': 'Phoma blight thrives in humid and cool conditions.',
+      'Telugu': 'ఫోమా బ్లైట్ తేమ మరియు చల్లని పరిస్థితుల్లో విస్తరిస్తుంది.',
+    },
+    'phoma_blight_desc_line_4': {
+      'English': 'This disease can weaken plants and reduce crop yield.',
+      'Telugu':
+          'ఈ వ్యాధి మొక్కలను బలహీనపరుస్తుంది మరియు పంట దిగుబడిని తగ్గిస్తుంది.',
+    },
+    'phoma_blight_desc_line_5': {
+      'English':
+          'Infected plants should be removed to prevent the spread of the disease.',
+      'Telugu': 'వ్యాధి వ్యాప్తి తగ్గించడానికి బాధిత మొక్కలను తొలగించాలి.',
+    },
+    'phoma_blight_desc_line_6': {
+      'English':
+          'Proper crop rotation can help reduce phoma blight infections.',
+      'Telugu':
+          'సరైన పంట మార్పిడి ఫోమా బ్లైట్ సంక్రమణను తగ్గించడంలో సహాయపడుతుంది.',
+    },
+    'phoma_blight_desc_line_7': {
+      'English':
+          'Fungicides can be applied to control the spread of phoma blight.',
+      'Telugu': 'ఫోమా బ్లైట్ వ్యాప్తిని నియంత్రించేందుకు ఫంగిసైడ్లను వాడవచ్చు.',
+    },
+    'phoma_blight_desc_line_8': {
+      'English':
+          'Avoid overhead watering to keep leaves dry and prevent infection.',
+      'Telugu':
+          'ఆకులు పొడిగా ఉండేందుకు మరియు వ్యాధి రాకుండా ఉండేందుకు పై నుండి నీరు పోసినటువంటి నీరు మానుకోండి.',
+    },
+    'phoma_blight_desc_line_9': {
+      'English':
+          'Maintain good field sanitation to reduce the risk of phoma blight.',
+      'Telugu':
+          'ఫోమా బ్లైట్ ప్రమాదాన్ని తగ్గించడానికి పొలంలో శుభ్రతను పాటించాలి.',
+    },
+    'pineapple_disease_desc_line_0': {
+      'English':
+          'Pineapple disease is a fungal infection that affects sugarcane.',
+      'Telugu': 'పైనాపిల్ వ్యాధి అనేది చెరకు పై ప్రభావం చూపే శిలీంధ్ర సంక్రమణ.',
+    },
+    'pineapple_disease_desc_line_1': {
+      'English': 'It is caused by the fungus Ceratocystis paradoxa.',
+      'Telugu': 'ఇది సెరాటోసిస్టిస్ పరాడాక్సా అనే శిలీంధ్రం కారణంగా వస్తుంది.',
+    },
+    'pineapple_disease_desc_line_2': {
+      'English': 'Infected plants emit a distinct pineapple-like odor.',
+      'Telugu':
+          'బాధిత మొక్కలు ప్రత్యేకమైన పైనాపిల్ వంటి వాసన ఉత్పత్తి చేస్తాయి.',
+    },
+    'pineapple_disease_desc_line_3': {
+      'English': 'Symptoms include blackening and rotting of sugarcane stalks.',
+      'Telugu': 'లక్షణాలలో చెరకు కాండం నల్లబారడం మరియు కుళ్ళడం ఉన్నాయి.',
+    },
+    'pineapple_disease_desc_line_4': {
+      'English': 'The disease spreads quickly in warm, moist conditions.',
+      'Telugu': 'వెచ్చని, తేమగల పరిస్థితుల్లో ఈ వ్యాధి వేగంగా వ్యాపిస్తుంది.',
+    },
+    'pineapple_disease_desc_line_5': {
+      'English': 'It primarily affects newly planted sugarcane setts.',
+      'Telugu': 'ఇది ప్రధానంగా కొత్తగా నాటిన చెరకు సెట్లపై ప్రభావం చూపుతుంది.',
+    },
+    'pineapple_disease_desc_line_6': {
+      'English': 'Dipping cuttings in fungicide can reduce infection risk.',
+      'Telugu':
+          'కోసిన సెట్లను ఫంగిసైడ్‌లో ముంచడం ద్వారా సంక్రమణ ప్రమాదం తగ్గించవచ్చు.',
+    },
+    'pineapple_disease_desc_line_7': {
+      'English': 'Good drainage is essential to prevent pineapple disease.',
+      'Telugu':
+          'పైనాపిల్ వ్యాధిని నివారించడానికి మంచి నీటి డ్రైనేజీ అనివార్యం.',
+    },
+    'pineapple_disease_desc_line_8': {
+      'English':
+          'Rotate crops to reduce the buildup of fungal pathogens in soil.',
+      'Telugu': 'మట్టిలో శిలీంధ్రాల సంచయం తగ్గించడానికి పంట మార్పిడి చేయాలి.',
+    },
+    'pineapple_disease_desc_line_9': {
+      'English': 'Remove and destroy infected plants to stop disease spread.',
+      'Telugu':
+          'వ్యాధి వ్యాప్తిని ఆపేందుకు బాధిత మొక్కలను తొలగించి నాశనం చేయాలి.',
+    },
+    'sooty_mold_desc_line_0': {
+      'English':
+          'Sooty mold is a fungal disease that appears as black, soot-like coating on plants.',
+      'Telugu':
+          'సూటీ మోల్డ్ అనేది మొక్కలపై నల్లటి బూడిద వంటి పూతగా కనిపించే శిలీంధ్ర వ్యాధి.',
+    },
+    'sooty_mold_desc_line_1': {
+      'English':
+          'It usually grows on the honeydew secreted by aphids and other insects.',
+      'Telugu':
+          'ఇది సాధారణంగా ఆఫిడ్లు మరియు ఇతర కీటకాల వల్ల విడుదలైన హనిడ్యూ మీద పెరుగుతుంది.',
+    },
+    'sooty_mold_desc_line_2': {
+      'English':
+          'The black coating can block sunlight, reducing photosynthesis.',
+      'Telugu':
+          'ఈ నల్ల పూత సూర్యకాంతిని అడ్డుకొని ఫోటోసింథసిస్‌ను తగ్గిస్తుంది.',
+    },
+    'sooty_mold_desc_line_3': {
+      'English': 'Plants affected by sooty mold may appear weak and stunted.',
+      'Telugu':
+          'సూటీ మోల్డ్ కారణంగా ప్రభావిత మొక్కలు బలహీనంగా మరియు వృద్ధి రహితంగా కనిపించవచ్చు.',
+    },
+    'sooty_mold_desc_line_4': {
+      'English':
+          'This mold does not directly harm plants but affects their health indirectly.',
+      'Telugu':
+          'ఈ శిలీంధ్రం మొక్కలకు ప్రత్యక్షంగా హానీ చేయదు కానీ పరోక్షంగా వాటి ఆరోగ్యాన్ని ప్రభావితం చేస్తుంది.',
+    },
+    'sooty_mold_desc_line_5': {
+      'English':
+          'Controlling aphids and other pests can help prevent sooty mold.',
+      'Telugu':
+          'ఆఫిడ్లు మరియు ఇతర కీటకాలను నియంత్రించడం సూటీ మోల్డ్ నివారించడంలో సహాయపడుతుంది.',
+    },
+    'sooty_mold_desc_line_6': {
+      'English': 'Washing leaves with water can help remove the mold coating.',
+      'Telugu': 'ఆకులను నీటితో కడగడం ద్వారా శిలీంధ్ర పూత తొలగించవచ్చు.',
+    },
+    'sooty_mold_desc_line_7': {
+      'English':
+          'Insecticidal soaps can be used to control honeydew-secreting insects.',
+      'Telugu':
+          'హనిడ్యూ విడుదల చేసే కీటకాలను నియంత్రించడానికి కీటక సంహారక సబ్బులు వాడవచ్చు.',
+    },
+    'sooty_mold_desc_line_8': {
+      'English':
+          'Trim and remove heavily affected leaves to reduce mold growth.',
+      'Telugu':
+          'శిలీంధ్రం విస్తరణ తగ్గించేందుకు తీవ్రంగా ప్రభావిత ఆకులను తొలగించండి.',
+    },
+    'sooty_mold_desc_line_9': {
+      'English':
+          'Ensure proper air circulation around plants to prevent mold buildup.',
+      'Telugu':
+          'శిలీంధ్రం పెరగకుండా ఉండేందుకు మొక్కల చుట్టూ గాలి ప్రసరణ బాగా ఉండేలా చూడాలి.',
+    },
+    'anthracnose_desc_line_0': {
+      'English':
+          'Anthracnose is a fungal disease that affects many types of plants.',
+      'Telugu':
+          'ఆన్ట్రాక్నోస్ అనేది అనేక రకాల మొక్కలను ప్రభావితం చేసే శిలీంధ్ర వ్యాధి.',
+    },
+    'anthracnose_desc_line_1': {
+      'English':
+          'It appears as dark, sunken lesions on leaves, stems, flowers, and fruits.',
+      'Telugu':
+          'ఇది ఆకులు, కాండం, పువ్వులు, మరియు పండ్లపై నలుపు, ముంచిన మచ్చలుగా కనిపిస్తుంది.',
+    },
+    'anthracnose_desc_line_2': {
+      'English': 'Infected areas may turn brown and dry out over time.',
+      'Telugu': 'బాధిత ప్రాంతాలు క్రమంగా తడి పోయి గోధుమ రంగులోకి మారతాయి.',
+    },
+    'anthracnose_desc_line_3': {
+      'English':
+          'Warm, wet weather conditions favor the spread of anthracnose.',
+      'Telugu':
+          'వెచ్చని, తేమగల వాతావరణ పరిస్థితులు ఆన్ట్రాక్నోస్ వ్యాప్తికి అనుకూలంగా ఉంటాయి.',
+    },
+    'anthracnose_desc_line_4': {
+      'English':
+          'This disease can cause premature leaf drop and reduced plant health.',
+      'Telugu':
+          'ఈ వ్యాధి ఆకులు ముందుగా రాలిపోవడానికి మరియు మొక్కల ఆరోగ్యం తగ్గిపోవడానికి దారితీస్తుంది.',
+    },
+    'anthracnose_desc_line_5': {
+      'English': 'Pruning infected plant parts can help limit the spread.',
+      'Telugu':
+          'బాధిత మొక్కల భాగాలను కత్తిరించడం ద్వారా వ్యాప్తి తగ్గించవచ్చు.',
+    },
+    'anthracnose_desc_line_6': {
+      'English':
+          'Avoid overhead watering to keep leaves dry and reduce infection risk.',
+      'Telugu':
+          'ఆకులను పొడిగా ఉంచేందుకు మరియు వ్యాధి ప్రమాదాన్ని తగ్గించేందుకు పై నుండి నీరు పోయడం నివారించండి.',
+    },
+    'anthracnose_desc_line_7': {
+      'English': 'Applying copper-based fungicides can control anthracnose.',
+      'Telugu':
+          'కాపర్ ఆధారిత ఫంగిసైడ్లను వాడడం ద్వారా ఆన్ట్రాక్నోస్ నియంత్రించవచ్చు.',
+    },
+    'anthracnose_desc_line_8': {
+      'English':
+          'Remove and dispose of fallen leaves to reduce fungal buildup.',
+      'Telugu':
+          'శిలీంధ్రాల నిల్వ తగ్గించేందుకు రాలిన ఆకులను తొలగించి పూడ్చాలి.',
+    },
+    'anthracnose_desc_line_9': {
+      'English':
+          'Crop rotation and proper spacing can help prevent anthracnose.',
+      'Telugu':
+          'పంట మార్పిడి మరియు సరైన దూరం ఆన్ట్రాక్నోస్‌ను నివారించడంలో సహాయపడతాయి.',
+    },
+    'leaf_spot_desc_line_0': {
+      'English':
+          'Leaf spot is a common fungal or bacterial disease affecting plants.',
+      'Telugu':
+          'లీఫ్ స్పాట్ అనేది మొక్కలను ప్రభావితం చేసే సాధారణ శిలీంధ్ర లేదా బ్యాక్టీరియల్ వ్యాధి.',
+    },
+    'leaf_spot_desc_line_1': {
+      'English': 'It appears as small, round, brown or black spots on leaves.',
+      'Telugu':
+          'ఇది ఆకులపై చిన్న, వృత్తాకార, గోధుమ లేదా నల్లటి మచ్చలుగా కనిపిస్తుంది.',
+    },
+    'leaf_spot_desc_line_2': {
+      'English': 'The spots may enlarge and cause leaves to yellow and drop.',
+      'Telugu': 'ఈ మచ్చలు పెరిగి, ఆకులు పసుపు రంగులోకి మారి రాలిపోతాయి.',
+    },
+    'leaf_spot_desc_line_3': {
+      'English': 'Leaf spot diseases thrive in warm, moist environments.',
+      'Telugu':
+          'లీఫ్ స్పాట్ వ్యాధులు వేడి మరియు తేమగల వాతావరణంలో విస్తరిస్తాయి.',
+    },
+    'leaf_spot_desc_line_4': {
+      'English':
+          'Overhead watering can spread the spores that cause leaf spot.',
+      'Telugu':
+          'పై నుండి నీరు పోయడం వలన లీఫ్ స్పాట్ వ్యాధి స్పోర్లు వ్యాపిస్తాయి.',
+    },
+    'leaf_spot_desc_line_5': {
+      'English':
+          'Removing infected leaves can help prevent the disease from spreading.',
+      'Telugu': 'బాధిత ఆకులను తొలగించడం ద్వారా వ్యాధి వ్యాప్తి తగ్గించవచ్చు.',
+    },
+    'leaf_spot_desc_line_6': {
+      'English':
+          'Ensure proper air circulation around plants to reduce humidity.',
+      'Telugu':
+          'తేమ తగ్గించేందుకు మొక్కల చుట్టూ సరైన గాలి ప్రసరణ ఉండేలా చూడాలి.',
+    },
+    'leaf_spot_desc_line_7': {
+      'English': 'Fungicides can be used to treat leaf spot infections.',
+      'Telugu':
+          'ఫంగిసైడ్లను లీఫ్ స్పాట్ సంక్రమణను నివారించడానికి ఉపయోగించవచ్చు.',
+    },
+    'leaf_spot_desc_line_8': {
+      'English':
+          'Avoid working with plants when they are wet to prevent spread.',
+      'Telugu':
+          'వ్యాధి వ్యాప్తిని నివారించేందుకు తడిగా ఉన్నప్పుడు మొక్కలతో పనులు చేయకండి.',
+    },
+    'leaf_spot_desc_line_9': {
+      'English':
+          'Practice crop rotation to reduce the buildup of pathogens in the soil.',
+      'Telugu': 'మట్టిలో పాథోజెన్ల నిల్వ తగ్గించేందుకు పంట మార్పిడి పాటించండి.',
+    },
+    'powdery_mildew': {
+      'English': 'Powdery Mildew',
+      'Telugu': 'పొడి నలుపు',
+    },
+    'leaf_spot': {
+      'English': 'Leaf Spot',
+      'Telugu': 'ఆకు మచ్చ',
+    },
+    'urea': {
+      'English': 'Urea',
+      'Telugu': 'యూరియా',
+    },
+    'tsp': {
+      'English': 'Leaf Spot',
+      'Telugu': 'టీఎస్పి',
+    },
+    'mop': {
+      'English': 'Leaf Spot',
+      'Telugu': 'ఎంఓపి ',
+    },
+    'kg': {
+      'English': 'Kg',
+      'Telugu': 'కెజి ',
+    },
+    'cereals_detailed_guide': {
+      'English':
+          'Basal Application: Apply 50% Nitrogen (N), all Phosphorus (P), and Potassium (K) before sowing or transplanting.\nTillering Stage: Apply 25% Nitrogen at the beginning of tillering.\nPanicle or Flowering Stage: Apply the remaining 25% Nitrogen during the panicle initiation or flowering stage to enhance grain yield.',
+      'Telugu':
+          'మొదటి దశ (బేస్ ఎరువు): 50% నత్రజని (N), మొత్తం ఫాస్పరస్ (P), మరియు పొటాషియం (K)ను సూత్రం వేసే ముందు అందించాలి.\nమొగ్గల దశ: మొగ్గల ప్రారంభంలో 25% నత్రజని వాడాలి.\nపుష్పం లేదా కతిమి దశ: తోట మొగ్గల పుష్పంలో చివరి 25% నత్రజని అందించండి.'
+    },
+    'commercial_detailed_guide': {
+      'English':
+          'Basal Application: Apply 40% Nitrogen, all Phosphorus, and Potassium before planting.\nVegetative Growth: Apply 30% Nitrogen during early vegetative growth (around 30-40 days after planting).\nFlowering or Bud Stage: Apply the remaining 30% Nitrogen to support flowering and bud development.',
+      'Telugu':
+          'బేస్ ఎరువు: నత్రజని 40%, మొత్తం ఫాస్పరస్ మరియు పొటాషియం మొక్కలు నాటే ముందు అందించాలి.\nశాఖావృద్ధి దశ: మొక్కల పెరుగుదల ప్రారంభంలో (నాటిన 30-40 రోజులు తరువాత) 30% నత్రజని ఇవ్వాలి.\nపుష్పం లేదా మొగ్గల దశ: చివరి 30% నత్రజని పుష్పాలు మరియు మొగ్గల వృద్ధికి అందించండి.'
+    },
+    'fruits_detailed_guide': {
+      'English':
+          'Basal Application: Apply 50% Nitrogen, all Phosphorus, and Potassium at the beginning of the growing season.\nMid-Season: Apply 25% Nitrogen to support fruit development.\nFruit Expansion Stage: Apply the remaining 25% Nitrogen when fruits start enlarging to increase yield and quality.',
+      'Telugu':
+          'ప్రాథమిక దశ: వృద్ధి సీజన్ ప్రారంభంలో 50% నత్రజని, మొత్తం ఫాస్పరస్, మరియు పొటాషియం అందించాలి.\nమధ్య దశ: పండ్ల వృద్ధిని ప్రోత్సహించడానికి 25% నత్రజని ఇవ్వాలి.\nపండు పెరుగుదల దశ: పండ్లు పెరుగుతున్నప్పుడు మిగిలిన 25% నత్రజని ఇవ్వడం వల్ల దిగుబడి మరియు నాణ్యత పెరుగుతుంది.'
+    },
+    'jute': {
+      'English': 'Jute',
+      'Telugu': 'జ్యూట్',
+    },    
+    'tea': {
+      'English': 'Tea',
+      'Telugu': 'టీ',
+    },    
+    'millets': {
+      'English': 'Millets',
+      'Telugu': 'చిరుధాన్యాలు',
+    },  
+    'pulses': {
+      'English': 'Pulses',
+      'Telugu': 'పప్పులు',
+    },      
   };
-} // Added closing brace for LanguageService class
+}

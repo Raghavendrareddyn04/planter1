@@ -2,26 +2,17 @@ import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
 import '../services/language_service.dart'; // Assuming this service provides localized text
 
-class PestsDiseasesScreen extends StatefulWidget {
+class PestsDiseasesScreen extends StatelessWidget {
   const PestsDiseasesScreen({super.key});
 
   @override
-  _PestAndDiseasesPageState createState() => _PestAndDiseasesPageState();
-}
-
-class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
-  bool _showMoreSeedling = false;
-  bool _showMoreVegetative = false;
-  final LanguageService _languageService = LanguageService();
-
-  @override
   Widget build(BuildContext context) {
+    final LanguageService languageService = LanguageService();
+
     return Scaffold(
       appBar: AppBar(
         leading: Tooltip(
-          message: _languageService
-              .getText('back')
-              .toString(), // Localized text for "Back"
+          message: languageService.getText('back').toString(),
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -32,157 +23,110 @@ class _PestAndDiseasesPageState extends State<PestsDiseasesScreen> {
         title: const LocalizedText('pests_diseases_title'),
         backgroundColor: const Color(0xFFFFF3E0),
       ),
-      body: Container(
-        color: const Color(0xFFFFF3E0),
-        child: ListView(
-          padding: const EdgeInsets.all(16.0),
-          children: [
-            _buildStageSection('seedling_stage', Colors.teal, [
-              _buildDiseaseCard(
-                'damping_off',
-                'fungi_type',
-                Colors.green[50]!,
-                'assets/images/damping_off.jpg',
-                'damping_off_desc',
-              ),
-              _buildDiseaseCard(
-                'bacterial_black_spot',
-                'bacteria_type',
-                Colors.green[100]!,
-                'assets/images/bacterial_black_spot.jpg',
-                'bacterial_black_spot_desc',
-              ),
-              if (_showMoreSeedling) ...[
-                _buildDiseaseCard(
-                  'aphids',
-                  'insect_type',
-                  Colors.green[50]!,
-                  'assets/images/aphids.jpg',
-                  'aphids_desc',
-                ),
-                _buildDiseaseCard(
-                  'black_citrus_aphid',
-                  'insect_type',
-                  Colors.green[100]!,
-                  'assets/images/black_citrus_aphid.jpg',
-                  'black_citrus_aphid_desc',
-                ),
-              ],
-            ], () {
-              setState(() {
-                _showMoreSeedling = !_showMoreSeedling;
-              });
-            }, _showMoreSeedling),
-            _buildStageSection('vegetative_stage', Colors.indigo, [
-              _buildDiseaseCard(
-                'phoma_blight',
-                'fungi_type',
-                Colors.blue[50]!,
-                'assets/images/phoma_blight.jpg',
-                'phoma_blight_desc',
-              ),
-              _buildDiseaseCard(
-                'pineapple_disease',
-                'fungi_type',
-                Colors.blue[100]!,
-                'assets/images/pineapple_disease.jpg',
-                'pineapple_disease_desc',
-              ),
-              if (_showMoreVegetative) ...[
-                _buildDiseaseCard(
-                  'sooty_mold',
-                  'fungi_type',
-                  Colors.blue[50]!,
-                  'assets/images/sooty_mold.jpg',
-                  'sooty_mold_desc',
-                ),
-                _buildDiseaseCard(
-                  'anthracnose',
-                  'fungi_type',
-                  Colors.blue[100]!,
-                  'assets/images/anthracnose.jpg',
-                  'anthracnose_desc',
-                ),
-              ],
-            ], () {
-              setState(() {
-                _showMoreVegetative = !_showMoreVegetative;
-              });
-            }, _showMoreVegetative),
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          _buildDiseaseCard(
+            'damping_off',
+            List.generate(10, (index) => 'damping_off_desc_line_$index'),
+            'assets/images/damping_off.jpg',
+          ),
+          _buildDiseaseCard(
+            'bacterial_black_spot',
+            List.generate(
+                10, (index) => 'bacterial_black_spot_desc_line_$index'),
+            'assets/images/bacterial_black_spot.jpg',
+          ),
+          _buildDiseaseCard(
+            'aphids',
+            List.generate(10, (index) => 'aphids_desc_line_$index'),
+            'assets/images/aphids.jpg',
+          ),
+          _buildDiseaseCard(
+            'black_citrus_aphid',
+            List.generate(10, (index) => 'black_citrus_aphid_desc_line_$index'),
+            'assets/images/black_citrus_aphid.jpg',
+          ),
+          _buildDiseaseCard(
+            'powdery_mildew',
+            List.generate(10, (index) => 'powdery_mildew_desc_line_$index'),
+            'assets/images/powdery_mildew.jpg',
+          ),
+          _buildDiseaseCard(
+            'phoma_blight',
+            List.generate(10, (index) => 'phoma_blight_desc_line_$index'),
+            'assets/images/phoma_blight.jpg',
+          ),
+          _buildDiseaseCard(
+            'pineapple_disease',
+            List.generate(10, (index) => 'pineapple_disease_desc_line_$index'),
+            'assets/images/pineapple_disease.jpg',
+          ),
+          _buildDiseaseCard(
+            'sooty_mold',
+            List.generate(10, (index) => 'sooty_mold_desc_line_$index'),
+            'assets/images/sooty_mold.jpg',
+          ),
+          _buildDiseaseCard(
+            'anthracnose',
+            List.generate(10, (index) => 'anthracnose_desc_line_$index'),
+            'assets/images/anthracnose.jpg',
+          ),
+          _buildDiseaseCard(
+            'leaf_spot',
+            List.generate(10, (index) => 'leaf_spot_desc_line_$index'),
+            'assets/images/leaf_spot.jpg',
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildStageSection(String stageKey, Color color, List<Widget> diseases,
-      VoidCallback onSeeMore, bool showMore) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        LocalizedText(
-          stageKey,
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: color),
-        ),
-        const SizedBox(height: 10),
-        GridView.count(
-          crossAxisCount: 1,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          children: diseases,
-        ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: onSeeMore,
-          child: LocalizedText(showMore ? 'see_less' : 'see_more'),
-        ),
-        const SizedBox(height: 30),
-      ],
-    );
-  }
-
-  Widget _buildDiseaseCard(String nameKey, String typeKey, Color color,
-      String imagePath, String descriptionKey) {
+  Widget _buildDiseaseCard(
+      String titleKey, List<String> descriptionKeys, String imagePath) {
     return Card(
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
+      margin: const EdgeInsets.only(bottom: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Container(
+              color: Colors.grey[300],
               child: Image.asset(
                 imagePath,
-                height: 150,
-                width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return Container();
+                  return const Center(
+                    child: Icon(Icons.image, size: 50),
+                  );
                 },
               ),
             ),
-            const SizedBox(height: 8),
-            LocalizedText(
-              nameKey,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                LocalizedText(
+                  titleKey,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ...descriptionKeys.map(
+                  (key) => LocalizedText(
+                    key,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ),
+              ],
             ),
-            LocalizedText(
-              typeKey,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            LocalizedText(
-              descriptionKey,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
