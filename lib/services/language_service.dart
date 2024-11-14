@@ -2426,6 +2426,74 @@ class LanguageService {
   'English': 'OK',
   'Telugu': 'అలాగే',
 },
+    'organic_fertilizer': {
+      'English': 'Organic Fertilizer',
+      'Telugu': 'సేంద్రీయ ఎరువు',
+    },
+    'neem_oil': {
+      'English': 'Neem Oil',
+      'Telugu': 'వేప నూనె',
+    },
+    'garden_tools': {
+      'English': 'Garden Tools Set',
+      'Telugu': 'తోట పనిముట్లు సెట్',
+    },
+    'plant_seeds': {
+      'English': 'Plant Seeds Pack',
+      'Telugu': 'మొక్కల విత్తనాల ప్యాక్',
+    },
+    'pesticide': {
+      'English': 'Organic Pesticide',
+      'Telugu': 'సేంద్రీయ పురుగుమందు',
+    },
+    'watering_can': {
+      'English': 'Watering Can',
+      'Telugu': 'నీటి క్యాన్',
+    },
+    'plant_food': {
+      'English': 'Plant Food',
+      'Telugu': 'మొక్కల ఆహారం',
+    },
+    'soil_mix': {
+      'English': 'Premium Soil Mix',
+      'Telugu': 'ప్రీమియం మట్టి మిశ్రమం',
+    },
+    'added_to_cart': {
+      'English': 'Added to cart',
+      'Telugu': 'కార్ట్‌కి జోడించబడింది',
+    },
+    'add_to_cart': {
+      'English': 'Add to Cart',
+      'Telugu': 'కార్ట్‌కి జోడించు',
+    },
+    'shopping_cart': {
+      'English': 'Shopping Cart',
+      'Telugu': 'షాపింగ్ కార్ట్',
+    },
+    'cart_empty': {
+      'English': 'Your cart is empty',
+      'Telugu': 'మీ కార్ట్ ఖాళీగా ఉంది',
+    },
+    'continue_shopping': {
+      'English': 'Continue Shopping',
+      'Telugu': 'షాపింగ్ కొనసాగించండి',
+    },
+    'total': {
+      'English': 'Total',
+      'Telugu': 'మొత్తం',
+    },
+    'proceed_to_checkout': {
+      'English': 'Proceed to Checkout',
+      'Telugu': 'చెక్అవుట్‌కి వెళ్ళండి',
+    },
+    'order_success': {
+      'English': 'Order Successful',
+      'Telugu': 'ఆర్డర్ విజయవంతమైంది',
+    },
+    'order_success_message': {
+      'English': 'Your order has been placed successfully!',
+      'Telugu': 'మీ ఆర్డర్ విజయవంతంగా ప్లేస్ చేయబడింది!',
+    },
   
 
   };

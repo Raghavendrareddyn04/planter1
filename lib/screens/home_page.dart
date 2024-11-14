@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               _buildMainPage(),
               CommunityScreen(),
-              DukaanScreen(languageService: _languageService),
+              DukaanScreen(),
               ProfileScreen(),
             ],
           ),
