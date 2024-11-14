@@ -2402,5 +2402,31 @@ class LanguageService {
       'English': 'Pulses',
       'Telugu': 'పప్పులు',
     },      
+    'checkout': {
+      'English': 'Checkout',
+      'Telugu': 'చెకౌట్',
+       },
+'total': {
+  'English': 'Total',
+  'Telugu': 'మొత్తం',
+},
+'confirm_payment': {
+  'English': 'Confirm Payment',
+  'Telugu': 'చెల్లింపును నిర్ధారించండి',
+},
+'payment_successful': {
+  'English': 'Payment Successful',
+  'Telugu': 'చెల్లింపు విజయవంతమైంది',
+},
+'thank_you_purchase': {
+  'English': 'Thank you for your purchase!',
+  'Telugu': 'మీ కొనుగోలు కి ధన్యవాదాలు!',
+},
+'ok': {
+  'English': 'OK',
+  'Telugu': 'అలాగే',
+},
+  
+
   };
 }

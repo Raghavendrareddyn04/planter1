@@ -60,7 +60,6 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   }
 
   Future<void> _submitForm() async {
-    // Validate form and check if screenshot is attached
     if (_formKey.currentState!.validate() && _screenshotBytes != null) {
       setState(() {
         _isLoading = true;

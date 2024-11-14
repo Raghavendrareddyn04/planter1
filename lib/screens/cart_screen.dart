@@ -19,9 +19,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Tooltip(
-          message: _languageService
-              .getText('back')
-              .toString(), // Localized text for "Back"
+          message: _languageService.getText('back').toString(),
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -131,7 +129,7 @@ class _CartScreenState extends State<CartScreen> {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          // Add checkout functionality
+                          _navigateToCheckout();
                         },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50),
@@ -151,5 +149,66 @@ class _CartScreenState extends State<CartScreen> {
         0.0,
         (sum, item) =>
             sum + (item['price'] as double) * (item['quantity'] as int));
+  }
+
+  void _navigateToCheckout() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => CheckoutScreen(totalAmount: _total),
+      ),
+    );
+  }
+}
+
+class CheckoutScreen extends StatelessWidget {
+  final double totalAmount;
+
+  const CheckoutScreen({Key? key, required this.totalAmount}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const LocalizedText('checkout'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Total: \$${totalAmount.toStringAsFixed(2)}',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _processPayment(context);
+              },
+              child: const LocalizedText('confirm_payment'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _processPayment(BuildContext context) {
+    // Simulate payment processing
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Payment Successful'),
+        content: const Text('Thank you for your purchase!'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
   }
 }

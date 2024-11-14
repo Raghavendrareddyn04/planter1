@@ -95,7 +95,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         leading: Tooltip(
           message: _languageService
               .getText('back')
-              .toString(), // Localized tooltip for "Back"
+              .toString(),
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {

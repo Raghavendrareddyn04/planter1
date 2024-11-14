@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                     if (value != null) {
                       _languageService.setLanguage(value);
                       Navigator.pop(context);
-                      setState(() {}); // Update UI to reflect language change
+                      setState(() {});
                     }
                   },
                 ),
@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                     if (value != null) {
                       _languageService.setLanguage(value);
                       Navigator.pop(context);
-                      setState(() {}); // Update UI to reflect language change
+                      setState(() {});
                     }
                   },
                 ),

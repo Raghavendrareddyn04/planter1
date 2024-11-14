@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/localized_text.dart';
-import '../services/language_service.dart'; // Assuming this service provides localized text
+import '../services/language_service.dart';
 
 class CultivationTipsScreen extends StatelessWidget {
   const CultivationTipsScreen({super.key});

@@ -48,7 +48,7 @@ class _ChatBotState extends State<ChatBot> {
   void _onLanguageChanged(String _) {
     if (mounted) {
       setState(() {
-        _populateAnswers(); // Update answers when the language changes
+        _populateAnswers();
       });
     }
   }
@@ -67,7 +67,7 @@ class _ChatBotState extends State<ChatBot> {
       'disease_resistant_question': _languageService.getText('I'),
       'kitchen_garden_question': _languageService.getText('J'),
       'thank_you':
-          _languageService.getText('thank_you'), // Adding thank_you text
+          _languageService.getText('thank_you'),
     });
   }
 

@@ -136,7 +136,7 @@ class DukaanScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  '\$29.99',
+                  '\Rs.500',
                   style: TextStyle(
                     color: Colors.green[700],
                     fontWeight: FontWeight.bold,
