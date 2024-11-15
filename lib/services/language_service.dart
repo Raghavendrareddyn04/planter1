@@ -2494,6 +2494,27 @@ class LanguageService {
       'English': 'Your order has been placed successfully!',
       'Telugu': 'మీ ఆర్డర్ విజయవంతంగా ప్లేస్ చేయబడింది!',
     },
+    'tomato_seeds': {
+  'English': 'Tomato Seeds',
+  'Telugu': 'టమాట గింజలు',
+},
+'tomato_seeds': {
+  'English': 'Tomato Seeds',
+  'Telugu': 'నువ్వులు గింజలు',
+},
+'chili_seeds': {
+  'English': 'Chili Seeds',
+  'Telugu': 'మిర్చి గింజలు',
+},
+'npk_fertilizer': {
+  'English': 'NPK Fertilizer',
+  'Telugu': 'ఎన్‌పీకే ఎరువు',
+},
+'organic_pesticide': {
+  'English': 'Organic Pesticide',
+  'Telugu': 'సేంద్రీయ పురుగుమందు',
+},
+
   
 
   };

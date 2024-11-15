@@ -121,7 +121,7 @@ class CartScreenState extends State<CartScreen> {
                         ),
                         title: LocalizedText(item.product.nameKey),
                         subtitle: Text(
-                            '\$${(item.product.price * item.quantity).toStringAsFixed(2)}'),
+                            '₹${(item.product.price * item.quantity).toStringAsFixed(2)}'),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -194,7 +194,7 @@ class CartScreenState extends State<CartScreen> {
                           valueListenable: CartManager.instance.total,
                           builder: (context, total, child) {
                             return Text(
-                              '\$${total.toStringAsFixed(2)}',
+                              '₹${total.toStringAsFixed(2)}',
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,

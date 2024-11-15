@@ -29,20 +29,22 @@ class DukaanScreen extends StatefulWidget {
 class _DukaanScreenState extends State<DukaanScreen> {
   static final LanguageService _languageService = LanguageService();
   String _selectedCategory = 'all';
+  String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
 
   static final List<Product> products = [
     // Seeds Category
     Product(
       id: '1',
       nameKey: 'tomato_seeds',
-      price: 2.99,
+      price: 199.99,
       image: 'assets/images/tomato_seeds.jpg',
       category: 'seeds',
     ),
     Product(
       id: '2',
       nameKey: 'chili_seeds',
-      price: 3.99,
+      price: 299.99,
       image: 'assets/images/chili_seeds.jpg',
       category: 'seeds',
     ),
@@ -50,14 +52,14 @@ class _DukaanScreenState extends State<DukaanScreen> {
     Product(
       id: '3',
       nameKey: 'organic_fertilizer',
-      price: 29.99,
+      price: 2999.99,
       image: 'assets/images/organic_fertilizer.jpg',
       category: 'fertilizers',
     ),
     Product(
       id: '4',
       nameKey: 'npk_fertilizer',
-      price: 24.99,
+      price: 2499.99,
       image: 'assets/images/npk_fertilizer.jpg',
       category: 'fertilizers',
     ),
@@ -65,14 +67,14 @@ class _DukaanScreenState extends State<DukaanScreen> {
     Product(
       id: '5',
       nameKey: 'neem_oil',
-      price: 19.99,
+      price: 1999.99,
       image: 'assets/images/neem_oil.jpg',
       category: 'pesticides',
     ),
     Product(
       id: '6',
       nameKey: 'organic_pesticide',
-      price: 15.99,
+      price: 1599.99,
       image: 'assets/images/organic_pesticide.jpg',
       category: 'pesticides',
     ),
@@ -80,24 +82,34 @@ class _DukaanScreenState extends State<DukaanScreen> {
     Product(
       id: '7',
       nameKey: 'garden_tools',
-      price: 49.99,
+      price: 4999.99,
       image: 'assets/images/garden_tools.jpg',
       category: 'tools',
     ),
     Product(
       id: '8',
       nameKey: 'watering_can',
-      price: 15.99,
+      price: 1599.99,
       image: 'assets/images/watering_can.jpg',
       category: 'tools',
     ),
   ];
 
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
   List<Product> get filteredProducts {
-    if (_selectedCategory == 'all') {
-      return products;
-    }
-    return products.where((product) => product.category == _selectedCategory).toList();
+    return products.where((product) {
+      final matchesCategory = _selectedCategory == 'all' || product.category == _selectedCategory;
+      final matchesSearch = _searchQuery.isEmpty || 
+          _languageService.getText(product.nameKey)
+              .toLowerCase()
+              .contains(_searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }).toList();
   }
 
   @override
@@ -165,9 +177,26 @@ class _DukaanScreenState extends State<DukaanScreen> {
 
   Widget _buildSearchBar() {
     return TextField(
+      controller: _searchController,
+      onChanged: (value) {
+        setState(() {
+          _searchQuery = value;
+        });
+      },
       decoration: InputDecoration(
         hintText: _languageService.getText('search_products_placeholder'),
         prefixIcon: const Icon(Icons.search),
+        suffixIcon: _searchQuery.isNotEmpty
+            ? IconButton(
+                icon: const Icon(Icons.clear),
+                onPressed: () {
+                  setState(() {
+                    _searchQuery = '';
+                    _searchController.clear();
+                  });
+                },
+              )
+            : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
@@ -234,6 +263,20 @@ class _DukaanScreenState extends State<DukaanScreen> {
   }
 
   Widget _buildProductGrid(BuildContext context) {
+    final products = filteredProducts;
+    if (products.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.search_off, size: 64, color: Colors.grey),
+            const SizedBox(height: 16),
+            const LocalizedText('no_products_found'),
+          ],
+        ),
+      );
+    }
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -243,9 +286,9 @@ class _DukaanScreenState extends State<DukaanScreen> {
         crossAxisSpacing: 16.0,
         mainAxisSpacing: 16.0,
       ),
-      itemCount: filteredProducts.length,
+      itemCount: products.length,
       itemBuilder: (context, index) {
-        final product = filteredProducts[index];
+        final product = products[index];
         return _buildProductCard(context, product);
       },
     );
@@ -289,7 +332,7 @@ class _DukaanScreenState extends State<DukaanScreen> {
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  '\$${product.price.toStringAsFixed(2)}',
+                  '₹${product.price.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.green[700],
                     fontWeight: FontWeight.bold,
